@@ -19,6 +19,7 @@ namespace DATABASE_PROJECT
         public NpgsqlConnection GetConnection()
         {
             return new NpgsqlConnection(@"Server=localhost;Port=5432;User Id=postgres;Password=password;Database=demo;");
+        
         }
 
     }
