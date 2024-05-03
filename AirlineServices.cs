@@ -24,7 +24,7 @@ namespace DATABASE_PROJECT
 
         private void button_logout_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
         }
     }
 }
