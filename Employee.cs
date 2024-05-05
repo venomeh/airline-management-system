@@ -36,10 +36,5 @@ namespace DATABASE_PROJECT
 
             this.Hide();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //this is a demo button for checking comit in github
-        }
     }
 }
