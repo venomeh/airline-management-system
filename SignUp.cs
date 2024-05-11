@@ -23,7 +23,7 @@ namespace DATABASE_PROJECT
         
         private string phoneNoPlaceholder = "03001234567";
         private string emailPlaceholder = "abc@gmail.com";
-        private string cnicPlaceholder = "0123412345678";
+        private string cnicPlaceholder = "0123456789123";
 
         public string phoneNumber, signUpEmail, OTPGeneratedForEmail = "", cnic, pass, confirmPass, firstName, lastName, generatedOTP; 
 
@@ -273,7 +273,6 @@ namespace DATABASE_PROJECT
                 OracleCommand command = _db.con().CreateCommand();
                 OracleDataReader reader = null;
 
-
                 //checks if the cnic is already registered
                 command.CommandText = "SELECT * FROM USER_TABLE WHERE CNIC = '" + cnic + "'";
                 reader = command.ExecuteReader();
@@ -285,7 +284,6 @@ namespace DATABASE_PROJECT
 
                 // Check if the email is already registered
                 command.CommandText = "SELECT * FROM USER_TABLE WHERE email = '" + OTPGeneratedForEmail + "'";
-               // command.Parameters.Add(new OracleParameter("Email", OTPGeneratedForEmail));
                 reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -295,7 +293,6 @@ namespace DATABASE_PROJECT
 
                 //checks if the phone number is already registered
                 command.CommandText = "SELECT * FROM USER_TABLE WHERE PHONE_NUM = '" + phoneNumber + "'";
-              //  command.Parameters.Add(new OracleParameter("PhoneNum", phoneNumber));
                 reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {

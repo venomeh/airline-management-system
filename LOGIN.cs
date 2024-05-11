@@ -18,27 +18,8 @@ namespace DATABASE_PROJECT
     {
         private database _db;
         private string emailPlaceholder = "abc@gmail.com";
-        private string passwordPlaceholder = "...";
-        private void updateGrid()
-        {
-            //try
-            //{
-            
-            //    OracleCommand getEmps = _db.con().CreateCommand();
-            //    getEmps.CommandText = "SELECT * FROM login";
-            //    getEmps.CommandType = CommandType.Text;
-            //    OracleDataReader empDR = getEmps.ExecuteReader();
-            //    System.Data.DataTable empDT = new System.Data.DataTable();
-            //    empDT.Load(empDR);
-            //    dataGridView1.DataSource = empDT;
-               
-            //    dataGridView1.Refresh(); // Refresh the DataGridView
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error: " + ex.Message);
-            //}
-        }
+        private string passwordPlaceholder = "********";
+        
         public LOGIN(database db)
         {
             _db = db;
@@ -101,42 +82,43 @@ namespace DATABASE_PROJECT
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string email = textBox_login_email.Text;
+            string password = textBox_login_password.Text;
 
-            //try
-            //{
-              
+            OracleCommand command = _db.con().CreateCommand();
+            command.CommandText = "SELECT email, password FROM USER_TABLE WHERE email = :e";
+            command.Parameters.Add(new OracleParameter("e", email));
 
-            //    OracleCommand command = _db.con().CreateCommand();
-            //    command.CommandText = "INSERT INTO LOGIN (email, password) VALUES (:Email, :Password)";
+            OracleDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                string dbEmail = reader["email"].ToString();
+                string dbPassword = reader["password"].ToString();
 
-            //    // Create and add parameters manually
-            //    command.Parameters.Add(new OracleParameter("Email", textBox_login_email.Text));
-            //    command.Parameters.Add(new OracleParameter("Password", textBox_login_password.Text));
+                if (dbPassword == password)
+                {
+                    MessageBox.Show("Login Successful");
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect Password");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Incorrect Email");
+                return;
+            }
 
-            //    int rowsAffected = command.ExecuteNonQuery();
-            //    if (rowsAffected > 0)
-            //    {
-            //        MessageBox.Show("Data Inserted Successfully!");
-            //        updateGrid();
-            //        dataGridView1.Refresh();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Data Insertion Failed!");
-            //    }
+            //Close the reader
+            reader.Close();
 
-                       
-                    
-                
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error: " + ex.Message);
-            //}
-            this.Hide();
 
-            Main_UserView user = new Main_UserView(_db);
-            user.Show();
+            //this.Hide();
+
+            //Main_UserView user = new Main_UserView(_db);
+            //user.Show();
 
         }
 
@@ -148,7 +130,6 @@ namespace DATABASE_PROJECT
         private void Form1_Load(object sender, EventArgs e)
         {
            
-            updateGrid();
         }
 
         private void TB_email_TextChanged(object sender, EventArgs e)
