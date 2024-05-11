@@ -35,8 +35,6 @@
             this.textBox_login_password = new System.Windows.Forms.TextBox();
             this.signUp_button = new System.Windows.Forms.Button();
             this.login_button = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // login_headline_label
@@ -126,24 +124,12 @@
             this.login_button.UseVisualStyleBackColor = false;
             this.login_button.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 98);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(547, 94);
-            this.dataGridView1.TabIndex = 7;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
             // LOGIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(605, 576);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.signUp_button);
             this.Controls.Add(this.login_button);
             this.Controls.Add(this.textBox_login_password);
@@ -156,7 +142,6 @@
             this.Text = "A.T Airline";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LOGIN_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,7 +156,6 @@
         private System.Windows.Forms.TextBox textBox_login_password;
         private System.Windows.Forms.Button login_button;
         private System.Windows.Forms.Button signUp_button;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

@@ -21,23 +21,23 @@ namespace DATABASE_PROJECT
         private string passwordPlaceholder = "...";
         private void updateGrid()
         {
-            try
-            {
+            //try
+            //{
             
-                OracleCommand getEmps = _db.con().CreateCommand();
-                getEmps.CommandText = "SELECT * FROM login";
-                getEmps.CommandType = CommandType.Text;
-                OracleDataReader empDR = getEmps.ExecuteReader();
-                System.Data.DataTable empDT = new System.Data.DataTable();
-                empDT.Load(empDR);
-                dataGridView1.DataSource = empDT;
+            //    OracleCommand getEmps = _db.con().CreateCommand();
+            //    getEmps.CommandText = "SELECT * FROM login";
+            //    getEmps.CommandType = CommandType.Text;
+            //    OracleDataReader empDR = getEmps.ExecuteReader();
+            //    System.Data.DataTable empDT = new System.Data.DataTable();
+            //    empDT.Load(empDR);
+            //    dataGridView1.DataSource = empDT;
                
-                dataGridView1.Refresh(); // Refresh the DataGridView
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+            //    dataGridView1.Refresh(); // Refresh the DataGridView
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error: " + ex.Message);
+            //}
         }
         public LOGIN(database db)
         {
@@ -102,37 +102,37 @@ namespace DATABASE_PROJECT
         private void button1_Click(object sender, EventArgs e)
         {
 
-            try
-            {
+            //try
+            //{
               
 
-                OracleCommand command = _db.con().CreateCommand();
-                command.CommandText = "INSERT INTO LOGIN (email, password) VALUES (:Email, :Password)";
+            //    OracleCommand command = _db.con().CreateCommand();
+            //    command.CommandText = "INSERT INTO LOGIN (email, password) VALUES (:Email, :Password)";
 
-                // Create and add parameters manually
-                command.Parameters.Add(new OracleParameter("Email", textBox_login_email.Text));
-                command.Parameters.Add(new OracleParameter("Password", textBox_login_password.Text));
+            //    // Create and add parameters manually
+            //    command.Parameters.Add(new OracleParameter("Email", textBox_login_email.Text));
+            //    command.Parameters.Add(new OracleParameter("Password", textBox_login_password.Text));
 
-                int rowsAffected = command.ExecuteNonQuery();
-                if (rowsAffected > 0)
-                {
-                    MessageBox.Show("Data Inserted Successfully!");
-                    updateGrid();
-                    dataGridView1.Refresh();
-                }
-                else
-                {
-                    MessageBox.Show("Data Insertion Failed!");
-                }
+            //    int rowsAffected = command.ExecuteNonQuery();
+            //    if (rowsAffected > 0)
+            //    {
+            //        MessageBox.Show("Data Inserted Successfully!");
+            //        updateGrid();
+            //        dataGridView1.Refresh();
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Data Insertion Failed!");
+            //    }
 
                        
                     
                 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error: " + ex.Message);
+            //}
             this.Hide();
 
             Main_UserView user = new Main_UserView(_db);
@@ -179,9 +179,6 @@ namespace DATABASE_PROJECT
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
     }
 }
