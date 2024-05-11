@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Npgsql;
+using Oracle.ManagedDataAccess.Client;
 
 namespace DATABASE_PROJECT
 {

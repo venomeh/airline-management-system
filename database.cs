@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Npgsql;
+using Oracle.ManagedDataAccess.Client;
 namespace DATABASE_PROJECT
 {
     public class database
     {
-        private NpgsqlConnection _connection;
+        private OracleConnection _connection;
 
         public database()
         {
@@ -16,11 +16,12 @@ namespace DATABASE_PROJECT
             _connection.Open();
         }
 
-        public NpgsqlConnection GetConnection()
+        public OracleConnection GetConnection()
         {
-            return new NpgsqlConnection(@"Server=localhost;Port=5432;User Id=postgres;Password=password;Database=demo;");
-        
+            return new OracleConnection(@"DATA SOURCE = localhost:1521/xe; USER ID=AirlineSystem; PASSWORD=12345");
         }
+
+        public OracleConnection con() { return _connection; }
 
     }
 }

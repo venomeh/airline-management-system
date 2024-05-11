@@ -9,7 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Npgsql;
+using Oracle.ManagedDataAccess.Client;
+using Microsoft.Office.Interop.Excel;
 
 namespace DATABASE_PROJECT
 {
@@ -18,13 +19,31 @@ namespace DATABASE_PROJECT
         private database _db;
         private string emailPlaceholder = "abc@gmail.com";
         private string passwordPlaceholder = "...";
-
+        private void updateGrid()
+        {
+            try
+            {
+            
+                OracleCommand getEmps = _db.con().CreateCommand();
+                getEmps.CommandText = "SELECT * FROM login";
+                getEmps.CommandType = CommandType.Text;
+                OracleDataReader empDR = getEmps.ExecuteReader();
+                System.Data.DataTable empDT = new System.Data.DataTable();
+                empDT.Load(empDR);
+                dataGridView1.DataSource = empDT;
+               
+                dataGridView1.Refresh(); // Refresh the DataGridView
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
         public LOGIN(database db)
         {
             _db = db;
             InitializeComponent();
             
-
             // Set the initial placeholder text for each TextBox
             SetPlaceholder(textBox_login_email, emailPlaceholder);
             SetPlaceholder(textBox_login_password, passwordPlaceholder);
@@ -82,6 +101,38 @@ namespace DATABASE_PROJECT
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            try
+            {
+              
+
+                OracleCommand command = _db.con().CreateCommand();
+                command.CommandText = "INSERT INTO LOGIN (email, password) VALUES (:Email, :Password)";
+
+                // Create and add parameters manually
+                command.Parameters.Add(new OracleParameter("Email", textBox_login_email.Text));
+                command.Parameters.Add(new OracleParameter("Password", textBox_login_password.Text));
+
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Data Inserted Successfully!");
+                    updateGrid();
+                    dataGridView1.Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("Data Insertion Failed!");
+                }
+
+                       
+                    
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
             this.Hide();
 
             Main_UserView user = new Main_UserView(_db);
@@ -96,7 +147,8 @@ namespace DATABASE_PROJECT
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+           
+            updateGrid();
         }
 
         private void TB_email_TextChanged(object sender, EventArgs e)
@@ -119,10 +171,15 @@ namespace DATABASE_PROJECT
 
         private void LOGIN_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
         }
 
         private void textBox_login_password_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

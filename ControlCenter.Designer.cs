@@ -124,6 +124,7 @@
             this.Name = "ControlCenter";
             this.Text = "Form3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ControlCenter_FormClosing);
+            this.Load += new System.EventHandler(this.ControlCenter_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

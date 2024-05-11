@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
-using Npgsql;
+using Oracle.ManagedDataAccess.Client;
 
 namespace DATABASE_PROJECT.Resources
 {
@@ -21,6 +21,13 @@ namespace DATABASE_PROJECT.Resources
         {
             _db = db;
             InitializeComponent();
+            
+            // Check if the database connection is open
+            if (_db.con().State != ConnectionState.Open)
+            {
+                _db.con().Open(); // Open the connection if it's not already open
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,15 +58,19 @@ namespace DATABASE_PROJECT.Resources
 
         private void UserView_Load(object sender, EventArgs e)
         {
-            //get name from database
-            string userName = "Taha";
+            OracleCommand getEmps = _db.con().CreateCommand();
+            getEmps.CommandText = "SELECT email FROM login";
+            getEmps.CommandType = CommandType.Text;
+            OracleDataReader empDR = getEmps.ExecuteReader();
 
-            //Update the label text with the user's name
-            label_name.Text = userName;
-            label_name.Font = new System.Drawing.Font("Segoe Script", 11, FontStyle.Bold);
+            if (empDR.Read()) // Check if there are rows in the result set
+            {
+                string userEmail = empDR.GetString(0); // Assuming the email is in the first column
+                label_name.Text = userEmail;
+                label_name.Font = new System.Drawing.Font("Segoe Script", 11, FontStyle.Bold);
+            }
 
-           
-
+            empDR.Close(); // Close the data reader to release resources
         }
 
         private void UserView_FormClosing(object sender, FormClosingEventArgs e)

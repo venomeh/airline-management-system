@@ -21,5 +21,10 @@ namespace DATABASE_PROJECT
         {
             Application.Exit();
         }
+
+        private void ControlCenter_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
