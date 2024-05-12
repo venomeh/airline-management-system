@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User_BookSeat));
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimeDeparture = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -45,10 +46,9 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(135, 206);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(180, 254);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 18);
+            this.label2.Size = new System.Drawing.Size(133, 22);
             this.label2.TabIndex = 63;
             this.label2.Text = "Departure Date";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -58,12 +58,12 @@
             this.dateTimeDeparture.CalendarMonthBackground = System.Drawing.Color.Transparent;
             this.dateTimeDeparture.CalendarTitleBackColor = System.Drawing.Color.Transparent;
             this.dateTimeDeparture.CalendarTitleForeColor = System.Drawing.Color.Transparent;
-            this.dateTimeDeparture.Location = new System.Drawing.Point(138, 227);
-            this.dateTimeDeparture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimeDeparture.Location = new System.Drawing.Point(184, 279);
+            this.dateTimeDeparture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimeDeparture.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
             this.dateTimeDeparture.MinDate = new System.DateTime(2024, 4, 24, 0, 0, 0, 0);
             this.dateTimeDeparture.Name = "dateTimeDeparture";
-            this.dateTimeDeparture.Size = new System.Drawing.Size(151, 20);
+            this.dateTimeDeparture.Size = new System.Drawing.Size(200, 22);
             this.dateTimeDeparture.TabIndex = 62;
             this.dateTimeDeparture.Value = new System.DateTime(2024, 4, 24, 0, 0, 0, 0);
             this.dateTimeDeparture.ValueChanged += new System.EventHandler(this.dateTimeDeparture_ValueChanged);
@@ -71,10 +71,10 @@
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.LightGray;
-            this.textBox1.Location = new System.Drawing.Point(138, 171);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Location = new System.Drawing.Point(184, 210);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 20);
+            this.textBox1.Size = new System.Drawing.Size(225, 22);
             this.textBox1.TabIndex = 61;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -83,10 +83,9 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(135, 151);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(180, 186);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(229, 18);
+            this.label1.Size = new System.Drawing.Size(280, 22);
             this.label1.TabIndex = 60;
             this.label1.Text = "Select Airline Company (Optional)";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -94,20 +93,20 @@
             // textBox_departure
             // 
             this.textBox_departure.BackColor = System.Drawing.Color.LightGray;
-            this.textBox_departure.Location = new System.Drawing.Point(138, 73);
-            this.textBox_departure.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_departure.Location = new System.Drawing.Point(184, 90);
+            this.textBox_departure.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_departure.Name = "textBox_departure";
-            this.textBox_departure.Size = new System.Drawing.Size(170, 20);
+            this.textBox_departure.Size = new System.Drawing.Size(225, 22);
             this.textBox_departure.TabIndex = 59;
             this.textBox_departure.TextChanged += new System.EventHandler(this.textBox_departure_TextChanged);
             // 
             // textBox_arrival
             // 
             this.textBox_arrival.BackColor = System.Drawing.Color.LightGray;
-            this.textBox_arrival.Location = new System.Drawing.Point(138, 120);
-            this.textBox_arrival.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_arrival.Location = new System.Drawing.Point(184, 148);
+            this.textBox_arrival.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_arrival.Name = "textBox_arrival";
-            this.textBox_arrival.Size = new System.Drawing.Size(170, 20);
+            this.textBox_arrival.Size = new System.Drawing.Size(225, 22);
             this.textBox_arrival.TabIndex = 58;
             this.textBox_arrival.TextChanged += new System.EventHandler(this.textBox_arrival_TextChanged);
             // 
@@ -116,10 +115,9 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(135, 53);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(180, 65);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 18);
+            this.label6.Size = new System.Drawing.Size(90, 22);
             this.label6.TabIndex = 57;
             this.label6.Text = "Departure";
             this.label6.Click += new System.EventHandler(this.label6_Click);
@@ -129,10 +127,9 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(135, 100);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(180, 123);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 18);
+            this.label7.Size = new System.Drawing.Size(61, 22);
             this.label7.TabIndex = 56;
             this.label7.Text = "Arrival";
             this.label7.Click += new System.EventHandler(this.label7_Click);
@@ -140,11 +137,12 @@
             // button_back
             // 
             this.button_back.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.button_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_back.BackgroundImage")));
             this.button_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_back.Location = new System.Drawing.Point(138, 387);
-            this.button_back.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_back.Location = new System.Drawing.Point(184, 476);
+            this.button_back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_back.Name = "button_back";
-            this.button_back.Size = new System.Drawing.Size(170, 39);
+            this.button_back.Size = new System.Drawing.Size(227, 48);
             this.button_back.TabIndex = 55;
             this.button_back.Text = "Back";
             this.button_back.UseVisualStyleBackColor = false;
@@ -153,11 +151,12 @@
             // button_search
             // 
             this.button_search.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.button_search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_search.BackgroundImage")));
             this.button_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_search.Location = new System.Drawing.Point(138, 343);
-            this.button_search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_search.Location = new System.Drawing.Point(184, 422);
+            this.button_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_search.Name = "button_search";
-            this.button_search.Size = new System.Drawing.Size(170, 39);
+            this.button_search.Size = new System.Drawing.Size(227, 48);
             this.button_search.TabIndex = 54;
             this.button_search.Text = "Search";
             this.button_search.UseVisualStyleBackColor = false;
@@ -165,9 +164,10 @@
             // 
             // User_BookSeat
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 468);
+            this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
+            this.ClientSize = new System.Drawing.Size(605, 576);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimeDeparture);
             this.Controls.Add(this.textBox1);
@@ -178,7 +178,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button_back);
             this.Controls.Add(this.button_search);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "User_BookSeat";
             this.Text = "User_BookFlight";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.User_BookSeat_FormClosing);

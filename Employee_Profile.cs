@@ -21,5 +21,20 @@ namespace DATABASE_PROJECT
         {
             Application.Exit();
         }
+
+        private void Employee_Profile_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_del_profile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

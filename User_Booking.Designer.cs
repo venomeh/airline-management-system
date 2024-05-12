@@ -36,6 +36,7 @@
             // button_back
             // 
             this.button_back.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.button_back.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._53;
             this.button_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_back.Location = new System.Drawing.Point(189, 494);
             this.button_back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -68,6 +69,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
             this.Controls.Add(this.dataGridView_flight_status);
             this.Controls.Add(this.button_back);

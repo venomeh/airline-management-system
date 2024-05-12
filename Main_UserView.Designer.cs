@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_UserView));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button_bookSeat = new System.Windows.Forms.Button();
@@ -66,6 +67,7 @@
             // button_bookSeat
             // 
             this.button_bookSeat.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.button_bookSeat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_bookSeat.BackgroundImage")));
             this.button_bookSeat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_bookSeat.Location = new System.Drawing.Point(192, 194);
             this.button_bookSeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -79,6 +81,7 @@
             // button_cancelSeat
             // 
             this.button_cancelSeat.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.button_cancelSeat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_cancelSeat.BackgroundImage")));
             this.button_cancelSeat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_cancelSeat.Location = new System.Drawing.Point(192, 249);
             this.button_cancelSeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -92,6 +95,7 @@
             // button_profile
             // 
             this.button_profile.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.button_profile.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_profile.BackgroundImage")));
             this.button_profile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_profile.Location = new System.Drawing.Point(192, 410);
             this.button_profile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -105,6 +109,7 @@
             // button_bookedSeats
             // 
             this.button_bookedSeats.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.button_bookedSeats.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_bookedSeats.BackgroundImage")));
             this.button_bookedSeats.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_bookedSeats.Location = new System.Drawing.Point(192, 302);
             this.button_bookedSeats.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -118,6 +123,7 @@
             // button_logout
             // 
             this.button_logout.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.button_logout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_logout.BackgroundImage")));
             this.button_logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_logout.Location = new System.Drawing.Point(192, 464);
             this.button_logout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -131,6 +137,7 @@
             // button_flight_status
             // 
             this.button_flight_status.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.button_flight_status.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_flight_status.BackgroundImage")));
             this.button_flight_status.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_flight_status.Location = new System.Drawing.Point(192, 356);
             this.button_flight_status.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -158,7 +165,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources.main;
+            this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
             this.Controls.Add(this.label_displayName);
             this.Controls.Add(this.button_flight_status);

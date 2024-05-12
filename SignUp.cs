@@ -547,6 +547,21 @@ namespace DATABASE_PROJECT
             disability = 0;
         }
 
+        private void labl_lastName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_passwordCheck_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_6(object sender, EventArgs e)
+        {
+
+        }
+
         private void radioButton_YES_CheckedChanged(object sender, EventArgs e)
         {
             disability = 1;

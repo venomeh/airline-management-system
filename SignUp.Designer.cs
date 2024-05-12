@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUp));
             this.textBox_confirmPass = new System.Windows.Forms.TextBox();
             this.textBox_email = new System.Windows.Forms.TextBox();
             this.label_confirmPass = new System.Windows.Forms.Label();
@@ -149,6 +150,7 @@
             // signUp_button
             // 
             this.signUp_button.BackColor = System.Drawing.Color.Transparent;
+            this.signUp_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("signUp_button.BackgroundImage")));
             this.signUp_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.signUp_button.Cursor = System.Windows.Forms.Cursors.Default;
             this.signUp_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -165,6 +167,7 @@
             // button_back
             // 
             this.button_back.BackColor = System.Drawing.Color.Transparent;
+            this.button_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_back.BackgroundImage")));
             this.button_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button_back.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -231,6 +234,7 @@
             this.labl_lastName.Size = new System.Drawing.Size(96, 22);
             this.labl_lastName.TabIndex = 100;
             this.labl_lastName.Text = "Last Name";
+            this.labl_lastName.Click += new System.EventHandler(this.labl_lastName_Click);
             // 
             // textBox_confirmOTP
             // 
@@ -276,13 +280,14 @@
             // 
             // button_getOTP
             // 
-            this.button_getOTP.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._7;
+            this.button_getOTP.BackColor = System.Drawing.Color.Transparent;
+            this.button_getOTP.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._3;
             this.button_getOTP.Location = new System.Drawing.Point(470, 437);
             this.button_getOTP.Name = "button_getOTP";
             this.button_getOTP.Size = new System.Drawing.Size(75, 23);
             this.button_getOTP.TabIndex = 106;
             this.button_getOTP.Text = "Get OTP";
-            this.button_getOTP.UseVisualStyleBackColor = true;
+            this.button_getOTP.UseVisualStyleBackColor = false;
             this.button_getOTP.Click += new System.EventHandler(this.button_getOTP_Click);
             // 
             // label_passwordNotMatch
@@ -303,6 +308,7 @@
             this.label_passwordCheck.Size = new System.Drawing.Size(10, 16);
             this.label_passwordCheck.TabIndex = 113;
             this.label_passwordCheck.Text = ".";
+            this.label_passwordCheck.Click += new System.EventHandler(this.label_passwordCheck_Click);
             // 
             // textBox_emergencyNo
             // 
@@ -329,25 +335,27 @@
             // radioButton_YES
             // 
             this.radioButton_YES.AutoSize = true;
+            this.radioButton_YES.BackColor = System.Drawing.Color.Transparent;
             this.radioButton_YES.Location = new System.Drawing.Point(320, 495);
             this.radioButton_YES.Name = "radioButton_YES";
             this.radioButton_YES.Size = new System.Drawing.Size(55, 20);
             this.radioButton_YES.TabIndex = 116;
             this.radioButton_YES.TabStop = true;
             this.radioButton_YES.Text = "YES";
-            this.radioButton_YES.UseVisualStyleBackColor = true;
+            this.radioButton_YES.UseVisualStyleBackColor = false;
             this.radioButton_YES.CheckedChanged += new System.EventHandler(this.radioButton_YES_CheckedChanged);
             // 
             // radioButton_NO
             // 
             this.radioButton_NO.AutoSize = true;
+            this.radioButton_NO.BackColor = System.Drawing.Color.Transparent;
             this.radioButton_NO.Location = new System.Drawing.Point(395, 495);
             this.radioButton_NO.Name = "radioButton_NO";
             this.radioButton_NO.Size = new System.Drawing.Size(48, 20);
             this.radioButton_NO.TabIndex = 117;
             this.radioButton_NO.TabStop = true;
             this.radioButton_NO.Text = "NO";
-            this.radioButton_NO.UseVisualStyleBackColor = true;
+            this.radioButton_NO.UseVisualStyleBackColor = false;
             this.radioButton_NO.CheckedChanged += new System.EventHandler(this.radioButton_NO_CheckedChanged);
             // 
             // label1
@@ -360,11 +368,13 @@
             this.label1.Size = new System.Drawing.Size(82, 22);
             this.label1.TabIndex = 118;
             this.label1.Text = "Disability";
+            this.label1.Click += new System.EventHandler(this.label1_Click_6);
             // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(605, 576);
             this.Controls.Add(this.label1);

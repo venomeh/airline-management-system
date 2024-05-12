@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LOGIN));
             this.login_headline_label = new System.Windows.Forms.Label();
             this.email_label = new System.Windows.Forms.Label();
             this.password_label = new System.Windows.Forms.Label();
@@ -98,6 +99,7 @@
             // signUp_button
             // 
             this.signUp_button.BackColor = System.Drawing.Color.White;
+            this.signUp_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("signUp_button.BackgroundImage")));
             this.signUp_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.signUp_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.signUp_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -113,6 +115,7 @@
             // login_button
             // 
             this.login_button.BackColor = System.Drawing.Color.White;
+            this.login_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("login_button.BackgroundImage")));
             this.login_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.login_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_button.Location = new System.Drawing.Point(184, 366);
@@ -129,6 +132,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
             this.Controls.Add(this.signUp_button);
             this.Controls.Add(this.login_button);

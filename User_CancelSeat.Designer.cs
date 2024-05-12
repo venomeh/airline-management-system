@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User_CancelSeat));
             this.button_cancelSeat = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_ticketno = new System.Windows.Forms.TextBox();
@@ -40,6 +41,7 @@
             // button_cancelSeat
             // 
             this.button_cancelSeat.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.button_cancelSeat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_cancelSeat.BackgroundImage")));
             this.button_cancelSeat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_cancelSeat.Location = new System.Drawing.Point(179, 406);
             this.button_cancelSeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -85,6 +87,7 @@
             // button_back
             // 
             this.button_back.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.button_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_back.BackgroundImage")));
             this.button_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_back.Location = new System.Drawing.Point(179, 460);
             this.button_back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -111,6 +114,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button_back);
