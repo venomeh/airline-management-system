@@ -169,7 +169,7 @@
             // 
             // arrivalTime_textBox
             // 
-            this.arrivalTime_textBox.Location = new System.Drawing.Point(262, 184);
+            this.arrivalTime_textBox.Location = new System.Drawing.Point(262, 189);
             this.arrivalTime_textBox.Name = "arrivalTime_textBox";
             this.arrivalTime_textBox.Size = new System.Drawing.Size(149, 20);
             this.arrivalTime_textBox.TabIndex = 12;

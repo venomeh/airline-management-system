@@ -127,6 +127,24 @@
     <Compile Include="AS_AddEmployee.Designer.cs">
       <DependentUpon>AS_AddEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="AS_aircraft.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AS_aircraft.Designer.cs">
+      <DependentUpon>AS_aircraft.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AS_assignPilotCrew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AS_assignPilotCrew.Designer.cs">
+      <DependentUpon>AS_assignPilotCrew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AS_report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AS_report.Designer.cs">
+      <DependentUpon>AS_report.cs</DependentUpon>
+    </Compile>
     <Compile Include="AS_ScheduleFlight.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +231,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AS_AddEmployee.resx">
       <DependentUpon>AS_AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AS_aircraft.resx">
+      <DependentUpon>AS_aircraft.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AS_assignPilotCrew.resx">
+      <DependentUpon>AS_assignPilotCrew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AS_report.resx">
+      <DependentUpon>AS_report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AS_ScheduleFlight.resx">
       <DependentUpon>AS_ScheduleFlight.cs</DependentUpon>
