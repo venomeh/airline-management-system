@@ -16,7 +16,7 @@ CREATE TABLE LOGIN_DETAILS
     CONSTRAINT FKtypeno FOREIGN KEY (user_typeno) REFERENCES LOGIN_TYPE(type_no)
   
 );
--- demo 
+
 CREATE TABLE USER_TABLE 
 (
     person_name VARCHAR2(255),
