@@ -36,7 +36,7 @@
             this.button_bookedSeats = new System.Windows.Forms.Button();
             this.button_logout = new System.Windows.Forms.Button();
             this.button_flight_status = new System.Windows.Forms.Button();
-            this.label_name = new System.Windows.Forms.Label();
+            this.label_displayName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -141,14 +141,17 @@
             this.button_flight_status.UseVisualStyleBackColor = false;
             this.button_flight_status.Click += new System.EventHandler(this.button_flight_status_Click);
             // 
-            // label_name
+            // label_displayName
             // 
-            this.label_name.AutoSize = true;
-            this.label_name.BackColor = System.Drawing.Color.Transparent;
-            this.label_name.Location = new System.Drawing.Point(295, 158);
-            this.label_name.Name = "label_name";
-            this.label_name.Size = new System.Drawing.Size(0, 16);
-            this.label_name.TabIndex = 9;
+            this.label_displayName.AutoSize = true;
+            this.label_displayName.BackColor = System.Drawing.Color.Transparent;
+            this.label_displayName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_displayName.Location = new System.Drawing.Point(298, 152);
+            this.label_displayName.Name = "label_displayName";
+            this.label_displayName.Size = new System.Drawing.Size(65, 25);
+            this.label_displayName.TabIndex = 9;
+            this.label_displayName.Text = "name";
+            this.label_displayName.Click += new System.EventHandler(this.label_displayName_Click);
             // 
             // Main_UserView
             // 
@@ -157,7 +160,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources.main;
             this.ClientSize = new System.Drawing.Size(605, 576);
-            this.Controls.Add(this.label_name);
+            this.Controls.Add(this.label_displayName);
             this.Controls.Add(this.button_flight_status);
             this.Controls.Add(this.button_logout);
             this.Controls.Add(this.button_bookedSeats);
@@ -186,6 +189,6 @@
         private System.Windows.Forms.Button button_bookedSeats;
         private System.Windows.Forms.Button button_logout;
         private System.Windows.Forms.Button button_flight_status;
-        private System.Windows.Forms.Label label_name;
+        private System.Windows.Forms.Label label_displayName;
     }
 }

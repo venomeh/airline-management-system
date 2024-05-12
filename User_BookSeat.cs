@@ -34,10 +34,10 @@ namespace DATABASE_PROJECT
 
         private void button_back_Click(object sender, EventArgs e)
         {
-            Main_UserView user = new Main_UserView(_db);
-            user.Show();
+          //  Main_UserView user = new Main_UserView(_db);
+          //  user.Show();
 
-            this.Hide();
+          //  this.Hide();
         }
 
         private void button_search_Click(object sender, EventArgs e)

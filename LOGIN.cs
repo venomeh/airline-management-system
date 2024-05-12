@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Oracle.ManagedDataAccess.Client;
 using Microsoft.Office.Interop.Excel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace DATABASE_PROJECT
 {
@@ -84,16 +85,18 @@ namespace DATABASE_PROJECT
         {
             string email = textBox_login_email.Text;
             string password = textBox_login_password.Text;
+            string dbCNIC = "";
+            string dbPassword = "";
+            
+            OracleCommand query = _db.con().CreateCommand();
+            query.CommandText = "SELECT cnic, password, user_type_no FROM USER_TABLE WHERE email = :e";
+            query.Parameters.Add(new OracleParameter("e", email));
 
-            OracleCommand command = _db.con().CreateCommand();
-            command.CommandText = "SELECT email, password FROM USER_TABLE WHERE email = :e";
-            command.Parameters.Add(new OracleParameter("e", email));
-
-            OracleDataReader reader = command.ExecuteReader();
+            OracleDataReader reader = query.ExecuteReader();
             if (reader.Read())
             {
-                string dbEmail = reader["email"].ToString();
-                string dbPassword = reader["password"].ToString();
+                dbCNIC = reader["cnic"].ToString();
+                dbPassword = reader["password"].ToString();
 
                 if (dbPassword == password)
                 {
@@ -111,14 +114,34 @@ namespace DATABASE_PROJECT
                 return;
             }
 
+            string userTypeNo = reader["user_type_no"].ToString();
+           
+            query.CommandText = "SELECT type_name FROM LOGIN_TYPE WHERE type_no = '" + userTypeNo + "'";
+            reader = query.ExecuteReader();
+           
+            this.Hide();
+            
+            if (reader.Read()) // Check if a row was returned
+            {
+                if (reader["type_name"].ToString() == "ADMIN")
+                {
+                }
+                if (reader["type_name"].ToString() == "EMPLOYEE")
+                {
+
+                }
+                if (reader["type_name"].ToString() == "PASSENGER")
+                {
+                    Main_UserView user = new Main_UserView(_db, dbCNIC);
+                    user.Show();
+
+                }
+            }
+
             //Close the reader
             reader.Close();
 
-
-            //this.Hide();
-
-            //Main_UserView user = new Main_UserView(_db);
-            //user.Show();
+         
 
         }
 

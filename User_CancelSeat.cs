@@ -52,10 +52,15 @@ namespace DATABASE_PROJECT
 
         private void button_back_Click(object sender, EventArgs e)
         {
-            Main_UserView user = new Main_UserView(_db);
-            user.Show();
+           // Main_UserView user = new Main_UserView(_db);
+       //     user.Show();
 
             this.Hide();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

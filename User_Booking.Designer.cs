@@ -37,10 +37,10 @@
             // 
             this.button_back.BackColor = System.Drawing.SystemColors.MenuBar;
             this.button_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_back.Location = new System.Drawing.Point(142, 401);
-            this.button_back.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_back.Location = new System.Drawing.Point(189, 494);
+            this.button_back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_back.Name = "button_back";
-            this.button_back.Size = new System.Drawing.Size(170, 39);
+            this.button_back.Size = new System.Drawing.Size(227, 48);
             this.button_back.TabIndex = 54;
             this.button_back.Text = "Back";
             this.button_back.UseVisualStyleBackColor = false;
@@ -54,23 +54,24 @@
             this.dataGridView_flight_status.AllowUserToResizeRows = false;
             this.dataGridView_flight_status.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView_flight_status.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_flight_status.Location = new System.Drawing.Point(22, 101);
-            this.dataGridView_flight_status.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView_flight_status.Location = new System.Drawing.Point(22, 51);
+            this.dataGridView_flight_status.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView_flight_status.Name = "dataGridView_flight_status";
             this.dataGridView_flight_status.RowHeadersWidth = 51;
             this.dataGridView_flight_status.RowTemplate.Height = 24;
-            this.dataGridView_flight_status.Size = new System.Drawing.Size(415, 157);
+            this.dataGridView_flight_status.Size = new System.Drawing.Size(556, 426);
             this.dataGridView_flight_status.TabIndex = 55;
+            this.dataGridView_flight_status.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_flight_status_CellContentClick);
             // 
             // User_Booking
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(454, 468);
+            this.ClientSize = new System.Drawing.Size(605, 576);
             this.Controls.Add(this.dataGridView_flight_status);
             this.Controls.Add(this.button_back);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "User_Booking";
             this.Text = "User_Booking";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.User_Booking_FormClosing);

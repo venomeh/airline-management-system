@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,10 +17,12 @@ namespace DATABASE_PROJECT.Resources
     public partial class Main_UserView : Form
     {
         private database _db;
+        public string cnic;
 
-        public Main_UserView(database db)
+        public Main_UserView(database db, string cnic)
         {
             _db = db;
+            this.cnic = cnic; 
             InitializeComponent();
             
             // Check if the database connection is open
@@ -41,7 +44,7 @@ namespace DATABASE_PROJECT.Resources
 
         private void button_profile_Click(object sender, EventArgs e)
         {
-            User_Profile user = new User_Profile(_db);
+            User_Profile user = new User_Profile(_db, this.cnic);
             user.Show();
 
             this.Hide();
@@ -55,23 +58,33 @@ namespace DATABASE_PROJECT.Resources
             login.Show();
 
         }
-
         private void UserView_Load(object sender, EventArgs e)
         {
-            //OracleCommand getEmps = _db.con().CreateCommand();
-            //getEmps.CommandText = "SELECT email FROM login";
-            //getEmps.CommandType = CommandType.Text;
-            //OracleDataReader empDR = getEmps.ExecuteReader();
+            label_displayName.Text = "";
 
-            //if (empDR.Read()) // Check if there are rows in the result set
-            //{
-            //    string userEmail = empDR.GetString(0); // Assuming the email is in the first column
-            //    label_name.Text = userEmail;
-            //    label_name.Font = new System.Drawing.Font("Segoe Script", 11, FontStyle.Bold);
-            //}
 
-            //empDR.Close(); // Close the data reader to release resources
+            OracleCommand command = _db.con().CreateCommand();
+            command.CommandText = "SELECT person_name FROM user_table WHERE cnic = :CNIC";
+            command.Parameters.Add(new OracleParameter("CNIC", this.cnic));
+
+            OracleDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                label_displayName.Text = reader["person_name"].ToString();
+            }
+            else
+            {
+                MessageBox.Show("User not found.");
+                this.Hide(); 
+                LOGIN login = new LOGIN(_db); 
+                login.Show();
+            }
+
+            reader.Close();
+            command.Dispose();
         }
+
 
         private void UserView_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -105,6 +118,11 @@ namespace DATABASE_PROJECT.Resources
             user.Show();    
 
             this.Hide();    
+        }
+
+        private void label_displayName_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

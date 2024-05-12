@@ -180,7 +180,7 @@ namespace DATABASE_PROJECT
 
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
                 smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new NetworkCredential("f223277@cfd.nu.edu.pk", "PTMF2723e!");
+                smtpClient.Credentials = new NetworkCredential("f223277@cfd.nu.edu.pk", "PTMF2723e!"); //SENDER email,password
                 smtpClient.EnableSsl = true;
                 smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network; 
                 smtpClient.Port = 587;
@@ -209,8 +209,8 @@ namespace DATABASE_PROJECT
 
             try
             {
-                if (string.IsNullOrEmpty(textBox_firstName.Text) || string.IsNullOrEmpty(textBox_lastName.Text) || 
-                    string.IsNullOrEmpty(textBox_phoneNo.Text) || string.IsNullOrEmpty(textBox_email.Text) || 
+                if (string.IsNullOrEmpty(textBox_firstName.Text) || string.IsNullOrEmpty(textBox_lastName.Text) ||
+                    string.IsNullOrEmpty(textBox_phoneNo.Text) || string.IsNullOrEmpty(textBox_email.Text) ||
                     string.IsNullOrEmpty(textBox_password.Text) || string.IsNullOrEmpty(textBox_confirmPass.Text) ||
                     string.IsNullOrEmpty(cnic_txtbox.Text))
                 {
@@ -222,7 +222,7 @@ namespace DATABASE_PROJECT
                 {
                     MessageBox.Show("Generate and Confirm OTP");
                     return;
-                
+
                 }
                 //check if both first name and last name contain only letters
                 Regex regex = new Regex("^[a-zA-Z]+$");
@@ -251,13 +251,13 @@ namespace DATABASE_PROJECT
                     MessageBox.Show("Enter valid email address");
                     return;
                 }
-                
-                if (cnic.Length != 13)
+
+                if (cnic.Length != 13 || !cnic.All(char.IsDigit))
                 {
-                    MessageBox.Show("Enter valid CNIC");
+                    MessageBox.Show("Enter a valid 13-digit CNIC containing only digits.");
                     return;
                 }
-                
+
                 if (pass.Length < 8)
                 {
                     MessageBox.Show("Enter atleast 8 char password");
@@ -291,14 +291,6 @@ namespace DATABASE_PROJECT
                     return;
                 }
 
-                //checks if the phone number is already registered
-                command.CommandText = "SELECT * FROM USER_TABLE WHERE PHONE_NUM = '" + phoneNumber + "'";
-                reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    MessageBox.Show("PhoneNo is already used");
-                    return;
-                }
                 // This checks for that user shoud not be allowed to change the email after putting OTP, means to check weather the otp was generated for that email 
                 if (signUpEmail != OTPGeneratedForEmail)
                 {
@@ -313,23 +305,35 @@ namespace DATABASE_PROJECT
                     MessageBox.Show("Wrong OTP!");
                     return;
                 }
+                try
+                {
+                    //insets data in database
+                    command = _db.con().CreateCommand();
+                    command.CommandText = "INSERT INTO USER_TABLE (person_name, cnic, email, phone_num, password, user_type) " +
+                        "VALUES (:Name, :CNIC_v, :Email, :PhoneNum, :Password, :UserType)"; 
+                    
+                    command.Parameters.Add(new OracleParameter("Name", fullName));
+                    command.Parameters.Add(new OracleParameter("CNIC_v", cnic));
+                    command.Parameters.Add(new OracleParameter("Email", signUpEmail));
+                    command.Parameters.Add(new OracleParameter("PhoneNum", phoneNumber));
+                    command.Parameters.Add(new OracleParameter("Password", pass));
+                    command.Parameters.Add(new OracleParameter("UserType", 1));  //user_type 1 means passenger
 
-                //insets data in database
-                command = _db.con().CreateCommand();
-                command.CommandText = "INSERT INTO USER_TABLE (person_name, cnic, email, phone_num, password) " +
-                    "VALUES (:Name, :CNIC_v, :Email, :PhoneNum, :Password)";
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                        MessageBox.Show("Account Created");
+                    else
+                        MessageBox.Show("Data Insertion Failed! Account Not Created");
 
-                command.Parameters.Add(new OracleParameter("Name", fullName));
-                command.Parameters.Add(new OracleParameter("CNIC_v", cnic));
-                command.Parameters.Add(new OracleParameter("Email", signUpEmail));
-                command.Parameters.Add(new OracleParameter("PhoneNum", phoneNumber));
-                command.Parameters.Add(new OracleParameter("Password", pass));
-
-                int rowsAffected = command.ExecuteNonQuery();
-                if (rowsAffected > 0)
-                    MessageBox.Show("Account Created");
-                else
-                    MessageBox.Show("Data Insertion Failed! Account Not Created");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    command.Dispose();
+                }
             }
             catch (Exception ex)
             {
@@ -425,7 +429,7 @@ namespace DATABASE_PROJECT
             }
 
             generatedOTP = GenerateOTP();
-
+            MessageBox.Show(generatedOTP);
             // Send OTP via email
             SendOTPEmail(OTPGeneratedForEmail, generatedOTP);
         }
