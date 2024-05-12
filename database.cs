@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
+
 namespace DATABASE_PROJECT
 {
-
     public class database
     {
         private OracleConnection _connection;
@@ -19,11 +15,10 @@ namespace DATABASE_PROJECT
 
         public OracleConnection GetConnection()
         {
-            return new OracleConnection(@"DATA SOURCE = localhost:1521/xe; USER ID=AirlineSystem; PASSWORD=12345");
+            string connectionString = "DATA SOURCE=localhost:1521/xe;USER ID=AirlineSystem;PASSWORD=12345;";
+            return new OracleConnection(connectionString);
         }
 
         public OracleConnection con() { return _connection; }
-
     }
-
 }

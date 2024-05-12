@@ -17,12 +17,13 @@ namespace DATABASE_PROJECT.Resources
     public partial class Main_UserView : Form
     {
         private database _db;
+        public string loginid;
         public string cnic;
 
         public Main_UserView(database db, string cnic)
         {
             _db = db;
-            this.cnic = cnic; 
+            this.cnic = cnic;
             InitializeComponent();
             
             // Check if the database connection is open
@@ -44,7 +45,7 @@ namespace DATABASE_PROJECT.Resources
 
         private void button_profile_Click(object sender, EventArgs e)
         {
-            User_Profile user = new User_Profile(_db, this.cnic);
+            User_Profile user = new User_Profile(_db, cnic);
             user.Show();
 
             this.Hide();
@@ -72,6 +73,7 @@ namespace DATABASE_PROJECT.Resources
             if (reader.Read())
             {
                 label_displayName.Text = reader["person_name"].ToString();
+
             }
             else
             {

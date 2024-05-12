@@ -50,6 +50,11 @@
             this.button_getOTP = new System.Windows.Forms.Button();
             this.label_passwordNotMatch = new System.Windows.Forms.Label();
             this.label_passwordCheck = new System.Windows.Forms.Label();
+            this.textBox_emergencyNo = new System.Windows.Forms.TextBox();
+            this.label_emergencyNumber = new System.Windows.Forms.Label();
+            this.radioButton_YES = new System.Windows.Forms.RadioButton();
+            this.radioButton_NO = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox_confirmPass
@@ -148,7 +153,7 @@
             this.signUp_button.Cursor = System.Windows.Forms.Cursors.Default;
             this.signUp_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.signUp_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signUp_button.Location = new System.Drawing.Point(189, 519);
+            this.signUp_button.Location = new System.Drawing.Point(189, 533);
             this.signUp_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.signUp_button.Name = "signUp_button";
             this.signUp_button.Size = new System.Drawing.Size(107, 34);
@@ -163,7 +168,7 @@
             this.button_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button_back.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_back.Location = new System.Drawing.Point(320, 519);
+            this.button_back.Location = new System.Drawing.Point(320, 533);
             this.button_back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_back.Name = "button_back";
             this.button_back.Size = new System.Drawing.Size(107, 34);
@@ -299,12 +304,74 @@
             this.label_passwordCheck.TabIndex = 113;
             this.label_passwordCheck.Text = ".";
             // 
+            // textBox_emergencyNo
+            // 
+            this.textBox_emergencyNo.BackColor = System.Drawing.Color.LightGray;
+            this.textBox_emergencyNo.Location = new System.Drawing.Point(61, 493);
+            this.textBox_emergencyNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_emergencyNo.Name = "textBox_emergencyNo";
+            this.textBox_emergencyNo.Size = new System.Drawing.Size(225, 22);
+            this.textBox_emergencyNo.TabIndex = 115;
+            this.textBox_emergencyNo.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // label_emergencyNumber
+            // 
+            this.label_emergencyNumber.AutoSize = true;
+            this.label_emergencyNumber.BackColor = System.Drawing.Color.Transparent;
+            this.label_emergencyNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_emergencyNumber.Location = new System.Drawing.Point(57, 468);
+            this.label_emergencyNumber.Name = "label_emergencyNumber";
+            this.label_emergencyNumber.Size = new System.Drawing.Size(168, 22);
+            this.label_emergencyNumber.TabIndex = 114;
+            this.label_emergencyNumber.Text = "Emergency Number";
+            this.label_emergencyNumber.Click += new System.EventHandler(this.label1_Click_5);
+            // 
+            // radioButton_YES
+            // 
+            this.radioButton_YES.AutoSize = true;
+            this.radioButton_YES.Location = new System.Drawing.Point(320, 495);
+            this.radioButton_YES.Name = "radioButton_YES";
+            this.radioButton_YES.Size = new System.Drawing.Size(55, 20);
+            this.radioButton_YES.TabIndex = 116;
+            this.radioButton_YES.TabStop = true;
+            this.radioButton_YES.Text = "YES";
+            this.radioButton_YES.UseVisualStyleBackColor = true;
+            this.radioButton_YES.CheckedChanged += new System.EventHandler(this.radioButton_YES_CheckedChanged);
+            // 
+            // radioButton_NO
+            // 
+            this.radioButton_NO.AutoSize = true;
+            this.radioButton_NO.Location = new System.Drawing.Point(395, 495);
+            this.radioButton_NO.Name = "radioButton_NO";
+            this.radioButton_NO.Size = new System.Drawing.Size(48, 20);
+            this.radioButton_NO.TabIndex = 117;
+            this.radioButton_NO.TabStop = true;
+            this.radioButton_NO.Text = "NO";
+            this.radioButton_NO.UseVisualStyleBackColor = true;
+            this.radioButton_NO.CheckedChanged += new System.EventHandler(this.radioButton_NO_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(316, 468);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 22);
+            this.label1.TabIndex = 118;
+            this.label1.Text = "Disability";
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(605, 576);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.radioButton_NO);
+            this.Controls.Add(this.radioButton_YES);
+            this.Controls.Add(this.textBox_emergencyNo);
+            this.Controls.Add(this.label_emergencyNumber);
             this.Controls.Add(this.label_passwordCheck);
             this.Controls.Add(this.label_passwordNotMatch);
             this.Controls.Add(this.button_getOTP);
@@ -361,5 +428,10 @@
         private System.Windows.Forms.Button button_getOTP;
         private System.Windows.Forms.Label label_passwordNotMatch;
         private System.Windows.Forms.Label label_passwordCheck;
+        private System.Windows.Forms.TextBox textBox_emergencyNo;
+        private System.Windows.Forms.Label label_emergencyNumber;
+        private System.Windows.Forms.RadioButton radioButton_YES;
+        private System.Windows.Forms.RadioButton radioButton_NO;
+        private System.Windows.Forms.Label label1;
     }
 }

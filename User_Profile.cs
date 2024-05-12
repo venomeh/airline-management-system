@@ -39,8 +39,10 @@ namespace DATABASE_PROJECT
 
 
             OracleCommand command = _db.con().CreateCommand();
-            command.CommandText = "SELECT person_name, cnic, email, phone_num, password" +
-                                  " FROM user_table WHERE cnic = :CNIC";
+            command.CommandText = "SELECT DISTINCT ut.person_name, ut.cnic, ut.email, ut.phone_num, ld.password " +
+                       "FROM user_table ut " +
+                       "INNER JOIN LOGIN_DETAILS ld ON ut.loginid = ld.login_id " +
+                       "WHERE cnic = :CNIC";
             command.Parameters.Add(new OracleParameter("CNIC", this.cnic));
 
             OracleDataReader reader = command.ExecuteReader();
@@ -98,7 +100,7 @@ namespace DATABASE_PROJECT
 
         private void button_back_Click(object sender, EventArgs e)
         {
-            Main_UserView user = new Main_UserView(_db, this.cnic);
+            Main_UserView user = new Main_UserView(_db, cnic);
             user.Show();
 
             this.Hide();

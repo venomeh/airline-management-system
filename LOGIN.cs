@@ -85,18 +85,20 @@ namespace DATABASE_PROJECT
         {
             string email = textBox_login_email.Text;
             string password = textBox_login_password.Text;
-            string dbCNIC = "";
+            string dbLoginId = "";
             string dbPassword = "";
-            
+            string dbEmail = "";
+
             OracleCommand query = _db.con().CreateCommand();
-            query.CommandText = "SELECT cnic, password, user_type_no FROM USER_TABLE WHERE email = :e";
+            query.CommandText = "SELECT login_id, email, password, user_typeno FROM LOGIN_DETAILS WHERE email = :e";
             query.Parameters.Add(new OracleParameter("e", email));
 
             OracleDataReader reader = query.ExecuteReader();
             if (reader.Read())
             {
-                dbCNIC = reader["cnic"].ToString();
+                dbLoginId = reader["login_id"].ToString();
                 dbPassword = reader["password"].ToString();
+                dbEmail = reader["email"].ToString();
 
                 if (dbPassword == password)
                 {
@@ -114,7 +116,7 @@ namespace DATABASE_PROJECT
                 return;
             }
 
-            string userTypeNo = reader["user_type_no"].ToString();
+            string userTypeNo = reader["user_typeno"].ToString();
            
             query.CommandText = "SELECT type_name FROM LOGIN_TYPE WHERE type_no = '" + userTypeNo + "'";
             reader = query.ExecuteReader();
@@ -123,6 +125,7 @@ namespace DATABASE_PROJECT
             
             if (reader.Read()) // Check if a row was returned
             {
+                OracleDataReader cnicReader;
                 if (reader["type_name"].ToString() == "ADMIN")
                 {
                 }
@@ -132,9 +135,13 @@ namespace DATABASE_PROJECT
                 }
                 if (reader["type_name"].ToString() == "PASSENGER")
                 {
-                    Main_UserView user = new Main_UserView(_db, dbCNIC);
-                    user.Show();
-
+                    query.CommandText = "SELECT cnic FROM USER_TABLE WHERE loginid = " + dbLoginId;
+                    cnicReader = query.ExecuteReader();
+                    if (cnicReader.Read())
+                    {
+                        Main_UserView user = new Main_UserView(_db, cnicReader["cnic"].ToString());
+                        user.Show();
+                    }
                 }
             }
 

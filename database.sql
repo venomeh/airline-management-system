@@ -20,7 +20,7 @@ CREATE TABLE USER_TABLE
     person_name VARCHAR2(255),
     cnic VARCHAR2(13) PRIMARY KEY,
     email VARCHAR2(200) UNIQUE NOT NULL,
-    phone_num INT UNIQUE NOT NULL, 
+    phone_num INT NOT NULL, 
     
     loginID INT,
     CONSTRAINT FK_UID FOREIGN KEY (loginID) REFERENCES LOGIN_DETAILS(login_id)
@@ -46,7 +46,7 @@ BEGIN
 
     -- If max_pass_id is null, set it to 0
     IF max_pass_id IS NULL THEN
-        max_pass_id := 0;
+        max_pass_id := 1000;
     END IF;
 
     -- Set the new pass_id to max_pass_id + 1
