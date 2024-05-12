@@ -27,19 +27,32 @@ CREATE TABLE USER_TABLE
     ON DELETE SET NULL
 );
 
-CREATE SEQUENCE pass_id_seq start with 1000;;
-
--- passenger table
-CREATE TABLE PASSENGERS 
-(
-  pass_id NUMBER PRIMARY KEY,
-  disability NUMBER(1) NOT NULL, 
-  emergency_contact NUMBER NOT NULL,
-  
-  cnic NUMBER NOT NULL,
-  CONSTRAINT FK_CNIC FOREIGN KEY (cnic) REFERENCES USER_TABLE(cnic)
-  ON UPDATE CASCADE 
+CREATE TABLE PASSENGERS (
+    pass_id NUMBER PRIMARY KEY,  
+    disability NUMBER(1) CHECK (disability IN (0,1)) NOT NULL,
+    emergency_contact VARCHAR2(20) NOT NULL,
+    cnic VARCHAR2(13) NOT NULL,
+    CONSTRAINT FK_CNIC FOREIGN KEY (cnic) REFERENCES USER_TABLE(cnic)
 );
+
+CREATE OR REPLACE TRIGGER passengers_bir 
+BEFORE INSERT ON PASSENGERS 
+FOR EACH ROW
+DECLARE
+    max_pass_id NUMBER;
+BEGIN
+    -- Get the maximum pass_id from the PASSENGERS table
+    SELECT MAX(pass_id) INTO max_pass_id FROM PASSENGERS;
+
+    -- If max_pass_id is null, set it to 0
+    IF max_pass_id IS NULL THEN
+        max_pass_id := 0;
+    END IF;
+
+    -- Set the new pass_id to max_pass_id + 1
+    :new.pass_id := max_pass_id + 1;
+END;
+/
 
 --employee table (fk-user_table)
 CREATE table EMPLOYEE(
