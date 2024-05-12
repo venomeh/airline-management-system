@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
             this.cnic_label = new System.Windows.Forms.Label();
-            this.btn_edit_profile = new System.Windows.Forms.Button();
             this.btn_del_profile = new System.Windows.Forms.Button();
             this.email_label = new System.Windows.Forms.Label();
             this.phone_label = new System.Windows.Forms.Label();
@@ -78,18 +77,6 @@
             this.cnic_label.TabIndex = 53;
             this.cnic_label.Text = "CNIC:";
             this.cnic_label.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // btn_edit_profile
-            // 
-            this.btn_edit_profile.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.btn_edit_profile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_edit_profile.Location = new System.Drawing.Point(179, 384);
-            this.btn_edit_profile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_edit_profile.Name = "btn_edit_profile";
-            this.btn_edit_profile.Size = new System.Drawing.Size(227, 48);
-            this.btn_edit_profile.TabIndex = 51;
-            this.btn_edit_profile.Text = "Edit Profile";
-            this.btn_edit_profile.UseVisualStyleBackColor = false;
             // 
             // btn_del_profile
             // 
@@ -229,7 +216,6 @@
             this.Controls.Add(this.btn_del_profile);
             this.Controls.Add(this.cnic_label);
             this.Controls.Add(this.name_label);
-            this.Controls.Add(this.btn_edit_profile);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "User_Profile";
@@ -246,7 +232,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label name_label;
         private System.Windows.Forms.Label cnic_label;
-        private System.Windows.Forms.Button btn_edit_profile;
         private System.Windows.Forms.Button btn_del_profile;
         private System.Windows.Forms.Label email_label;
         private System.Windows.Forms.Label phone_label;

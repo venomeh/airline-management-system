@@ -82,18 +82,22 @@ namespace DATABASE_PROJECT
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            OracleCommand command = _db.con().CreateCommand();
-            command.CommandText = "SELECT * FROM user_table WHERE cnic = :CNIC";
-            command.Parameters.Add(new OracleParameter("CNIC", this.cnic));
-
-            OracleDataReader reader = command.ExecuteReader();
-
-            if (reader.HasRows)
+            if (MessageBox.Show("Are you sure you want to delete your account?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                //ask user confirm wheater they want to delete profile 
-                //if (yes)
-                    //"DELETE FROM * user_table where cnic =";
+                OracleCommand command = _db.con().CreateCommand();
+                command.CommandText = "DELETE FROM LOGIN_DETAILS " +
+                                      "WHERE login_id = (SELECT loginid FROM user_table WHERE cnic = :CNIC)";
+                command.Parameters.Add(new OracleParameter("CNIC", this.cnic));
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Account Deleted");
+                    LOGIN user = new LOGIN(_db);
+                    this.Hide();
+                    user.Show();
+                }
             }
 
         }
