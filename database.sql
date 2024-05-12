@@ -9,10 +9,10 @@ CREATE TABLE LOGIN_DETAILS
     login_id INT PRIMARY KEY,
     email VARCHAR2(200) UNIQUE NOT NULL,
     password VARCHAR2(255) NOT NULL,
-    user_typeno NUMBER(1)  
+    user_typeno NUMBER(1),  
     
     CONSTRAINT FKtypeno FOREIGN KEY (user_typeno) REFERENCES LOGIN_TYPE(type_no)
-    ON UPDATE CASCADE
+  
 );
 
 CREATE TABLE USER_TABLE 
@@ -27,7 +27,7 @@ CREATE TABLE USER_TABLE
     ON DELETE SET NULL
 );
 
-CREATE SEQUENCE pass_id_seq;
+CREATE SEQUENCE pass_id_seq start with 1000;;
 
 -- passenger table
 CREATE TABLE PASSENGERS 
