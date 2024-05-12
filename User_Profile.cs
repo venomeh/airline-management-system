@@ -90,8 +90,8 @@ namespace DATABASE_PROJECT
             if (reader.HasRows)
             {
                 //ask user confirm wheater they want to delete profile 
-                if (yes)
-                    "DELETE FROM * user_table where cnic ="
+                //if (yes)
+                    //"DELETE FROM * user_table where cnic =";
             }
 
         }
