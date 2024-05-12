@@ -46,7 +46,7 @@ BEGIN
 
     -- If max_pass_id is null, set it to 0
     IF max_pass_id IS NULL THEN
-        max_pass_id := 1000;
+        max_pass_id := 0;
     END IF;
 
     -- Set the new pass_id to max_pass_id + 1
