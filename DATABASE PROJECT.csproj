@@ -127,6 +127,12 @@
     <Compile Include="AS_AddEmployee.Designer.cs">
       <DependentUpon>AS_AddEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="AS_ScheduleFlight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AS_ScheduleFlight.Designer.cs">
+      <DependentUpon>AS_ScheduleFlight.cs</DependentUpon>
+    </Compile>
     <Compile Include="database.cs" />
     <Compile Include="Employee.cs">
       <SubType>Form</SubType>
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AS_AddEmployee.resx">
       <DependentUpon>AS_AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AS_ScheduleFlight.resx">
+      <DependentUpon>AS_ScheduleFlight.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlCenter.resx">
       <DependentUpon>ControlCenter.cs</DependentUpon>
