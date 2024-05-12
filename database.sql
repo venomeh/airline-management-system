@@ -71,23 +71,22 @@ CREATE SEQUENCE emp_id_seq
   NOCYCLE
   ORDER;
 
-CREATE table EMPLOYEE(
-	
-	emp_id NUMBER primary key DEFAULT emp_id_seq.NEXTVAL,
-	performance int,
-	experience int NOT NULL,
-	occupation char NOT NULL,
-	salary int NOT NULL,
-	age int,
-	cnic int,
+CREATE TABLE EMPLOYEE (
+    emp_id NUMBER PRIMARY KEY,
+    performance INT,
+    experience INT NOT NULL,
+    occupation CHAR NOT NULL,
+    salary INT NOT NULL,
+    age INT,
+    cnic VARCHAR(13) NOT NULL,
 
-    constraint User_table_fk FOREIGN KEY (cnic) REFERENCES USER_TABLE(cnic),
-	
-	constraint chk_occupation check(occupation IN ('C','S')),
-	
-	constraint chk_performance check(performance::integer BETWEEN 10 AND 100),
-	
-	constraint chk_exp check(experience::integer BETWEEN 0 AND 35)
+    CONSTRAINT User_table_fk FOREIGN KEY (cnic) REFERENCES USER_TABLE(cnic),
+    
+	CONSTRAINT chk_occupation CHECK (occupation IN ('C', 'S')),
+    
+	CONSTRAINT chk_performance CHECK (performance BETWEEN 10 AND 100),
+    
+	CONSTRAINT chk_exp CHECK (experience BETWEEN 0 AND 35)
 );
 
 
@@ -106,8 +105,8 @@ create table staff(
 	staff_id number primary key default staff_id_seq.NEXTVAL,
 	staff_role VARCHAR(100) NOT NULL,
 	
-	emp_id int,
-	constraint emp_fk foreign key(emp_id) references emp(emp_id)
+	emp_id int NOT NULL,
+	constraint emp_fk foreign key(emp_id) references EMPLOYEE(emp_id)
 );
 
 
@@ -122,13 +121,14 @@ CREATE SEQUENCE aircraft_id_seq
   NOCACHE
   NOCYCLE
   ORDER;
-
-create table aircraft(
-	aircraft_id number primary key default aircraft_id_seq.NEXTVAL,
+  
+create table aircraft
+(
+	aircraft_id number primary key,
 	capacity_ratio int NOT NULL,
 	total_capacity int NOT NULL,
 	
-	constraint chk_ratio check(capacity_ratio::int between 20 AND 70)
+	constraint chk_ratio check(capacity_ratio between 20 AND 70)
 );
 
 create table aircraft_details (
@@ -138,7 +138,6 @@ create table aircraft_details (
 	aircraft_id NUMBER,
 	constraint aircraft_fk foreign key(aircraft_id) references aircraft(aircraft_id)
 );
-
 
 
 
@@ -152,16 +151,15 @@ CREATE SEQUENCE maintainance_id_seq
   NOCYCLE
   ORDER;
 
-create table maintainance (
-	m_id number primary key default maintainance_id_seq.NEXTVAL,
-	task_description char NOT NULL,
-	maintainance_cost int NOT NULL,
-	start_date date NOT NULL,
-	end_date date NOT NULL,
-	status bool NOT NULL,
-	
-	aircraft_id NUMBER,
-	constraint fk_aircraft foreign key (aircraft_id) references aircraft(aircraft_id)
+CREATE TABLE maintainance (
+    m_id NUMBER PRIMARY KEY,
+    task_description CHAR NOT NULL,
+    maintainance_cost INT NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    status NUMBER(1) NOT NULL,
+    aircraft_id NUMBER,
+    CONSTRAINT fk_aircraft FOREIGN KEY (aircraft_id) REFERENCES aircraft(aircraft_id)
 );
 
 
@@ -177,38 +175,37 @@ CREATE SEQUENCE flight_id_seq
   NOCYCLE
   ORDER;
 
-create table flight(  -----changes needed
-	flight_id NUMBER primary key default flight_id_seq.NEXTVAL,
-	departure date NOT NULL,
-	arrival date NOT NULL,
-	departure_time time NOT NULL,
-	arrival_time time NOT NULL,
-	revenue int, --trigger pending
-	flight_status char NOT NULL, --triggger pending
-	
-	aircraft_id NUMBER,
-	constraint fk_aircraft foreign key (aircraft_id) references aircraft(aircraft_id)
-);
+CREATE TABLE flight (  
+    flight_id NUMBER PRIMARY KEY,
+    departure DATE NOT NULL,
+    arrival DATE NOT NULL,
+    departure_time TIMESTAMP NOT NULL,
+    arrival_time TIMESTAMP NOT NULL,
+    revenue INT, --trigger pending
+    flight_status CHAR NOT NULL, --trigger pending
 
+    aircraft_id NUMBER,
+    CONSTRAINT fk_aircraft_ID FOREIGN KEY (aircraft_id) REFERENCES aircraft(aircraft_id)
+);
 
 
 --generates revenue (associative entity) -> flight,aircraft,maintainance
 
-create table generates_revenue(
-	revenue_generated int, --trigger pending
-	status_of_flight varchar(10), --trigger pending
-	total_cost int, --triggger pending
-	airtime_cost int, --trigger pending
-	
-	flight_id NUMBER,
-	aircraft_id NUMBER,
-	m_id NUMBER,
-	constraint flight_fk foreign key(flight_id) references flight(flight_id),
-	constraint aircraft_fk foreign key(aircraft_id) references aircraft(aircraft_id),
-	constraint maintainance_fk foreign key(m_id) references maintainance(m_id),
-	
-	primary key(flight_id,aircraft_id,m_id)
+CREATE TABLE generates_revenue (
+    revenue_generated INT, -- Trigger pending
+    status_of_flight VARCHAR2(10), -- Trigger pending
+    total_cost INT, -- Trigger pending
+    airtime_cost INT, -- Trigger pending
 
+    flight_id NUMBER,
+    aircraft_id NUMBER,
+    m_id NUMBER,
+    
+    CONSTRAINT flightID_fk FOREIGN KEY (flight_id) REFERENCES flight (flight_id),
+    CONSTRAINT aircraftID_fk FOREIGN KEY (aircraft_id) REFERENCES aircraft (aircraft_id),
+    CONSTRAINT maintainanceID_fk FOREIGN KEY (m_id) REFERENCES maintainance (m_id),
+    
+    PRIMARY KEY (flight_id, aircraft_id, m_id)
 );
 
 
@@ -224,16 +221,14 @@ CREATE SEQUENCE crew_id_seq
   NOCYCLE
   ORDER;
 
-create table crew(
-	crew_id NUMBER primary key DEFAULT crew_id_seq.NEXTVAL ,
-
-	emp_id int,
-	constraint emp_fk foreign key(emp_id) references emp(emp_id),
-	
-	flight_id int,
-	constraint flight_fk foreign key(flight_id) references flight
+CREATE TABLE crew (
+    crew_id NUMBER PRIMARY KEY,
+    
+    emp_id INT,
+    CONSTRAINT crewEmp_fk FOREIGN KEY (emp_id) REFERENCES employee (emp_id),
+    flight_id INT,
+    CONSTRAINT crewflightID_fk FOREIGN KEY (flight_id) REFERENCES flight (flight_id)
 );
-
 
 
 -- baggage table (fk-PASSENGERS),(fk-flight)
@@ -246,34 +241,31 @@ CREATE SEQUENCE bag_id_seq
   NOCYCLE
   ORDER;
 
-create table baggage(
-	baggage_id NUMBER primary key default bag_id_seq.NEXTVAL,
-	claim_status bool,
-	bag_weight_cost int,
-	weight int,
-	
-	pass_id int,
-	flight_id int,
-	
-	constraint pass_fk foreign key(pass_id) references passengers(pass_id),
-	constraint flight_fk foreign key(flight_id) references flight(flight_id)
+CREATE TABLE baggage (
+    baggage_id NUMBER PRIMARY KEY,
+    claim_status NUMBER(1),
+    bag_weight_cost INT,
+    weight INT,
+    pass_id INT,
+    flight_id INT,
+    
+    CONSTRAINT baggagePass_fk FOREIGN KEY (pass_id) REFERENCES passengers (pass_id),
+    CONSTRAINT baggageFlight_fk FOREIGN KEY (flight_id) REFERENCES flight (flight_id)
 );
 
 
-
 --booking table (associative entity) -> flight, passengers, baggage
+CREATE TABLE booking (
+    seat_no INT NOT NULL,
+    booking_date DATE NOT NULL,
+    ticket_price INT NOT NULL,
+    class_book NUMBER(1) NOT NULL,
 
-create table booking(
-	seat_no int not null,
-	booking_date date not null,
-	ticket_price int not null,
-	class_Book bool not null,
-	
-	flight_id int,
-	passenger_id int,
-	baggage_id int,
-	
-	constraint flight_fk foreign key(flight_id) references flight(flight_id),
-	constraint pass_fk foreign key(passenger_id) references passengers(pass_id),
-	constraint baggage_fk foreign key(baggage_id) references baggage(baggage_id)
+    flight_id INT,
+    passenger_id INT,
+    baggage_id INT,
+
+    CONSTRAINT bookingFlight_fk FOREIGN KEY (flight_id) REFERENCES flight (flight_id),
+    CONSTRAINT bookingPass_fk FOREIGN KEY (passenger_id) REFERENCES passengers (pass_id),
+    CONSTRAINT bookingBaggage_fk FOREIGN KEY (baggage_id) REFERENCES baggage (baggage_id)
 );
