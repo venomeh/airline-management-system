@@ -126,17 +126,21 @@ namespace DATABASE_PROJECT
             if (reader.Read()) // Check if a row was returned
             {
                 OracleDataReader cnicReader;
+                query.CommandText = "SELECT cnic FROM USER_TABLE WHERE loginid = " + dbLoginId;
+                cnicReader = query.ExecuteReader();
                 if (reader["type_name"].ToString() == "ADMIN")
                 {
                 }
                 if (reader["type_name"].ToString() == "EMPLOYEE")
                 {
-
+                    if (cnicReader.Read())
+                    {
+                        Employee emp = new Employee(_db, cnicReader["cnic"].ToString());
+                        emp.Show();
+                    }
                 }
                 if (reader["type_name"].ToString() == "PASSENGER")
                 {
-                    query.CommandText = "SELECT cnic FROM USER_TABLE WHERE loginid = " + dbLoginId;
-                    cnicReader = query.ExecuteReader();
                     if (cnicReader.Read())
                     {
                         Main_UserView user = new Main_UserView(_db, cnicReader["cnic"].ToString());
