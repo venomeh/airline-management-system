@@ -12,7 +12,6 @@ CREATE TABLE LOGIN_DETAILS
     user_typeno NUMBER(1),  
     
     CONSTRAINT FKtypeno FOREIGN KEY (user_typeno) REFERENCES LOGIN_TYPE(type_no)
-  
 );
 
 CREATE TABLE USER_TABLE 
@@ -27,7 +26,8 @@ CREATE TABLE USER_TABLE
     ON DELETE SET NULL
 );
 
-CREATE TABLE PASSENGERS (
+CREATE TABLE PASSENGERS 
+(
     pass_id NUMBER PRIMARY KEY,  
     disability NUMBER(1) CHECK (disability IN (0,1)) NOT NULL,
     emergency_contact VARCHAR2(20) NOT NULL,
@@ -66,8 +66,7 @@ CREATE table EMPLOYEE(
 	cnic int,
   
     constraint U_id_fk FOREIGN KEY (cnic) REFERENCES USER_TABLE(cnic)
-    ON UPDATE CASCADE,
-	
+    
 	constraint chk_occupation check(occupation IN ('C','S')),
 	
 	constraint chk_performance check(performance::integer BETWEEN 10 AND 100),

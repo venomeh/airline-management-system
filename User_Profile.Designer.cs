@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User_Profile));
             this.label1 = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
             this.cnic_label = new System.Windows.Forms.Label();
@@ -81,6 +82,7 @@
             // btn_del_profile
             // 
             this.btn_del_profile.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.btn_del_profile.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_del_profile.BackgroundImage")));
             this.btn_del_profile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_del_profile.Location = new System.Drawing.Point(179, 438);
             this.btn_del_profile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -117,6 +119,7 @@
             // btn_back
             // 
             this.btn_back.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.btn_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_back.BackgroundImage")));
             this.btn_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_back.Location = new System.Drawing.Point(179, 492);
             this.btn_back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -203,6 +206,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
             this.Controls.Add(this.label_displayPassword);
             this.Controls.Add(this.password_label);
