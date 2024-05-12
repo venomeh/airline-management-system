@@ -9,16 +9,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Oracle.ManagedDataAccess.Client;
+using System.CodeDom;
 namespace DATABASE_PROJECT
 {
     public partial class User_CancelSeat : Form
     {
         private database _db;
-        public User_CancelSeat(database db)
+        public string cnic;
+        public User_CancelSeat(database db , string cnic)
         {
-            _db = db;
             InitializeComponent();
+            _db = db;
+            this.cnic = cnic;
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -52,14 +55,63 @@ namespace DATABASE_PROJECT
 
         private void button_back_Click(object sender, EventArgs e)
         {
-           // Main_UserView user = new Main_UserView(_db);
-       //     user.Show();
+         Main_UserView user = new Main_UserView(_db,cnic);
+            user.Show();
 
             this.Hide();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void button_cancelSeat_Click(object sender, EventArgs e)
+        {
+            string f_id = textBox_ticketno.Text;
+            try
+            {
+                DialogResult result = MessageBox.Show("Confirm Ticket Cancellation?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    //delete bookings details
+                    OracleCommand deleteBookingCommand = _db.con().CreateCommand();
+                    deleteBookingCommand.CommandText = "DELETE FROM booking " +
+                        "WHERE flight_id = :f_id " +
+                        "AND passenger_ID = " +
+                        "(SELECT pass_id FROM passengers WHERE cnic = :NIC)";
+                    deleteBookingCommand.Parameters.Add(":f_id", f_id);
+                    deleteBookingCommand.Parameters.Add(":NIC", cnic);
+                    int bookingRowsAffected = deleteBookingCommand.ExecuteNonQuery();
+                    if (bookingRowsAffected > 0)
+                    {
+                        MessageBox.Show("Ticket Deleted");
+                    }
+                    else
+                    {
+                        return;
+                    }
+
+                    //delete baggage details
+                    OracleCommand deleteBaggageCommand = _db.con().CreateCommand();
+                    deleteBaggageCommand.CommandText = "DELETE FROM baggage WHERE flight_id = :f_id " +
+                        "AND pass_id = (SELECT pass_id FROM passengers WHERE cnic = :NIC)";
+                    deleteBaggageCommand.Parameters.Add(":f_id", f_id);
+                    deleteBaggageCommand.Parameters.Add(":NIC", cnic);
+                    int baggageRowsAffected = deleteBaggageCommand.ExecuteNonQuery();
+
+                   
+                }
+                else
+                {
+                    MessageBox.Show("Deletion canceled.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
 
         }
     }

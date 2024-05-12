@@ -105,5 +105,10 @@ namespace DATABASE_PROJECT
         {
             // if checked then diplay flight ID
         }
+
+        private void flightStatus_label_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

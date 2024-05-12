@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.button_back = new System.Windows.Forms.Button();
-            this.dataGridView_flight_status = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_flight_status)).BeginInit();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button_back
@@ -47,22 +47,22 @@
             this.button_back.UseVisualStyleBackColor = false;
             this.button_back.Click += new System.EventHandler(this.button_back_Click);
             // 
-            // dataGridView_flight_status
+            // dataGridView1
             // 
-            this.dataGridView_flight_status.AllowUserToAddRows = false;
-            this.dataGridView_flight_status.AllowUserToDeleteRows = false;
-            this.dataGridView_flight_status.AllowUserToResizeColumns = false;
-            this.dataGridView_flight_status.AllowUserToResizeRows = false;
-            this.dataGridView_flight_status.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView_flight_status.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_flight_status.Location = new System.Drawing.Point(22, 51);
-            this.dataGridView_flight_status.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView_flight_status.Name = "dataGridView_flight_status";
-            this.dataGridView_flight_status.RowHeadersWidth = 51;
-            this.dataGridView_flight_status.RowTemplate.Height = 24;
-            this.dataGridView_flight_status.Size = new System.Drawing.Size(556, 426);
-            this.dataGridView_flight_status.TabIndex = 55;
-            this.dataGridView_flight_status.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_flight_status_CellContentClick);
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(22, 51);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(556, 359);
+            this.dataGridView1.TabIndex = 55;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_flight_status_CellContentClick);
             // 
             // User_Booking
             // 
@@ -71,14 +71,14 @@
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
-            this.Controls.Add(this.dataGridView_flight_status);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button_back);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "User_Booking";
             this.Text = "User_Booking";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.User_Booking_FormClosing);
             this.Load += new System.EventHandler(this.User_Booking_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_flight_status)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -86,6 +86,6 @@
         #endregion
 
         private System.Windows.Forms.Button button_back;
-        private System.Windows.Forms.DataGridView dataGridView_flight_status;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

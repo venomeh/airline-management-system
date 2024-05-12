@@ -36,7 +36,7 @@ namespace DATABASE_PROJECT.Resources
 
         private void button1_Click(object sender, EventArgs e)
         {
-            User_BookSeat user = new User_BookSeat(_db);
+            User_BookSeat user = new User_BookSeat(_db, this.cnic);
             user.Show();
 
             this.Hide();
@@ -100,7 +100,7 @@ namespace DATABASE_PROJECT.Resources
 
         private void button_flight_status_Click(object sender, EventArgs e)
         {
-            User_FlightStatus user = new User_FlightStatus(_db);
+            User_FlightStatus user = new User_FlightStatus(_db, cnic);
             user.Show();
 
             this.Hide();
@@ -108,7 +108,7 @@ namespace DATABASE_PROJECT.Resources
 
         private void button_bookedSeats_Click(object sender, EventArgs e)
         {
-            User_Booking user = new User_Booking(_db);
+            User_Booking user = new User_Booking(_db, cnic);
             user.Show();
 
             this.Hide();
@@ -116,7 +116,7 @@ namespace DATABASE_PROJECT.Resources
 
         private void button_cancelSeat_Click(object sender, EventArgs e)
         {
-            User_CancelSeat user = new User_CancelSeat(_db);   
+            User_CancelSeat user = new User_CancelSeat(_db, cnic);   
             user.Show();    
 
             this.Hide();    

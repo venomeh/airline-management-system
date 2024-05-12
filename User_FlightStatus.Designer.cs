@@ -29,23 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User_FlightStatus));
-            this.textBox_ticketno = new System.Windows.Forms.TextBox();
+            this.textBox_FlightId = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button_back = new System.Windows.Forms.Button();
             this.button_search = new System.Windows.Forms.Button();
-            this.dataGridView_flight_status = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_flight_status)).BeginInit();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label_displayStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox_ticketno
+            // textBox_FlightId
             // 
-            this.textBox_ticketno.BackColor = System.Drawing.Color.LightGray;
-            this.textBox_ticketno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_ticketno.Location = new System.Drawing.Point(201, 309);
-            this.textBox_ticketno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_ticketno.Name = "textBox_ticketno";
-            this.textBox_ticketno.Size = new System.Drawing.Size(225, 22);
-            this.textBox_ticketno.TabIndex = 52;
+            this.textBox_FlightId.BackColor = System.Drawing.Color.LightGray;
+            this.textBox_FlightId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox_FlightId.Location = new System.Drawing.Point(201, 309);
+            this.textBox_FlightId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox_FlightId.Name = "textBox_FlightId";
+            this.textBox_FlightId.Size = new System.Drawing.Size(225, 22);
+            this.textBox_FlightId.TabIndex = 52;
+            this.textBox_FlightId.TextChanged += new System.EventHandler(this.textBox_ticketno_TextChanged);
             // 
             // label6
             // 
@@ -86,18 +87,29 @@
             this.button_search.TabIndex = 50;
             this.button_search.Text = "Search";
             this.button_search.UseVisualStyleBackColor = false;
+            this.button_search.Click += new System.EventHandler(this.button_search_Click);
             // 
-            // dataGridView_flight_status
+            // label5
             // 
-            this.dataGridView_flight_status.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_flight_status.Location = new System.Drawing.Point(27, 28);
-            this.dataGridView_flight_status.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView_flight_status.Name = "dataGridView_flight_status";
-            this.dataGridView_flight_status.RowHeadersWidth = 51;
-            this.dataGridView_flight_status.RowTemplate.Height = 24;
-            this.dataGridView_flight_status.Size = new System.Drawing.Size(553, 193);
-            this.dataGridView_flight_status.TabIndex = 54;
-            this.dataGridView_flight_status.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_flight_status_CellContentClick);
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(182, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(279, 48);
+            this.label5.TabIndex = 85;
+            this.label5.Text = "A.T Airlines";
+            // 
+            // label_displayStatus
+            // 
+            this.label_displayStatus.AutoSize = true;
+            this.label_displayStatus.BackColor = System.Drawing.Color.Transparent;
+            this.label_displayStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_displayStatus.Location = new System.Drawing.Point(200, 180);
+            this.label_displayStatus.Name = "label_displayStatus";
+            this.label_displayStatus.Size = new System.Drawing.Size(70, 25);
+            this.label_displayStatus.TabIndex = 86;
+            this.label_displayStatus.Text = "status";
             // 
             // User_FlightStatus
             // 
@@ -107,9 +119,10 @@
             this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(605, 576);
-            this.Controls.Add(this.dataGridView_flight_status);
+            this.Controls.Add(this.label_displayStatus);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button_back);
-            this.Controls.Add(this.textBox_ticketno);
+            this.Controls.Add(this.textBox_FlightId);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button_search);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -117,7 +130,6 @@
             this.Text = "User_FlightStatus";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.User_FlightStatus_FormClosing);
             this.Load += new System.EventHandler(this.User_FlightStatus_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_flight_status)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,9 +138,10 @@
         #endregion
 
         private System.Windows.Forms.Button button_back;
-        private System.Windows.Forms.TextBox textBox_ticketno;
+        private System.Windows.Forms.TextBox textBox_FlightId;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button_search;
-        private System.Windows.Forms.DataGridView dataGridView_flight_status;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label_displayStatus;
     }
 }

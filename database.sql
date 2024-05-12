@@ -177,8 +177,8 @@ CREATE SEQUENCE flight_id_seq
 
 CREATE TABLE flight (  
     flight_id NUMBER PRIMARY KEY,
-    departure DATE NOT NULL,
-    arrival DATE NOT NULL,
+    departure_city varchar(20) NOT NULL,
+    arrival_city varchar(20) NOT NULL,
     departure_time TIMESTAMP NOT NULL,
     arrival_time TIMESTAMP NOT NULL,
     revenue INT, --trigger pending

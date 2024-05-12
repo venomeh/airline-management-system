@@ -100,11 +100,7 @@ namespace DATABASE_PROJECT
                 dbPassword = reader["password"].ToString();
                 dbEmail = reader["email"].ToString();
 
-                if (dbPassword == password)
-                {
-                    MessageBox.Show("Login Successful");
-                }
-                else
+                if (dbPassword != password)
                 {
                     MessageBox.Show("Incorrect Password");
                     return;
@@ -194,6 +190,6 @@ namespace DATABASE_PROJECT
 
         }
 
-        
+    
     }
 }

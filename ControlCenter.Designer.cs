@@ -59,6 +59,7 @@
             this.button_update_flight_status.TabIndex = 20;
             this.button_update_flight_status.Text = "Update Flight Status";
             this.button_update_flight_status.UseVisualStyleBackColor = false;
+            this.button_update_flight_status.Click += new System.EventHandler(this.button_update_flight_status_Click);
             // 
             // button_logistics
             // 

@@ -50,6 +50,7 @@
             this.button_cancelSeat.TabIndex = 11;
             this.button_cancelSeat.Text = "Cancel Seat";
             this.button_cancelSeat.UseVisualStyleBackColor = false;
+            this.button_cancelSeat.Click += new System.EventHandler(this.button_cancelSeat_Click);
             // 
             // label1
             // 
