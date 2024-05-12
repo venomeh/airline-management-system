@@ -41,5 +41,10 @@ namespace DATABASE_PROJECT
         {
             // Handle cell content click event
         }
+
+        private void button_AddEmployee_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
