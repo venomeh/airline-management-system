@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
 namespace DATABASE_PROJECT
 {
+
     public class database
     {
         private OracleConnection _connection;
@@ -24,4 +25,5 @@ namespace DATABASE_PROJECT
         public OracleConnection con() { return _connection; }
 
     }
+
 }
