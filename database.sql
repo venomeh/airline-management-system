@@ -122,6 +122,27 @@ CREATE SEQUENCE aircraft_id_seq
   NOCYCLE
   ORDER;
   
+CREATE OR REPLACE TRIGGER trg_aircraft_id
+BEFORE INSERT ON aircraft
+FOR EACH ROW
+DECLARE
+    max_air_id NUMBER;
+BEGIN
+    -- Get the maximum emp_id from the EMPLOYEE table
+    SELECT MAX(aircraft_id) INTO max_air_id FROM aircraft;
+
+    -- If max_emp_id is null, set it to 6000, otherwise increment by 1
+    IF max_air_id IS NULL THEN
+        max_air_id := 1000;
+    ELSE
+        max_air_id := max_air_id + 1;
+    END IF;
+
+    -- Set the new emp_id to max_emp_id
+    :new.aircraft_id := max_air_id;
+END;
+/
+
 create table aircraft
 (
 	aircraft_id number primary key,

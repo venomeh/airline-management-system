@@ -12,8 +12,10 @@ namespace DATABASE_PROJECT
 {
     public partial class AS_ScheduleFlight : Form
     {
-        public AS_ScheduleFlight()
+        private database _db;
+        public AS_ScheduleFlight(database db)
         {
+            this._db = db;
             InitializeComponent();
         }
 
@@ -108,6 +110,30 @@ namespace DATABASE_PROJECT
 
         private void flightStatus_label_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void arrivalTime_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void arrival_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void name_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            AirlineServices airlineServices = new AirlineServices(_db);
+            airlineServices.Show();
+
+            this.Hide();
 
         }
     }

@@ -50,21 +50,21 @@ namespace DATABASE_PROJECT
 
         private void button_schedule_flight_Click(object sender, EventArgs e)
         {
-            AS_ScheduleFlight aS_ScheduleFlight = new AS_ScheduleFlight();
+            AS_ScheduleFlight aS_ScheduleFlight = new AS_ScheduleFlight(_db);
             this.Hide();
             aS_ScheduleFlight.Show();
         }
 
         private void button_assign_pilot_crew_Click(object sender, EventArgs e)
         {
-            AS_assignPilotCrew aS_AssignPilotCrew = new AS_assignPilotCrew();
+            AS_assignPilotCrew aS_AssignPilotCrew = new AS_assignPilotCrew(_db);
             this.Hide();
             aS_AssignPilotCrew.Show();
         }
 
         private void button_manage_aircraft_Click(object sender, EventArgs e)
         {
-            AS_aircraft aS_Aircraft = new AS_aircraft();
+            AS_aircraft aS_Aircraft = new AS_aircraft(_db);
             this.Hide();
 
             aS_Aircraft.Show(); 

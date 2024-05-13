@@ -28,84 +28,98 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Pilot_Crew_label = new System.Windows.Forms.Label();
-            this.pilot_radiobtn = new System.Windows.Forms.RadioButton();
-            this.crew_radio_btn = new System.Windows.Forms.RadioButton();
-            this.pilot_crew_combobox = new System.Windows.Forms.ComboBox();
-            this.Flight_id_lable = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AS_assignPilotCrew));
+            this.crew_combobox = new System.Windows.Forms.ComboBox();
             this.flight_id_combobox = new System.Windows.Forms.ComboBox();
+            this.name_label = new System.Windows.Forms.Label();
+            this.label_FID = new System.Windows.Forms.Label();
+            this.btn_back = new System.Windows.Forms.Button();
+            this.button_Assign = new System.Windows.Forms.Button();
+            this.label_displayStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // Pilot_Crew_label
+            // crew_combobox
             // 
-            this.Pilot_Crew_label.AutoSize = true;
-            this.Pilot_Crew_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pilot_Crew_label.Location = new System.Drawing.Point(13, 86);
-            this.Pilot_Crew_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Pilot_Crew_label.Name = "Pilot_Crew_label";
-            this.Pilot_Crew_label.Size = new System.Drawing.Size(253, 39);
-            this.Pilot_Crew_label.TabIndex = 0;
-            this.Pilot_Crew_label.Text = "PILOTS/CREW";
-            this.Pilot_Crew_label.Click += new System.EventHandler(this.Pilots_label_Click);
-            // 
-            // pilot_radiobtn
-            // 
-            this.pilot_radiobtn.AutoSize = true;
-            this.pilot_radiobtn.Location = new System.Drawing.Point(283, 103);
-            this.pilot_radiobtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pilot_radiobtn.Name = "pilot_radiobtn";
-            this.pilot_radiobtn.Size = new System.Drawing.Size(54, 20);
-            this.pilot_radiobtn.TabIndex = 2;
-            this.pilot_radiobtn.TabStop = true;
-            this.pilot_radiobtn.Text = "Pilot";
-            this.pilot_radiobtn.UseVisualStyleBackColor = true;
-            this.pilot_radiobtn.CheckedChanged += new System.EventHandler(this.pilot_radiobtn_CheckedChanged);
-            // 
-            // crew_radio_btn
-            // 
-            this.crew_radio_btn.AutoSize = true;
-            this.crew_radio_btn.Location = new System.Drawing.Point(351, 103);
-            this.crew_radio_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.crew_radio_btn.Name = "crew_radio_btn";
-            this.crew_radio_btn.Size = new System.Drawing.Size(58, 20);
-            this.crew_radio_btn.TabIndex = 3;
-            this.crew_radio_btn.TabStop = true;
-            this.crew_radio_btn.Text = "Crew";
-            this.crew_radio_btn.UseVisualStyleBackColor = true;
-            this.crew_radio_btn.CheckedChanged += new System.EventHandler(this.crew_radio_btn_CheckedChanged);
-            // 
-            // pilot_crew_combobox
-            // 
-            this.pilot_crew_combobox.FormattingEnabled = true;
-            this.pilot_crew_combobox.Location = new System.Drawing.Point(26, 142);
-            this.pilot_crew_combobox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pilot_crew_combobox.Name = "pilot_crew_combobox";
-            this.pilot_crew_combobox.Size = new System.Drawing.Size(240, 24);
-            this.pilot_crew_combobox.TabIndex = 4;
-            this.pilot_crew_combobox.Text = "Pilot/Crew";
-            this.pilot_crew_combobox.SelectedIndexChanged += new System.EventHandler(this.pilot_crew_combobox_SelectedIndexChanged);
-            // 
-            // Flight_id_lable
-            // 
-            this.Flight_id_lable.AutoSize = true;
-            this.Flight_id_lable.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Flight_id_lable.Location = new System.Drawing.Point(19, 234);
-            this.Flight_id_lable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Flight_id_lable.Name = "Flight_id_lable";
-            this.Flight_id_lable.Size = new System.Drawing.Size(147, 39);
-            this.Flight_id_lable.TabIndex = 5;
-            this.Flight_id_lable.Text = "Flight_id";
+            this.crew_combobox.FormattingEnabled = true;
+            this.crew_combobox.Location = new System.Drawing.Point(208, 103);
+            this.crew_combobox.Margin = new System.Windows.Forms.Padding(4);
+            this.crew_combobox.Name = "crew_combobox";
+            this.crew_combobox.Size = new System.Drawing.Size(240, 24);
+            this.crew_combobox.TabIndex = 4;
+            this.crew_combobox.Text = "Pilot/Crew";
+            this.crew_combobox.SelectedIndexChanged += new System.EventHandler(this.pilot_crew_combobox_SelectedIndexChanged);
             // 
             // flight_id_combobox
             // 
             this.flight_id_combobox.FormattingEnabled = true;
-            this.flight_id_combobox.Location = new System.Drawing.Point(185, 234);
-            this.flight_id_combobox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flight_id_combobox.Location = new System.Drawing.Point(208, 152);
+            this.flight_id_combobox.Margin = new System.Windows.Forms.Padding(4);
             this.flight_id_combobox.Name = "flight_id_combobox";
             this.flight_id_combobox.Size = new System.Drawing.Size(240, 24);
             this.flight_id_combobox.TabIndex = 6;
             this.flight_id_combobox.Text = "ID\'s";
             this.flight_id_combobox.SelectedIndexChanged += new System.EventHandler(this.flight_id_combobox_SelectedIndexChanged);
+            // 
+            // name_label
+            // 
+            this.name_label.AutoSize = true;
+            this.name_label.BackColor = System.Drawing.Color.Transparent;
+            this.name_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name_label.Location = new System.Drawing.Point(81, 103);
+            this.name_label.Name = "name_label";
+            this.name_label.Size = new System.Drawing.Size(104, 22);
+            this.name_label.TabIndex = 66;
+            this.name_label.Text = "Assign Pilot";
+            this.name_label.Click += new System.EventHandler(this.name_label_Click);
+            // 
+            // label_FID
+            // 
+            this.label_FID.AutoSize = true;
+            this.label_FID.BackColor = System.Drawing.Color.Transparent;
+            this.label_FID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_FID.Location = new System.Drawing.Point(81, 154);
+            this.label_FID.Name = "label_FID";
+            this.label_FID.Size = new System.Drawing.Size(73, 22);
+            this.label_FID.TabIndex = 76;
+            this.label_FID.Text = "Flight Id";
+            // 
+            // btn_back
+            // 
+            this.btn_back.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.btn_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_back.BackgroundImage")));
+            this.btn_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_back.Location = new System.Drawing.Point(187, 498);
+            this.btn_back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(227, 48);
+            this.btn_back.TabIndex = 78;
+            this.btn_back.Text = "Back";
+            this.btn_back.UseVisualStyleBackColor = false;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
+            // button_Assign
+            // 
+            this.button_Assign.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.button_Assign.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Assign.BackgroundImage")));
+            this.button_Assign.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Assign.Location = new System.Drawing.Point(187, 444);
+            this.button_Assign.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_Assign.Name = "button_Assign";
+            this.button_Assign.Size = new System.Drawing.Size(227, 48);
+            this.button_Assign.TabIndex = 77;
+            this.button_Assign.Text = "Assign";
+            this.button_Assign.UseVisualStyleBackColor = false;
+            this.button_Assign.Click += new System.EventHandler(this.button_Assign_Click);
+            // 
+            // label_displayStatus
+            // 
+            this.label_displayStatus.AutoSize = true;
+            this.label_displayStatus.BackColor = System.Drawing.Color.Transparent;
+            this.label_displayStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_displayStatus.Location = new System.Drawing.Point(254, 265);
+            this.label_displayStatus.Name = "label_displayStatus";
+            this.label_displayStatus.Size = new System.Drawing.Size(0, 25);
+            this.label_displayStatus.TabIndex = 87;
             // 
             // AS_assignPilotCrew
             // 
@@ -113,28 +127,30 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
+            this.Controls.Add(this.label_displayStatus);
+            this.Controls.Add(this.btn_back);
+            this.Controls.Add(this.button_Assign);
+            this.Controls.Add(this.label_FID);
+            this.Controls.Add(this.name_label);
             this.Controls.Add(this.flight_id_combobox);
-            this.Controls.Add(this.Flight_id_lable);
-            this.Controls.Add(this.pilot_crew_combobox);
-            this.Controls.Add(this.crew_radio_btn);
-            this.Controls.Add(this.pilot_radiobtn);
-            this.Controls.Add(this.Pilot_Crew_label);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.crew_combobox);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AS_assignPilotCrew";
             this.Text = "AS_assignPilotCrew";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AS_assignPilotCrew_FormClosing);
+            this.Load += new System.EventHandler(this.AS_assignPilotCrew_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label Pilot_Crew_label;
-        private System.Windows.Forms.RadioButton pilot_radiobtn;
-        private System.Windows.Forms.RadioButton crew_radio_btn;
-        private System.Windows.Forms.ComboBox pilot_crew_combobox;
-        private System.Windows.Forms.Label Flight_id_lable;
+        private System.Windows.Forms.ComboBox crew_combobox;
         private System.Windows.Forms.ComboBox flight_id_combobox;
+        private System.Windows.Forms.Label name_label;
+        private System.Windows.Forms.Label label_FID;
+        private System.Windows.Forms.Button btn_back;
+        private System.Windows.Forms.Button button_Assign;
+        private System.Windows.Forms.Label label_displayStatus;
     }
 }
