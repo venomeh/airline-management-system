@@ -109,6 +109,7 @@ namespace DATABASE_PROJECT
         private void button_Assign_Click(object sender, EventArgs e)
         {
           
+
             depHr = ncDEPtime.Value.ToString();
             arrHr = ncARRtime.Value.ToString();
 
