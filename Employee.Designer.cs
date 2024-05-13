@@ -100,6 +100,7 @@
             this.button_assignments.TabIndex = 14;
             this.button_assignments.Text = "Assignments";
             this.button_assignments.UseVisualStyleBackColor = false;
+            this.button_assignments.Click += new System.EventHandler(this.button_assignments_Click);
             // 
             // label_displayName
             // 

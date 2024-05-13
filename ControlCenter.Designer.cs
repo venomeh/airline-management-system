@@ -33,7 +33,7 @@
             this.button_logistics = new System.Windows.Forms.Button();
             this.button_cancel_flight = new System.Windows.Forms.Button();
             this.button_weather_report = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button_logout
@@ -97,17 +97,16 @@
             this.button_weather_report.Text = "Weather Report";
             this.button_weather_report.UseVisualStyleBackColor = false;
             // 
-            // label2
+            // label1
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label2.Font = new System.Drawing.Font("Segoe Script", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(187, 107);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 30);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Welcome,";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(158, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(279, 48);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "A.T Airlines";
             // 
             // ControlCenter
             // 
@@ -116,12 +115,12 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(606, 576);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button_logout);
             this.Controls.Add(this.button_update_flight_status);
             this.Controls.Add(this.button_logistics);
             this.Controls.Add(this.button_cancel_flight);
             this.Controls.Add(this.button_weather_report);
-            this.Controls.Add(this.label2);
             this.Name = "ControlCenter";
             this.Text = "Form3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ControlCenter_FormClosing);
@@ -138,6 +137,6 @@
         private System.Windows.Forms.Button button_logistics;
         private System.Windows.Forms.Button button_cancel_flight;
         private System.Windows.Forms.Button button_weather_report;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

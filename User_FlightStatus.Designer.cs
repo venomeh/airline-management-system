@@ -94,7 +94,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(182, 42);
+            this.label5.Location = new System.Drawing.Point(172, 23);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(279, 48);
             this.label5.TabIndex = 85;

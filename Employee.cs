@@ -74,5 +74,12 @@ namespace DATABASE_PROJECT
 
             this.Hide();
         }
+
+        private void button_assignments_Click(object sender, EventArgs e)
+        {
+            Employee_Assignments employee_Assignments = new Employee_Assignments(_db, cnic);
+            this.Hide();
+            employee_Assignments.Show();
+        }
     }
 }

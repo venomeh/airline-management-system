@@ -88,7 +88,7 @@ namespace DATABASE_PROJECT
             string dbLoginId = "";
             string dbPassword = "";
             string dbEmail = "";
-
+           
             OracleCommand query = _db.con().CreateCommand();
             query.CommandText = "SELECT login_id, email, password, user_typeno FROM LOGIN_DETAILS WHERE email = :e";
             query.Parameters.Add(new OracleParameter("e", email));
@@ -99,7 +99,6 @@ namespace DATABASE_PROJECT
                 dbLoginId = reader["login_id"].ToString();
                 dbPassword = reader["password"].ToString();
                 dbEmail = reader["email"].ToString();
-
                 if (dbPassword != password)
                 {
                     MessageBox.Show("Incorrect Password");
@@ -113,24 +112,32 @@ namespace DATABASE_PROJECT
             }
 
             string userTypeNo = reader["user_typeno"].ToString();
-           
+            
+            //if login is ADMIN
+            if (userTypeNo == "3")
+            {
+                this.Hide();
+
+                AirlineServices emp = new AirlineServices(_db);
+                emp.Show();
+
+            }
             query.CommandText = "SELECT type_name FROM LOGIN_TYPE WHERE type_no = '" + userTypeNo + "'";
             reader = query.ExecuteReader();
-           
-            this.Hide();
+               
             
             if (reader.Read()) // Check if a row was returned
             {
                 OracleDataReader cnicReader;
                 query.CommandText = "SELECT cnic FROM USER_TABLE WHERE loginid = " + dbLoginId;
                 cnicReader = query.ExecuteReader();
-                if (reader["type_name"].ToString() == "ADMIN")
-                {
-                }
+                
                 if (reader["type_name"].ToString() == "EMPLOYEE")
                 {
                     if (cnicReader.Read())
                     {
+                        this.Hide();
+
                         Employee emp = new Employee(_db, cnicReader["cnic"].ToString());
                         emp.Show();
                     }
@@ -139,6 +146,8 @@ namespace DATABASE_PROJECT
                 {
                     if (cnicReader.Read())
                     {
+                        this.Hide();
+
                         Main_UserView user = new Main_UserView(_db, cnicReader["cnic"].ToString());
                         user.Show();
                     }

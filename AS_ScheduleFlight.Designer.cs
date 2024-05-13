@@ -54,7 +54,7 @@
             // 
             this.departure_label.AutoSize = true;
             this.departure_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.departure_label.Location = new System.Drawing.Point(103, 74);
+            this.departure_label.Location = new System.Drawing.Point(41, 69);
             this.departure_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.departure_label.Name = "departure_label";
             this.departure_label.Size = new System.Drawing.Size(135, 31);
@@ -65,7 +65,7 @@
             // 
             this.arrival_label.AutoSize = true;
             this.arrival_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arrival_label.Location = new System.Drawing.Point(103, 145);
+            this.arrival_label.Location = new System.Drawing.Point(41, 140);
             this.arrival_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.arrival_label.Name = "arrival_label";
             this.arrival_label.Size = new System.Drawing.Size(91, 31);
@@ -76,7 +76,7 @@
             // 
             this.arrivalTime_label.AutoSize = true;
             this.arrivalTime_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arrivalTime_label.Location = new System.Drawing.Point(103, 226);
+            this.arrivalTime_label.Location = new System.Drawing.Point(41, 221);
             this.arrivalTime_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.arrivalTime_label.Name = "arrivalTime_label";
             this.arrivalTime_label.Size = new System.Drawing.Size(149, 31);
@@ -87,7 +87,7 @@
             // 
             this.departureTime_label.AutoSize = true;
             this.departureTime_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.departureTime_label.Location = new System.Drawing.Point(103, 303);
+            this.departureTime_label.Location = new System.Drawing.Point(41, 298);
             this.departureTime_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.departureTime_label.Name = "departureTime_label";
             this.departureTime_label.Size = new System.Drawing.Size(202, 31);
@@ -99,7 +99,7 @@
             // 
             this.flightHours_label.AutoSize = true;
             this.flightHours_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flightHours_label.Location = new System.Drawing.Point(103, 379);
+            this.flightHours_label.Location = new System.Drawing.Point(41, 374);
             this.flightHours_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.flightHours_label.Name = "flightHours_label";
             this.flightHours_label.Size = new System.Drawing.Size(161, 31);
@@ -110,7 +110,7 @@
             // 
             this.flightStatus_label.AutoSize = true;
             this.flightStatus_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flightStatus_label.Location = new System.Drawing.Point(103, 455);
+            this.flightStatus_label.Location = new System.Drawing.Point(41, 450);
             this.flightStatus_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.flightStatus_label.Name = "flightStatus_label";
             this.flightStatus_label.Size = new System.Drawing.Size(166, 31);
@@ -122,7 +122,7 @@
             // 
             this.revenue_label.AutoSize = true;
             this.revenue_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.revenue_label.Location = new System.Drawing.Point(103, 529);
+            this.revenue_label.Location = new System.Drawing.Point(41, 524);
             this.revenue_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.revenue_label.Name = "revenue_label";
             this.revenue_label.Size = new System.Drawing.Size(123, 31);
@@ -132,7 +132,7 @@
             // airline_combobox
             // 
             this.airline_combobox.FormattingEnabled = true;
-            this.airline_combobox.Location = new System.Drawing.Point(685, 81);
+            this.airline_combobox.Location = new System.Drawing.Point(623, 76);
             this.airline_combobox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.airline_combobox.Name = "airline_combobox";
             this.airline_combobox.Size = new System.Drawing.Size(225, 24);
@@ -143,7 +143,7 @@
             // aircraftID_combobox
             // 
             this.aircraftID_combobox.FormattingEnabled = true;
-            this.aircraftID_combobox.Location = new System.Drawing.Point(685, 303);
+            this.aircraftID_combobox.Location = new System.Drawing.Point(623, 298);
             this.aircraftID_combobox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.aircraftID_combobox.Name = "aircraftID_combobox";
             this.aircraftID_combobox.Size = new System.Drawing.Size(225, 24);
@@ -155,7 +155,7 @@
             // 
             this.flightID_label.AutoSize = true;
             this.flightID_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flightID_label.Location = new System.Drawing.Point(679, 464);
+            this.flightID_label.Location = new System.Drawing.Point(617, 459);
             this.flightID_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.flightID_label.Name = "flightID_label";
             this.flightID_label.Size = new System.Drawing.Size(124, 31);
@@ -164,7 +164,7 @@
             // 
             // departure_textBox
             // 
-            this.departure_textBox.Location = new System.Drawing.Point(349, 80);
+            this.departure_textBox.Location = new System.Drawing.Point(287, 75);
             this.departure_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.departure_textBox.Name = "departure_textBox";
             this.departure_textBox.Size = new System.Drawing.Size(197, 22);
@@ -173,7 +173,7 @@
             // 
             // arrival_textBox
             // 
-            this.arrival_textBox.Location = new System.Drawing.Point(349, 151);
+            this.arrival_textBox.Location = new System.Drawing.Point(287, 146);
             this.arrival_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.arrival_textBox.Name = "arrival_textBox";
             this.arrival_textBox.Size = new System.Drawing.Size(197, 22);
@@ -182,7 +182,7 @@
             // 
             // arrivalTime_textBox
             // 
-            this.arrivalTime_textBox.Location = new System.Drawing.Point(349, 233);
+            this.arrivalTime_textBox.Location = new System.Drawing.Point(287, 228);
             this.arrivalTime_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.arrivalTime_textBox.Name = "arrivalTime_textBox";
             this.arrivalTime_textBox.Size = new System.Drawing.Size(197, 22);
@@ -191,7 +191,7 @@
             // 
             // departureTime_textBox
             // 
-            this.departureTime_textBox.Location = new System.Drawing.Point(349, 309);
+            this.departureTime_textBox.Location = new System.Drawing.Point(287, 304);
             this.departureTime_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.departureTime_textBox.Name = "departureTime_textBox";
             this.departureTime_textBox.Size = new System.Drawing.Size(197, 22);
@@ -200,7 +200,7 @@
             // 
             // flightHour_textBox
             // 
-            this.flightHour_textBox.Location = new System.Drawing.Point(349, 385);
+            this.flightHour_textBox.Location = new System.Drawing.Point(287, 380);
             this.flightHour_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flightHour_textBox.Name = "flightHour_textBox";
             this.flightHour_textBox.Size = new System.Drawing.Size(197, 22);
@@ -209,7 +209,7 @@
             // 
             // revenue_textBox
             // 
-            this.revenue_textBox.Location = new System.Drawing.Point(349, 535);
+            this.revenue_textBox.Location = new System.Drawing.Point(287, 530);
             this.revenue_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.revenue_textBox.Name = "revenue_textBox";
             this.revenue_textBox.Size = new System.Drawing.Size(197, 22);
@@ -219,7 +219,7 @@
             // yes_radioBtn
             // 
             this.yes_radioBtn.AutoSize = true;
-            this.yes_radioBtn.Location = new System.Drawing.Point(389, 465);
+            this.yes_radioBtn.Location = new System.Drawing.Point(327, 460);
             this.yes_radioBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.yes_radioBtn.Name = "yes_radioBtn";
             this.yes_radioBtn.Size = new System.Drawing.Size(37, 20);
@@ -232,7 +232,7 @@
             // no_radiobtn
             // 
             this.no_radiobtn.AutoSize = true;
-            this.no_radiobtn.Location = new System.Drawing.Point(440, 464);
+            this.no_radiobtn.Location = new System.Drawing.Point(378, 459);
             this.no_radiobtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.no_radiobtn.Name = "no_radiobtn";
             this.no_radiobtn.Size = new System.Drawing.Size(38, 20);
@@ -244,7 +244,7 @@
             // 
             // flightid_textbox
             // 
-            this.flightid_textbox.Location = new System.Drawing.Point(831, 470);
+            this.flightid_textbox.Location = new System.Drawing.Point(769, 465);
             this.flightid_textbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flightid_textbox.Name = "flightid_textbox";
             this.flightid_textbox.Size = new System.Drawing.Size(197, 22);
@@ -254,7 +254,7 @@
             // flightID_get_checkbox
             // 
             this.flightID_get_checkbox.AutoSize = true;
-            this.flightID_get_checkbox.Location = new System.Drawing.Point(685, 539);
+            this.flightID_get_checkbox.Location = new System.Drawing.Point(623, 534);
             this.flightID_get_checkbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flightID_get_checkbox.Name = "flightID_get_checkbox";
             this.flightID_get_checkbox.Size = new System.Drawing.Size(123, 20);

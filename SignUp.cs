@@ -282,8 +282,11 @@ namespace DATABASE_PROJECT
                 }
 
                 OracleCommand command = _db.con().CreateCommand();
+                OracleCommand command2 = _db.con().CreateCommand();
                 OracleDataReader reader = null;
+                OracleDataReader reader2 = null;
                 bool cnicAlreadyExists = false;
+
                 //checks if the cnic is already registered
                 command.CommandText = "SELECT loginid FROM USER_TABLE WHERE CNIC = '" + cnic + "'";
                 reader = command.ExecuteReader();
@@ -301,15 +304,19 @@ namespace DATABASE_PROJECT
                     }
                     else
                     {
+                        //MessageBox.Show("CNIC exists but can be used.");
                         cnicAlreadyExists = true;
-                        MessageBox.Show("CNIC exists but can be used.");
                     }
                 }
-                else
+                //if cnic is already used by as an EMPLOYEE
+                command2.CommandText = "SELECT * FROM EMPLOYEE WHERE CNIC = '" + cnic + "'";
+                reader2 = command2.ExecuteReader();
+                if (reader2.HasRows)
                 {
-                    MessageBox.Show("CNIC can be used.");
+                    MessageBox.Show("CNIC is already used.");
+                    return;
                 }
-
+                
                 // Check if the email is already registered
                 command.CommandText = "SELECT * FROM LOGIN_DETAILS WHERE email = '" + OTPGeneratedForEmail + "'";
                 reader = command.ExecuteReader();

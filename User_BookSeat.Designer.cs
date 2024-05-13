@@ -44,6 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.radioButton_NO = new System.Windows.Forms.RadioButton();
             this.radioButton_YES = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(352, 249);
+            this.label2.Location = new System.Drawing.Point(354, 322);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 22);
             this.label2.TabIndex = 63;
@@ -65,7 +66,7 @@
             this.dateTimeDeparture.CalendarMonthBackground = System.Drawing.Color.Transparent;
             this.dateTimeDeparture.CalendarTitleBackColor = System.Drawing.Color.Transparent;
             this.dateTimeDeparture.CalendarTitleForeColor = System.Drawing.Color.Transparent;
-            this.dateTimeDeparture.Location = new System.Drawing.Point(356, 274);
+            this.dateTimeDeparture.Location = new System.Drawing.Point(358, 347);
             this.dateTimeDeparture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimeDeparture.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
             this.dateTimeDeparture.MinDate = new System.DateTime(2024, 4, 24, 0, 0, 0, 0);
@@ -80,7 +81,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(23, 249);
+            this.label6.Location = new System.Drawing.Point(25, 322);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(90, 22);
             this.label6.TabIndex = 57;
@@ -92,7 +93,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(193, 249);
+            this.label7.Location = new System.Drawing.Point(195, 322);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 22);
             this.label7.TabIndex = 56;
@@ -144,7 +145,7 @@
             "Madina",
             "Jeddah",
             "Doha"});
-            this.comboBox_departure.Location = new System.Drawing.Point(27, 274);
+            this.comboBox_departure.Location = new System.Drawing.Point(29, 347);
             this.comboBox_departure.Name = "comboBox_departure";
             this.comboBox_departure.Size = new System.Drawing.Size(121, 24);
             this.comboBox_departure.TabIndex = 64;
@@ -167,7 +168,7 @@
             "Madina",
             "Jeddah",
             "Doha"});
-            this.comboBox_Arrival.Location = new System.Drawing.Point(197, 274);
+            this.comboBox_Arrival.Location = new System.Drawing.Point(199, 347);
             this.comboBox_Arrival.Name = "comboBox_Arrival";
             this.comboBox_Arrival.Size = new System.Drawing.Size(121, 24);
             this.comboBox_Arrival.TabIndex = 65;
@@ -176,7 +177,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 35);
+            this.dataGridView1.Location = new System.Drawing.Point(29, 108);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -189,7 +190,7 @@
             this.label_password.AutoSize = true;
             this.label_password.BackColor = System.Drawing.Color.Transparent;
             this.label_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_password.Location = new System.Drawing.Point(23, 314);
+            this.label_password.Location = new System.Drawing.Point(25, 387);
             this.label_password.Name = "label_password";
             this.label_password.Size = new System.Drawing.Size(142, 22);
             this.label_password.TabIndex = 95;
@@ -198,7 +199,7 @@
             // comboBox_selectflightId
             // 
             this.comboBox_selectflightId.FormattingEnabled = true;
-            this.comboBox_selectflightId.Location = new System.Drawing.Point(27, 339);
+            this.comboBox_selectflightId.Location = new System.Drawing.Point(29, 412);
             this.comboBox_selectflightId.Name = "comboBox_selectflightId";
             this.comboBox_selectflightId.Size = new System.Drawing.Size(121, 24);
             this.comboBox_selectflightId.TabIndex = 96;
@@ -223,7 +224,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(193, 314);
+            this.label3.Location = new System.Drawing.Point(195, 387);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(116, 22);
             this.label3.TabIndex = 100;
@@ -233,7 +234,7 @@
             // 
             this.radioButton_NO.AutoSize = true;
             this.radioButton_NO.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton_NO.Location = new System.Drawing.Point(272, 343);
+            this.radioButton_NO.Location = new System.Drawing.Point(274, 416);
             this.radioButton_NO.Name = "radioButton_NO";
             this.radioButton_NO.Size = new System.Drawing.Size(48, 20);
             this.radioButton_NO.TabIndex = 119;
@@ -245,7 +246,7 @@
             // 
             this.radioButton_YES.AutoSize = true;
             this.radioButton_YES.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton_YES.Location = new System.Drawing.Point(197, 343);
+            this.radioButton_YES.Location = new System.Drawing.Point(199, 416);
             this.radioButton_YES.Name = "radioButton_YES";
             this.radioButton_YES.Size = new System.Drawing.Size(55, 20);
             this.radioButton_YES.TabIndex = 118;
@@ -253,12 +254,24 @@
             this.radioButton_YES.Text = "YES";
             this.radioButton_YES.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(172, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(279, 48);
+            this.label1.TabIndex = 120;
+            this.label1.Text = "A.T Airlines";
+            // 
             // User_BookSeat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.radioButton_NO);
             this.Controls.Add(this.radioButton_YES);
             this.Controls.Add(this.label3);
@@ -301,5 +314,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton radioButton_NO;
         private System.Windows.Forms.RadioButton radioButton_YES;
+        private System.Windows.Forms.Label label1;
     }
 }

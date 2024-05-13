@@ -38,6 +38,7 @@
             this.button_logout = new System.Windows.Forms.Button();
             this.button_flight_status = new System.Windows.Forms.Button();
             this.label_displayName = new System.Windows.Forms.Label();
+            this.button_Feedback = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -45,7 +46,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(165, 36);
+            this.label1.Location = new System.Drawing.Point(172, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(279, 48);
             this.label1.TabIndex = 1;
@@ -57,7 +58,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label2.Font = new System.Drawing.Font("Segoe Script", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(187, 150);
+            this.label2.Location = new System.Drawing.Point(216, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 30);
             this.label2.TabIndex = 2;
@@ -69,7 +70,7 @@
             this.button_bookSeat.BackColor = System.Drawing.SystemColors.MenuBar;
             this.button_bookSeat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_bookSeat.BackgroundImage")));
             this.button_bookSeat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_bookSeat.Location = new System.Drawing.Point(192, 194);
+            this.button_bookSeat.Location = new System.Drawing.Point(192, 144);
             this.button_bookSeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_bookSeat.Name = "button_bookSeat";
             this.button_bookSeat.Size = new System.Drawing.Size(227, 48);
@@ -83,7 +84,7 @@
             this.button_cancelSeat.BackColor = System.Drawing.SystemColors.MenuBar;
             this.button_cancelSeat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_cancelSeat.BackgroundImage")));
             this.button_cancelSeat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_cancelSeat.Location = new System.Drawing.Point(192, 249);
+            this.button_cancelSeat.Location = new System.Drawing.Point(192, 199);
             this.button_cancelSeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_cancelSeat.Name = "button_cancelSeat";
             this.button_cancelSeat.Size = new System.Drawing.Size(227, 48);
@@ -111,7 +112,7 @@
             this.button_bookedSeats.BackColor = System.Drawing.SystemColors.MenuBar;
             this.button_bookedSeats.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_bookedSeats.BackgroundImage")));
             this.button_bookedSeats.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_bookedSeats.Location = new System.Drawing.Point(192, 302);
+            this.button_bookedSeats.Location = new System.Drawing.Point(192, 252);
             this.button_bookedSeats.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_bookedSeats.Name = "button_bookedSeats";
             this.button_bookedSeats.Size = new System.Drawing.Size(227, 48);
@@ -139,7 +140,7 @@
             this.button_flight_status.BackColor = System.Drawing.SystemColors.MenuBar;
             this.button_flight_status.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_flight_status.BackgroundImage")));
             this.button_flight_status.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_flight_status.Location = new System.Drawing.Point(192, 356);
+            this.button_flight_status.Location = new System.Drawing.Point(192, 306);
             this.button_flight_status.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_flight_status.Name = "button_flight_status";
             this.button_flight_status.Size = new System.Drawing.Size(227, 48);
@@ -153,12 +154,26 @@
             this.label_displayName.AutoSize = true;
             this.label_displayName.BackColor = System.Drawing.Color.Transparent;
             this.label_displayName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_displayName.Location = new System.Drawing.Point(298, 152);
+            this.label_displayName.Location = new System.Drawing.Point(327, 97);
             this.label_displayName.Name = "label_displayName";
             this.label_displayName.Size = new System.Drawing.Size(65, 25);
             this.label_displayName.TabIndex = 9;
             this.label_displayName.Text = "name";
             this.label_displayName.Click += new System.EventHandler(this.label_displayName_Click);
+            // 
+            // button_Feedback
+            // 
+            this.button_Feedback.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.button_Feedback.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Feedback.BackgroundImage")));
+            this.button_Feedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Feedback.Location = new System.Drawing.Point(192, 358);
+            this.button_Feedback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_Feedback.Name = "button_Feedback";
+            this.button_Feedback.Size = new System.Drawing.Size(227, 48);
+            this.button_Feedback.TabIndex = 10;
+            this.button_Feedback.Text = "Feedback";
+            this.button_Feedback.UseVisualStyleBackColor = false;
+            this.button_Feedback.Click += new System.EventHandler(this.button_Feedback_Click);
             // 
             // Main_UserView
             // 
@@ -167,6 +182,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
+            this.Controls.Add(this.button_Feedback);
             this.Controls.Add(this.label_displayName);
             this.Controls.Add(this.button_flight_status);
             this.Controls.Add(this.button_logout);
@@ -197,5 +213,6 @@
         private System.Windows.Forms.Button button_logout;
         private System.Windows.Forms.Button button_flight_status;
         private System.Windows.Forms.Label label_displayName;
+        private System.Windows.Forms.Button button_Feedback;
     }
 }

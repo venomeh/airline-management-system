@@ -55,7 +55,7 @@ namespace DATABASE_PROJECT
 
         private void button_back_Click(object sender, EventArgs e)
         {
-         Main_UserView user = new Main_UserView(_db,cnic);
+            Main_UserView user = new Main_UserView(_db,cnic);
             user.Show();
 
             this.Hide();

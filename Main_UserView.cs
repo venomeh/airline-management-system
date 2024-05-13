@@ -126,5 +126,12 @@ namespace DATABASE_PROJECT.Resources
         {
 
         }
+
+        private void button_Feedback_Click(object sender, EventArgs e)
+        {
+            User_Feedback feedback = new User_Feedback(_db,cnic);
+            this.Hide();
+            feedback.Show();
+        }
     }
 }

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User_Profile));
             this.label1 = new System.Windows.Forms.Label();
-            this.name_label = new System.Windows.Forms.Label();
             this.cnic_label = new System.Windows.Forms.Label();
             this.btn_del_profile = new System.Windows.Forms.Button();
             this.email_label = new System.Windows.Forms.Label();
@@ -42,6 +41,7 @@
             this.label_displayPhoneNo = new System.Windows.Forms.Label();
             this.password_label = new System.Windows.Forms.Label();
             this.label_displayPassword = new System.Windows.Forms.Label();
+            this.name_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -49,23 +49,11 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(152, 58);
+            this.label1.Location = new System.Drawing.Point(172, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(279, 48);
             this.label1.TabIndex = 49;
             this.label1.Text = "A.T Airlines";
-            // 
-            // name_label
-            // 
-            this.name_label.AutoSize = true;
-            this.name_label.BackColor = System.Drawing.Color.Transparent;
-            this.name_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name_label.Location = new System.Drawing.Point(153, 144);
-            this.name_label.Name = "name_label";
-            this.name_label.Size = new System.Drawing.Size(62, 22);
-            this.name_label.TabIndex = 52;
-            this.name_label.Text = "Name:";
-            this.name_label.Click += new System.EventHandler(this.name_label_Click);
             // 
             // cnic_label
             // 
@@ -201,6 +189,18 @@
             this.label_displayPassword.Text = "display";
             this.label_displayPassword.Click += new System.EventHandler(this.label_displayPassword_Click);
             // 
+            // name_label
+            // 
+            this.name_label.AutoSize = true;
+            this.name_label.BackColor = System.Drawing.Color.Transparent;
+            this.name_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name_label.Location = new System.Drawing.Point(153, 144);
+            this.name_label.Name = "name_label";
+            this.name_label.Size = new System.Drawing.Size(62, 22);
+            this.name_label.TabIndex = 52;
+            this.name_label.Text = "Name:";
+            this.name_label.Click += new System.EventHandler(this.name_label_Click);
+            // 
             // User_Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -234,7 +234,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label name_label;
         private System.Windows.Forms.Label cnic_label;
         private System.Windows.Forms.Button btn_del_profile;
         private System.Windows.Forms.Label email_label;
@@ -246,5 +245,6 @@
         private System.Windows.Forms.Label label_displayPhoneNo;
         private System.Windows.Forms.Label password_label;
         private System.Windows.Forms.Label label_displayPassword;
+        private System.Windows.Forms.Label name_label;
     }
 }

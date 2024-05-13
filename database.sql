@@ -269,3 +269,53 @@ CREATE TABLE booking (
     CONSTRAINT bookingPass_fk FOREIGN KEY (passenger_id) REFERENCES passengers (pass_id),
     CONSTRAINT bookingBaggage_fk FOREIGN KEY (baggage_id) REFERENCES baggage (baggage_id)
 );
+
+CREATE TABLE FEEDBACK (
+    MSG VARCHAR(500),
+    CNIC INT
+);
+
+
+------------------
+--converted sequence to triggers
+CREATE OR REPLACE TRIGGER trg_crew_id
+BEFORE INSERT ON CREW
+FOR EACH ROW
+DECLARE
+    max_crew_id NUMBER;
+BEGIN
+    -- Get the maximum crew_id from the CREW table
+    SELECT MAX(crew_id) INTO max_crew_id FROM CREW;
+
+    -- If max_crew_id is null, set it to 4000, otherwise increment by 1
+    IF max_crew_id IS NULL THEN
+        max_crew_id := 4000;
+    ELSE
+        max_crew_id := max_crew_id + 1;
+    END IF;
+
+    -- Set the new crew_id to max_crew_id
+    :new.crew_id := max_crew_id;
+END;
+/
+-------------
+CREATE OR REPLACE TRIGGER trg_emp_id
+BEFORE INSERT ON EMPLOYEE
+FOR EACH ROW
+DECLARE
+    max_emp_id NUMBER;
+BEGIN
+    -- Get the maximum emp_id from the EMPLOYEE table
+    SELECT MAX(emp_id) INTO max_emp_id FROM EMPLOYEE;
+
+    -- If max_emp_id is null, set it to 6000, otherwise increment by 1
+    IF max_emp_id IS NULL THEN
+        max_emp_id := 6000;
+    ELSE
+        max_emp_id := max_emp_id + 1;
+    END IF;
+
+    -- Set the new emp_id to max_emp_id
+    :new.emp_id := max_emp_id;
+END;
+/
