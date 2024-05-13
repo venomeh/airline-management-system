@@ -229,7 +229,6 @@ namespace DATABASE_PROJECT
                 OracleCommand command2 = _db.con().CreateCommand();
                 OracleDataReader reader = null;
                 OracleDataReader reader2 = null;
-                bool cnicAlreadyExists = false;
                 //checks if the cnic is already registered for USER
                 command.CommandText = "SELECT * FROM USER_TABLE WHERE CNIC = '" + cnic + "'";
                 reader = command.ExecuteReader();
@@ -328,7 +327,7 @@ namespace DATABASE_PROJECT
                     insertQuery3.Parameters.Add(new OracleParameter("CNIC", cnic));
                     rowsAffected = insertQuery3.ExecuteNonQuery();
                     
-                    if (occupation == "C")
+                   // if (occupation == "C")
                     {
                         string empIdQuery = "SELECT emp_id FROM EMPLOYEE WHERE cnic = :CNIC";
                         OracleCommand empIdCommand = _db.con().CreateCommand();
@@ -347,10 +346,10 @@ namespace DATABASE_PROJECT
                         insertCrewCommand.Dispose();
 
                     }
-                    else
+                   // else
 
                     {
-                        //insert in staff_table
+                        
                     }
                     if (rowsAffected > 0)
                         MessageBox.Show("Employee Account Created");
