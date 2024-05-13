@@ -267,6 +267,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(1263, 634);
             this.Controls.Add(this.flightID_get_checkbox);
             this.Controls.Add(this.flightid_textbox);

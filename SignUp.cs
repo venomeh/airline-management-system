@@ -443,7 +443,13 @@ namespace DATABASE_PROJECT
 
                         rowsAffected = insertQuery3.ExecuteNonQuery();
                         if (rowsAffected > 0)
+                        { 
                             MessageBox.Show("Account Created");
+
+                            LOGIN user = new LOGIN(_db);
+                            this.Hide();
+                            user.Show();
+                        }
                         else
                             MessageBox.Show("Data Insertion Failed! Account Not Created");
 

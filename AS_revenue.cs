@@ -37,5 +37,50 @@ namespace DATABASE_PROJECT
         {
             // cost of flight 
         }
+
+        private void flightID_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maintainance_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void revenueGenerated_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void statusOfFlight_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cost_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aircraftId_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void airline_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flightid_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maintainance_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
