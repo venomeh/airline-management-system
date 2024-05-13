@@ -122,26 +122,24 @@ CREATE SEQUENCE aircraft_id_seq
   NOCYCLE
   ORDER;
   
-CREATE OR REPLACE TRIGGER trg_aircraft_id
-BEFORE INSERT ON aircraft
+CREATE OR REPLACE TRIGGER flight_id_trg
+BEFORE INSERT ON FLIGHT
 FOR EACH ROW
 DECLARE
-    max_air_id NUMBER;
+    max_flight_id NUMBER;
 BEGIN
-    -- Get the maximum emp_id from the EMPLOYEE table
-    SELECT MAX(aircraft_id) INTO max_air_id FROM aircraft;
+  
+    SELECT MAX(flight_id) INTO max_flight_id FROM FLIGHT;
 
-    -- If max_emp_id is null, set it to 6000, otherwise increment by 1
-    IF max_air_id IS NULL THEN
-        max_air_id := 1000;
-    ELSE
-        max_air_id := max_air_id + 1;
+   
+    IF max_flight_id IS NULL THEN
+        max_flight_id := 0;
     END IF;
 
-    -- Set the new emp_id to max_emp_id
-    :new.aircraft_id := max_air_id;
+   
+    :new.flight_id := max_flight_id + 1;
 END;
-/
+
 
 create table aircraft
 (
@@ -195,6 +193,23 @@ CREATE SEQUENCE flight_id_seq
   NOCACHE
   NOCYCLE
   ORDER;
+  CREATE OR REPLACE TRIGGER flight_id_trg
+BEFORE INSERT ON FLIGHT
+FOR EACH ROW
+DECLARE
+    max_flight_id NUMBER;
+BEGIN
+    SELECT MAX(flight_id) INTO max_flight_id FROM FLIGHT;
+
+    IF max_flight_id IS NULL THEN
+        max_flight_id := 3000;
+    ELSE
+        max_flight_id := max_flight_id + 1;
+    END IF;
+
+    :new.flight_id := max_flight_id;
+END;
+/
 
 CREATE TABLE flight (  
     flight_id NUMBER PRIMARY KEY,

@@ -44,9 +44,9 @@
             this.label5.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(163, 54);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(279, 48);
+            this.label5.Size = new System.Drawing.Size(254, 48);
             this.label5.TabIndex = 89;
-            this.label5.Text = "A.T Airlines";
+            this.label5.Text = "FEEDBACK";
             // 
             // textBox_Feedback
             // 

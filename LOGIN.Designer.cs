@@ -36,6 +36,7 @@
             this.textBox_login_password = new System.Windows.Forms.TextBox();
             this.signUp_button = new System.Windows.Forms.Button();
             this.login_button = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // login_headline_label
@@ -43,7 +44,7 @@
             this.login_headline_label.AutoSize = true;
             this.login_headline_label.BackColor = System.Drawing.Color.Transparent;
             this.login_headline_label.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.login_headline_label.Location = new System.Drawing.Point(157, 34);
+            this.login_headline_label.Location = new System.Drawing.Point(165, 41);
             this.login_headline_label.Name = "login_headline_label";
             this.login_headline_label.Size = new System.Drawing.Size(279, 48);
             this.login_headline_label.TabIndex = 0;
@@ -127,6 +128,17 @@
             this.login_button.UseVisualStyleBackColor = false;
             this.login_button.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(231, 151);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 36);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "LOGIN";
+            // 
             // LOGIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -134,6 +146,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.signUp_button);
             this.Controls.Add(this.login_button);
             this.Controls.Add(this.textBox_login_password);
@@ -143,6 +156,7 @@
             this.Controls.Add(this.login_headline_label);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "LOGIN";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "A.T Airline";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LOGIN_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -160,6 +174,7 @@
         private System.Windows.Forms.TextBox textBox_login_password;
         private System.Windows.Forms.Button login_button;
         private System.Windows.Forms.Button signUp_button;
+        private System.Windows.Forms.Label label1;
     }
 }
 

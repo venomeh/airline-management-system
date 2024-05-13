@@ -155,7 +155,9 @@
             "PIA",
             "TURKISH AIRLINES",
             "QATAR AIRWAYS",
-            "LOONA AIRWAYS"});
+            "LOONA AIRWAYS",
+            "EMIRATED",
+            "ETIHAD"});
             this.comboBox_airline.Location = new System.Drawing.Point(317, 223);
             this.comboBox_airline.Name = "comboBox_airline";
             this.comboBox_airline.Size = new System.Drawing.Size(225, 24);

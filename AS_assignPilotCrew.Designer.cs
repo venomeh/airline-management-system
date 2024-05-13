@@ -36,6 +36,7 @@
             this.btn_back = new System.Windows.Forms.Button();
             this.button_Assign = new System.Windows.Forms.Button();
             this.label_displayStatus = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // crew_combobox
@@ -121,12 +122,24 @@
             this.label_displayStatus.Size = new System.Drawing.Size(0, 25);
             this.label_displayStatus.TabIndex = 87;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(117, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(374, 48);
+            this.label1.TabIndex = 88;
+            this.label1.Text = "ASSIGN PILOTS";
+            // 
             // AS_assignPilotCrew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label_displayStatus);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.button_Assign);
@@ -152,5 +165,6 @@
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Button button_Assign;
         private System.Windows.Forms.Label label_displayStatus;
+        private System.Windows.Forms.Label label1;
     }
 }

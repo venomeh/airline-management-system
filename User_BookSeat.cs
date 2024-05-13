@@ -51,7 +51,7 @@ namespace DATABASE_PROJECT
             OracleCommand oracleCommand = _db.con().CreateCommand();
             oracleCommand.CommandText = "SELECT f.flight_id, f.departure_city, f.arrival_city, f.dep_date, f.ticket_cost, ad.airline_company " +
                 "FROM flight f " +
-                "INNER JOIN aircraft_details ad ON f.aircraft_id = ad.aircraft_id ";
+                "INNER JOIN aircraft ad ON f.aircraft_id = ad.aircraft_id ";
 
             oracleCommand.Parameters.Add(":departureCity", departure);
             oracleCommand.Parameters.Add(":arrivalCity", arrival);
@@ -173,7 +173,7 @@ namespace DATABASE_PROJECT
             OracleCommand oracleCommand = _db.con().CreateCommand();
             oracleCommand.CommandText = "SELECT f.flight_id, f.departure_city, f.arrival_city, f.dep_date, f.ticket_cost, ad.airline_company " +
                 "FROM flight f " +
-                "INNER JOIN aircraft_details ad ON f.aircraft_id = ad.aircraft_id " +
+                "INNER JOIN aircraft ad ON f.aircraft_id = ad.aircraft_id " +
                 "WHERE f.flight_id = :ID";
 
             oracleCommand.Parameters.Add(":ID", bookingFlightID);

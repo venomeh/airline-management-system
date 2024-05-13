@@ -51,9 +51,9 @@
             this.label1.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(172, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(279, 48);
+            this.label1.Size = new System.Drawing.Size(214, 48);
             this.label1.TabIndex = 49;
-            this.label1.Text = "A.T Airlines";
+            this.label1.Text = "PROFILE";
             // 
             // cnic_label
             // 
