@@ -393,6 +393,7 @@
             this.Controls.Add(this.label_email);
             this.Controls.Add(this.label2_phoneNO);
             this.Name = "AS_AddEmployee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEmployee";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AS_AddEmployee_FormClosing);
             this.Load += new System.EventHandler(this.AS_AddEmployee_Load);

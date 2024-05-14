@@ -60,19 +60,19 @@
             // 
             this.comboBox_DEPARTURE.FormattingEnabled = true;
             this.comboBox_DEPARTURE.Items.AddRange(new object[] {
-            "Ankara",
-            "Istanbul",
-            "Lahore",
-            "Faisalabad",
-            "Karachi",
-            "Loonay Wala",
-            "Islamabad",
-            "Dubai",
-            "New York",
-            "London",
-            "Madina",
-            "Jeddah",
-            "Doha"});
+            "ANKARA",
+            "ISTANBUL",
+            "LAHORE",
+            "FAISALABAD",
+            "KARACHI",
+            "LOONAY WALA",
+            "ISLAMABAD",
+            "DUBAI",
+            "NEW YORK",
+            "LONDON",
+            "MADINA",
+            "JEDDAH",
+            "DOHA"});
             this.comboBox_DEPARTURE.Location = new System.Drawing.Point(342, 64);
             this.comboBox_DEPARTURE.Name = "comboBox_DEPARTURE";
             this.comboBox_DEPARTURE.Size = new System.Drawing.Size(147, 24);
@@ -83,19 +83,19 @@
             // 
             this.comboBox_Arrival.FormattingEnabled = true;
             this.comboBox_Arrival.Items.AddRange(new object[] {
-            "Ankara",
-            "Istanbul",
-            "Lahore",
-            "Faisalabad",
-            "Karachi",
-            "Loonay Wala",
-            "Islamabad",
-            "Dubai",
-            "New York",
-            "London",
-            "Madina",
-            "Jeddah",
-            "Doha"});
+            "ANKARA",
+            "ISTANBUL",
+            "LAHORE",
+            "FAISALABAD",
+            "KARACHI",
+            "LOONAY WALA",
+            "ISLAMABAD",
+            "DUBAI",
+            "NEW YORK",
+            "LONDON",
+            "MADINA",
+            "JEDDAH",
+            "DOHA"});
             this.comboBox_Arrival.Location = new System.Drawing.Point(342, 110);
             this.comboBox_Arrival.Name = "comboBox_Arrival";
             this.comboBox_Arrival.Size = new System.Drawing.Size(147, 24);

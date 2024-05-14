@@ -29,6 +29,7 @@ namespace DATABASE_PROJECT
 
         private void User_BookSeat_Load(object sender, EventArgs e)
         {
+            dataGridView1.Refresh();
 
         }
 
@@ -45,37 +46,58 @@ namespace DATABASE_PROJECT
             this.Hide();
         }
 
+      
         private void button_search_Click(object sender, EventArgs e)
         {
+            // Check if all fields are filled
+            if (comboBox_departure.SelectedItem == null ||
+                comboBox_Arrival.SelectedItem == null || depDate.Value == null)
+            {
+                MessageBox.Show("Fill departure, arrival, and date");
+                return;
+            }
+
+            // Retrieve selected values from combo boxes
 
             OracleCommand oracleCommand = _db.con().CreateCommand();
-            oracleCommand.CommandText = "SELECT f.flight_id, f.departure_city, f.arrival_city, f.dep_date, f.ticket_cost, ad.airline_company " +
+            oracleCommand.CommandText = "SELECT f.flight_id, ad.airline_company, f.departure_city, f.arrival_city, f.dep_date, f.dep_time, f.ticket_cost " +
                 "FROM flight f " +
-                "INNER JOIN aircraft ad ON f.aircraft_id = ad.aircraft_id ";
+                "INNER JOIN aircraft ad ON f.aircraft_id = ad.aircraft_id AND f.FLIGHT_STATUS IN ('DELAYED','ON TIME') " +
+              //  "WHERE TO_DATE(f.DEP_DATE,'MM/DD/YYYY') = TO_DATE(:depDate, 'MM/DD/YYYY') " +
+                "AND f.departure_city = :departureCity " +
+                "AND f.arrival_city = :arrivalCity";
 
-            oracleCommand.Parameters.Add(":departureCity", departure);
-            oracleCommand.Parameters.Add(":arrivalCity", arrival);
+            oracleCommand.Parameters.Add(":departureCity", OracleDbType.Varchar2).Value = comboBox_departure.SelectedItem.ToString();
+            oracleCommand.Parameters.Add(":arrivalCity", OracleDbType.Varchar2).Value = comboBox_Arrival.SelectedItem.ToString();
+            //oracleCommand.Parameters.Add(":depDate", OracleDbType.Date).Value = depDate.Value.Date;
 
-            DataTable dataTable = new DataTable();
 
             try
             {
                 OracleDataAdapter adapter = new OracleDataAdapter(oracleCommand);
+                DataTable dataTable = new DataTable();
+
                 adapter.Fill(dataTable);
 
-                foreach (DataRow row in dataTable.Rows)
+                if (dataTable.Rows.Count == 0)
                 {
-                    comboBox_selectflightId.Items.Add(row["flight_id"].ToString());
+                    MessageBox.Show("No flights found for the selected criteria.");
                 }
+                else
+                {
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        comboBox_selectflightId.Items.Add(row["flight_id"].ToString());
+                    }
 
-                dataGridView1.DataSource = dataTable;
-                dataGridView1.Refresh();
+                    dataGridView1.DataSource = dataTable;
+                    dataGridView1.Refresh();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
-
 
 
         }
@@ -87,7 +109,7 @@ namespace DATABASE_PROJECT
 
         private void dateTimeDeparture_ValueChanged(object sender, EventArgs e)
         {
-            date = dateTimeDeparture.Value;
+            date = depDate.Value;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -122,30 +144,7 @@ namespace DATABASE_PROJECT
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //OracleCommand oracleCommand = _db.con().CreateCommand();
-            //oracleCommand.CommandText = "SELECT f.departure_city, f.arrival_city" +
-            //    "FROM flight f " +
-            //    "WHERE TRUNC(CAST(f.departure_time AS DATE)) = TO_DATE(:departureDate, 'YYYY-MM-DD')";
-           
-            //string departureDateString = date.ToString("yyyy-MM-dd");
-
-
-            //oracleCommand.Parameters.Add(":departureCity", OracleDbType.Varchar2).Value = departure;
-            //oracleCommand.Parameters.Add(":arrivalCity", OracleDbType.Varchar2).Value = arrival;
-            //// oracleCommand.Parameters.Add(":departureDate", OracleDbType.Date).Value = date;
-
-            //DataTable dataTable = new DataTable();
-
-            //OracleDataAdapter adapter = new OracleDataAdapter(oracleCommand);
-            //adapter.Fill(dataTable);
-
-            ////Add items to ComboBox
-            //foreach (DataRow row in dataTable.Rows)
-            //{
-            //    comboBox_selectflightId.Items.Add(row["flight_id"].ToString());
-            //    //  comboBox_Airline.Items.Add(row["airline_company"].ToString());
-
-            //}
+            
         }
 
        
@@ -166,22 +165,38 @@ namespace DATABASE_PROJECT
 
         private void button_book_Click(object sender, EventArgs e)
         {
-            string fare, dCity, aCity;
+            string fare, dCity, aCity, seatNo;
             string p_id;
             int baggageID = 0;
 
-            OracleCommand oracleCommand = _db.con().CreateCommand();
-            oracleCommand.CommandText = "SELECT f.flight_id, f.departure_city, f.arrival_city, f.dep_date, f.ticket_cost, ad.airline_company " +
+            // Check if all fields are filled
+            if (comboBox_selectflightId.SelectedItem == null || comboBox_departure.SelectedItem == null ||
+                comboBox_Arrival.SelectedItem == null|| depDate.Value == null || comboBox_selectflightId.SelectedItem == null
+                    || (!radioButton_YES.Checked && !radioButton_NO.Checked))
+            {
+                MessageBox.Show("Fill all fields");
+                return;
+            }
+
+            //selecting the data of the booking done to put in the booking table
+            OracleCommand oracleCommandBookingInfo = _db.con().CreateCommand();
+            oracleCommandBookingInfo.CommandText = "SELECT f.ticket_cost, f.flight_id, f.departure_city, f.arrival_city, f.dep_date " +
                 "FROM flight f " +
-                "INNER JOIN aircraft ad ON f.aircraft_id = ad.aircraft_id " +
                 "WHERE f.flight_id = :ID";
 
-            oracleCommand.Parameters.Add(":ID", bookingFlightID);
+            oracleCommandBookingInfo.Parameters.Add(":ID", comboBox_selectflightId.SelectedItem);
 
-            OracleDataReader reader = oracleCommand.ExecuteReader();
+            OracleCommand queryPassengerID = _db.con().CreateCommand();
+            queryPassengerID.CommandText = "SELECT pass_id FROM passengers WHERE cnic = :NIC";
+            queryPassengerID.Parameters.Add(":NIC", cnic);
+
+            OracleDataReader reader = null;
+            OracleDataReader reader2 = null;
 
             try
             {
+                // Execute command to get flight information
+                reader = oracleCommandBookingInfo.ExecuteReader();
                 if (reader.Read())
                 {
                     fare = reader["ticket_cost"].ToString();
@@ -196,12 +211,8 @@ namespace DATABASE_PROJECT
 
                 reader.Close();
 
-                OracleCommand query2 = _db.con().CreateCommand();
-                query2.CommandText = "SELECT pass_id FROM passengers WHERE cnic = :NIC";
-                query2.Parameters.Add(":NIC", cnic);
-
-                OracleDataReader reader2 = query2.ExecuteReader();
-
+                // Execute command to get passenger ID
+                reader2 = queryPassengerID.ExecuteReader();
                 if (reader2.Read())
                 {
                     p_id = reader2["pass_id"].ToString();
@@ -228,32 +239,56 @@ namespace DATABASE_PROJECT
                     insertBaggageCommand.Parameters.Add(":p_id", p_id);
                     insertBaggageCommand.Parameters.Add(":bookingFlightID", bookingFlightID);
                     insertBaggageCommand.ExecuteNonQuery();
-                }
 
-                //Insert data into  booking table
-                OracleCommand insertBookingCommand = _db.con().CreateCommand();
-                insertBookingCommand.CommandText = "INSERT INTO booking (BOOKING_DATE, TICKET_PRICE, FLIGHT_ID, PASSENGER_ID," +
-                    " BAGGAGE_ID, DEPARTURE_CITY, ARRIVAL_CITY) " +
-                    "VALUES (SYSDATE, :price, :f_id, :p_id, :b_id, :dep_city, :arr_city)";
-                insertBookingCommand.Parameters.Add(":price", fare);
-                insertBookingCommand.Parameters.Add(":f_id", bookingFlightID);
-                insertBookingCommand.Parameters.Add(":p_id", p_id);
-                insertBookingCommand.Parameters.Add(":b_id", baggageID); 
-                insertBookingCommand.Parameters.Add(":dep_city", dCity);
-                insertBookingCommand.Parameters.Add(":arr_city", aCity);
-                int rowsaffected = insertBookingCommand.ExecuteNonQuery(); 
-                if (rowsaffected > 0)
+                    //Insert data into booking table
+                    OracleCommand insertBookingCommand = _db.con().CreateCommand();
+                    insertBookingCommand.CommandText = "INSERT INTO booking (BOOKING_DATE, TICKET_PRICE, FLIGHT_ID, PASSENGER_ID," +
+                        " BAGGAGE_ID, DEPARTURE_CITY, ARRIVAL_CITY, DEP_DATE) " +
+                        "VALUES (SYSDATE, :price, :f_id, :p_id, :b_id, :dep_city, :arr_city, TO_DATE(:depDate, 'DD-MM-YY'))";
+                    insertBookingCommand.Parameters.Add(":price", fare);
+                    insertBookingCommand.Parameters.Add(":f_id", bookingFlightID);
+                    insertBookingCommand.Parameters.Add(":p_id", p_id);
+                    insertBookingCommand.Parameters.Add(":b_id", baggageID);
+                    insertBookingCommand.Parameters.Add(":dep_city", dCity);
+                    insertBookingCommand.Parameters.Add(":arr_city", aCity);
+                    insertBookingCommand.Parameters.Add(":depDate", OracleDbType.Date).Value = depDate.Value.Date;
+
+                    int rowsaffected = insertBookingCommand.ExecuteNonQuery();
+                    if (rowsaffected > 0)
+                    {
+                        MessageBox.Show("Ticket Booked");
+
+                        Main_UserView user = new Main_UserView(_db, cnic);
+                        user.Show();
+
+                        this.Hide();
+                    }
+                }
+                else //not working error - not all variabels bound
                 {
-                    MessageBox.Show("Ticket Booked");
+                    //Insert data into booking table
+                    OracleCommand insertBookingCommand = _db.con().CreateCommand();
+                    insertBookingCommand.CommandText = "INSERT INTO booking (BOOKING_DATE, TICKET_PRICE, FLIGHT_ID, PASSENGER_ID, " +
+                        "DEPARTURE_CITY, ARRIVAL_CITY, DEP_DATE) " +
+                        "VALUES (SYSDATE, :price, :f_id, :p_id, :b_id, :dep_city, :arr_city, TO_DATE(:depDate, 'DD-MM-YY'))";
+                    insertBookingCommand.Parameters.Add(":price", fare);
+                    insertBookingCommand.Parameters.Add(":f_id", bookingFlightID);
+                    insertBookingCommand.Parameters.Add(":p_id", p_id);
+                    insertBookingCommand.Parameters.Add(":dep_city", dCity);
+                    insertBookingCommand.Parameters.Add(":arr_city", aCity);
+                    insertBookingCommand.Parameters.Add(":depDate", OracleDbType.Date).Value = depDate.Value.Date;
 
-                    Main_UserView user = new Main_UserView(_db, cnic);
-                    user.Show();
+                    int rowsaffected = insertBookingCommand.ExecuteNonQuery();
+                        if (rowsaffected > 0)
+                        {
+                            MessageBox.Show("Ticket Booked");
 
-                    this.Hide();
+                            Main_UserView user = new Main_UserView(_db, cnic);
+                            user.Show();
 
-
+                            this.Hide();
+                    }
                 }
-
             }
             catch (Exception ex)
             {
@@ -261,8 +296,11 @@ namespace DATABASE_PROJECT
             }
             finally
             {
-                reader.Close();
+                // Close the readers if they are open
+                reader?.Close();
+                reader2?.Close();
             }
+
 
 
         }

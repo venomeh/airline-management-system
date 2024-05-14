@@ -52,6 +52,7 @@ namespace DATABASE_PROJECT
                         "WHERE passenger_id = :P_id " +
                         "ORDER BY booking_date ASC";
                     query2.Parameters.Add("P_id", passengerId);
+
                     OracleDataAdapter adapter = new OracleDataAdapter(query2);
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);

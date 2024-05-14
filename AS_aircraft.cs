@@ -65,6 +65,13 @@ namespace DATABASE_PROJECT
 
         private void button_Assign_Click(object sender, EventArgs e)
         {
+            // Check if all required fields are filled
+            if (comboBox_airline.Text == "" || cph_textBox.Text == "" || totalcapacity_textBox.Text == "")
+            {
+                MessageBox.Show("Please fill in all required fields.");
+                return;
+            }
+
             string airline, cph, totalCapacity;
 
             airline = comboBox_airline.Text;
@@ -82,7 +89,7 @@ namespace DATABASE_PROJECT
             int rowAffected = oracleCommand.ExecuteNonQuery();
             if (rowAffected > 0)
             {
-                MessageBox.Show("Data inserted successfully.");
+                MessageBox.Show("Aircraft Added successfully.");
             }
 
             OracleCommand maxIdCommand = _db.con().CreateCommand();
@@ -97,12 +104,8 @@ namespace DATABASE_PROJECT
             {
                 idShow_label.Text = "-";
             }
-
-
-
-
-
         }
+
 
         private void btn_back_Click(object sender, EventArgs e)
         {

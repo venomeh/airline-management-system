@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User_BookSeat));
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimeDeparture = new System.Windows.Forms.DateTimePicker();
+            this.depDate = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button_back = new System.Windows.Forms.Button();
@@ -60,21 +60,21 @@
             this.label2.Text = "Departure Date";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // dateTimeDeparture
+            // depDate
             // 
-            this.dateTimeDeparture.CalendarForeColor = System.Drawing.Color.Transparent;
-            this.dateTimeDeparture.CalendarMonthBackground = System.Drawing.Color.Transparent;
-            this.dateTimeDeparture.CalendarTitleBackColor = System.Drawing.Color.Transparent;
-            this.dateTimeDeparture.CalendarTitleForeColor = System.Drawing.Color.Transparent;
-            this.dateTimeDeparture.Location = new System.Drawing.Point(358, 347);
-            this.dateTimeDeparture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimeDeparture.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
-            this.dateTimeDeparture.MinDate = new System.DateTime(2024, 4, 24, 0, 0, 0, 0);
-            this.dateTimeDeparture.Name = "dateTimeDeparture";
-            this.dateTimeDeparture.Size = new System.Drawing.Size(200, 22);
-            this.dateTimeDeparture.TabIndex = 62;
-            this.dateTimeDeparture.Value = new System.DateTime(2024, 4, 24, 0, 0, 0, 0);
-            this.dateTimeDeparture.ValueChanged += new System.EventHandler(this.dateTimeDeparture_ValueChanged);
+            this.depDate.CalendarForeColor = System.Drawing.Color.Transparent;
+            this.depDate.CalendarMonthBackground = System.Drawing.Color.Transparent;
+            this.depDate.CalendarTitleBackColor = System.Drawing.Color.Transparent;
+            this.depDate.CalendarTitleForeColor = System.Drawing.Color.Transparent;
+            this.depDate.Location = new System.Drawing.Point(358, 347);
+            this.depDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.depDate.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
+            this.depDate.MinDate = new System.DateTime(2024, 4, 24, 0, 0, 0, 0);
+            this.depDate.Name = "depDate";
+            this.depDate.Size = new System.Drawing.Size(200, 22);
+            this.depDate.TabIndex = 62;
+            this.depDate.Value = new System.DateTime(2024, 5, 14, 0, 0, 0, 0);
+            this.depDate.ValueChanged += new System.EventHandler(this.dateTimeDeparture_ValueChanged);
             // 
             // label6
             // 
@@ -132,19 +132,19 @@
             // 
             this.comboBox_departure.FormattingEnabled = true;
             this.comboBox_departure.Items.AddRange(new object[] {
-            "Ankara",
-            "Istanbul",
-            "Lahore",
-            "Faisalabad",
-            "Karachi",
-            "Loonay Wala",
-            "Islamabad",
-            "Dubai",
-            "New York",
-            "London",
-            "Madina",
-            "Jeddah",
-            "Doha"});
+            "ANKARA",
+            "ISTANBUL",
+            "LAHORE",
+            "FAISALABAD",
+            "KARACHI",
+            "LOONAY WALA",
+            "ISLAMABAD",
+            "DUBAI",
+            "NEW YORK",
+            "LONDON",
+            "MADINA",
+            "JEDDAH",
+            "DOHA"});
             this.comboBox_departure.Location = new System.Drawing.Point(29, 347);
             this.comboBox_departure.Name = "comboBox_departure";
             this.comboBox_departure.Size = new System.Drawing.Size(121, 24);
@@ -155,19 +155,19 @@
             // 
             this.comboBox_Arrival.FormattingEnabled = true;
             this.comboBox_Arrival.Items.AddRange(new object[] {
-            "Ankara",
-            "Istanbul",
-            "Lahore",
-            "Faisalabad",
-            "Karachi",
-            "Loonay Wala",
-            "Islamabad",
-            "Dubai",
-            "New York",
-            "London",
-            "Madina",
-            "Jeddah",
-            "Doha"});
+            "ANKARA",
+            "ISTANBUL",
+            "LAHORE",
+            "FAISALABAD",
+            "KARACHI",
+            "LOONAY WALA",
+            "ISLAMABAD",
+            "DUBAI",
+            "NEW YORK",
+            "LONDON",
+            "MADINA",
+            "JEDDAH",
+            "DOHA"});
             this.comboBox_Arrival.Location = new System.Drawing.Point(199, 347);
             this.comboBox_Arrival.Name = "comboBox_Arrival";
             this.comboBox_Arrival.Size = new System.Drawing.Size(121, 24);
@@ -176,6 +176,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(29, 108);
             this.dataGridView1.Name = "dataGridView1";
@@ -282,13 +283,14 @@
             this.Controls.Add(this.comboBox_Arrival);
             this.Controls.Add(this.comboBox_departure);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimeDeparture);
+            this.Controls.Add(this.depDate);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button_back);
             this.Controls.Add(this.button_search);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "User_BookSeat";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User_BookFlight";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.User_BookSeat_FormClosing);
             this.Load += new System.EventHandler(this.User_BookSeat_Load);
@@ -300,7 +302,7 @@
 
         #endregion
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimeDeparture;
+        private System.Windows.Forms.DateTimePicker depDate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button_back;

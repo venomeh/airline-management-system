@@ -182,6 +182,7 @@
             this.Controls.Add(this.CPH_label);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AS_aircraft";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AS_aircraft";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AS_aircraft_FormClosing);
             this.Load += new System.EventHandler(this.AS_aircraft_Load);
