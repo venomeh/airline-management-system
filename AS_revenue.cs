@@ -12,9 +12,12 @@ namespace DATABASE_PROJECT
 {
     public partial class AS_revenue : Form
     {
-        public AS_revenue()
+        private database _db;
+
+        public AS_revenue(database db)
         {
             InitializeComponent();
+            _db = db;
         }
 
         private void AS_revenue_FormClosing(object sender, FormClosingEventArgs e)
@@ -81,6 +84,14 @@ namespace DATABASE_PROJECT
         private void maintainance_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            AirlineServices airlineServices = new AirlineServices(_db);
+            airlineServices.Show();
+
+            this.Hide();
         }
     }
 }

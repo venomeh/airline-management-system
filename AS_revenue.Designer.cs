@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AS_revenue));
             this.aircraftId_label = new System.Windows.Forms.Label();
             this.flightID_label = new System.Windows.Forms.Label();
             this.maintainance_label = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@
             this.revenueGeneratedOut_label = new System.Windows.Forms.Label();
             this.StatusOfFlightOut_label = new System.Windows.Forms.Label();
             this.costOut_label = new System.Windows.Forms.Label();
+            this.btn_back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // aircraftId_label
@@ -130,7 +132,7 @@
             // 
             this.airline_comboBox.FormattingEnabled = true;
             this.airline_comboBox.Location = new System.Drawing.Point(324, 60);
-            this.airline_comboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.airline_comboBox.Margin = new System.Windows.Forms.Padding(4);
             this.airline_comboBox.Name = "airline_comboBox";
             this.airline_comboBox.Size = new System.Drawing.Size(248, 24);
             this.airline_comboBox.TabIndex = 7;
@@ -140,7 +142,7 @@
             // 
             this.maintainance_comboBox.FormattingEnabled = true;
             this.maintainance_comboBox.Location = new System.Drawing.Point(324, 204);
-            this.maintainance_comboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.maintainance_comboBox.Margin = new System.Windows.Forms.Padding(4);
             this.maintainance_comboBox.Name = "maintainance_comboBox";
             this.maintainance_comboBox.Size = new System.Drawing.Size(248, 24);
             this.maintainance_comboBox.TabIndex = 8;
@@ -150,7 +152,7 @@
             // 
             this.flightid_comboBox.FormattingEnabled = true;
             this.flightid_comboBox.Location = new System.Drawing.Point(324, 130);
-            this.flightid_comboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flightid_comboBox.Margin = new System.Windows.Forms.Padding(4);
             this.flightid_comboBox.Name = "flightid_comboBox";
             this.flightid_comboBox.Size = new System.Drawing.Size(248, 24);
             this.flightid_comboBox.TabIndex = 9;
@@ -198,12 +200,27 @@
             this.costOut_label.Text = "Cost";
             this.costOut_label.Click += new System.EventHandler(this.costOut_label_Click);
             // 
+            // btn_back
+            // 
+            this.btn_back.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.btn_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_back.BackgroundImage")));
+            this.btn_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_back.Location = new System.Drawing.Point(187, 491);
+            this.btn_back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(227, 48);
+            this.btn_back.TabIndex = 80;
+            this.btn_back.Text = "Back";
+            this.btn_back.UseVisualStyleBackColor = false;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
             // AS_revenue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
+            this.Controls.Add(this.btn_back);
             this.Controls.Add(this.costOut_label);
             this.Controls.Add(this.StatusOfFlightOut_label);
             this.Controls.Add(this.revenueGeneratedOut_label);
@@ -216,8 +233,9 @@
             this.Controls.Add(this.maintainance_label);
             this.Controls.Add(this.flightID_label);
             this.Controls.Add(this.aircraftId_label);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AS_revenue";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AS_revenue";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AS_revenue_FormClosing);
             this.ResumeLayout(false);
@@ -239,5 +257,6 @@
         private System.Windows.Forms.Label revenueGeneratedOut_label;
         private System.Windows.Forms.Label StatusOfFlightOut_label;
         private System.Windows.Forms.Label costOut_label;
+        private System.Windows.Forms.Button btn_back;
     }
 }

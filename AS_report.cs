@@ -12,9 +12,11 @@ namespace DATABASE_PROJECT
 {
     public partial class AS_report : Form
     {
-        public AS_report()
+        private database _db;
+        public AS_report(database db)
         {
             InitializeComponent();
+            _db = db;   
         }
 
         private void aircraftId_label_Click(object sender, EventArgs e)
@@ -42,6 +44,14 @@ namespace DATABASE_PROJECT
         private void AS_report_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            AirlineServices airlineServices = new AirlineServices(_db);
+            airlineServices.Show();
+
+            this.Hide();
         }
     }
 }

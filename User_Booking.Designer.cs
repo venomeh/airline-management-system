@@ -88,6 +88,7 @@
             this.Controls.Add(this.button_back);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "User_Booking";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User_Booking";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.User_Booking_FormClosing);
             this.Load += new System.EventHandler(this.User_Booking_Load);

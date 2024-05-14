@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AS_report));
             this.aircraftId_label = new System.Windows.Forms.Label();
             this.aircraftID_combobox = new System.Windows.Forms.ComboBox();
             this.maintainanceCost_label = new System.Windows.Forms.Label();
@@ -41,6 +42,7 @@
             this.startTime = new System.Windows.Forms.DateTimePicker();
             this.endTime = new System.Windows.Forms.DateTimePicker();
             this.numericCostCounter = new System.Windows.Forms.NumericUpDown();
+            this.btn_back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericCostCounter)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +62,7 @@
             // 
             this.aircraftID_combobox.FormattingEnabled = true;
             this.aircraftID_combobox.Location = new System.Drawing.Point(432, 64);
-            this.aircraftID_combobox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.aircraftID_combobox.Margin = new System.Windows.Forms.Padding(4);
             this.aircraftID_combobox.Name = "aircraftID_combobox";
             this.aircraftID_combobox.Size = new System.Drawing.Size(300, 24);
             this.aircraftID_combobox.TabIndex = 1;
@@ -115,7 +117,7 @@
             // 
             this.yesRadio_btn.AutoSize = true;
             this.yesRadio_btn.Location = new System.Drawing.Point(549, 364);
-            this.yesRadio_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.yesRadio_btn.Margin = new System.Windows.Forms.Padding(4);
             this.yesRadio_btn.Name = "yesRadio_btn";
             this.yesRadio_btn.Size = new System.Drawing.Size(37, 20);
             this.yesRadio_btn.TabIndex = 6;
@@ -127,7 +129,7 @@
             // 
             this.no_radiobtn.AutoSize = true;
             this.no_radiobtn.Location = new System.Drawing.Point(600, 364);
-            this.no_radiobtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.no_radiobtn.Margin = new System.Windows.Forms.Padding(4);
             this.no_radiobtn.Name = "no_radiobtn";
             this.no_radiobtn.Size = new System.Drawing.Size(38, 20);
             this.no_radiobtn.TabIndex = 7;
@@ -160,7 +162,7 @@
             // startTime
             // 
             this.startTime.Location = new System.Drawing.Point(180, 215);
-            this.startTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.startTime.Margin = new System.Windows.Forms.Padding(4);
             this.startTime.Name = "startTime";
             this.startTime.Size = new System.Drawing.Size(265, 22);
             this.startTime.TabIndex = 10;
@@ -168,7 +170,7 @@
             // endTime
             // 
             this.endTime.Location = new System.Drawing.Point(635, 215);
-            this.endTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.endTime.Margin = new System.Windows.Forms.Padding(4);
             this.endTime.Name = "endTime";
             this.endTime.Size = new System.Drawing.Size(265, 22);
             this.endTime.TabIndex = 11;
@@ -176,17 +178,32 @@
             // numericCostCounter
             // 
             this.numericCostCounter.Location = new System.Drawing.Point(153, 356);
-            this.numericCostCounter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericCostCounter.Margin = new System.Windows.Forms.Padding(4);
             this.numericCostCounter.Name = "numericCostCounter";
             this.numericCostCounter.Size = new System.Drawing.Size(160, 22);
             this.numericCostCounter.TabIndex = 12;
             this.numericCostCounter.ValueChanged += new System.EventHandler(this.numericCostCounter_ValueChanged);
+            // 
+            // btn_back
+            // 
+            this.btn_back.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.btn_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_back.BackgroundImage")));
+            this.btn_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_back.Location = new System.Drawing.Point(356, 253);
+            this.btn_back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(227, 48);
+            this.btn_back.TabIndex = 80;
+            this.btn_back.Text = "Back";
+            this.btn_back.UseVisualStyleBackColor = false;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // AS_report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 554);
+            this.Controls.Add(this.btn_back);
             this.Controls.Add(this.numericCostCounter);
             this.Controls.Add(this.endTime);
             this.Controls.Add(this.startTime);
@@ -200,8 +217,9 @@
             this.Controls.Add(this.maintainanceCost_label);
             this.Controls.Add(this.aircraftID_combobox);
             this.Controls.Add(this.aircraftId_label);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AS_report";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AS_report";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AS_report_FormClosing);
             this.Load += new System.EventHandler(this.AS_report_Load);
@@ -226,5 +244,6 @@
         private System.Windows.Forms.DateTimePicker startTime;
         private System.Windows.Forms.DateTimePicker endTime;
         private System.Windows.Forms.NumericUpDown numericCostCounter;
+        private System.Windows.Forms.Button btn_back;
     }
 }

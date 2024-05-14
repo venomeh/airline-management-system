@@ -38,6 +38,8 @@
             this.button_AddEmployee = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label_displayName = new System.Windows.Forms.Label();
+            this.button_allEmp = new System.Windows.Forms.Button();
+            this.button_update_flight_status = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_logout
@@ -45,10 +47,10 @@
             this.button_logout.BackColor = System.Drawing.SystemColors.MenuBar;
             this.button_logout.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._52;
             this.button_logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_logout.Location = new System.Drawing.Point(177, 479);
+            this.button_logout.Location = new System.Drawing.Point(65, 514);
             this.button_logout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_logout.Name = "button_logout";
-            this.button_logout.Size = new System.Drawing.Size(227, 48);
+            this.button_logout.Size = new System.Drawing.Size(96, 48);
             this.button_logout.TabIndex = 15;
             this.button_logout.Text = "Log Out";
             this.button_logout.UseVisualStyleBackColor = false;
@@ -59,7 +61,7 @@
             this.button_revenue.BackColor = System.Drawing.SystemColors.MenuBar;
             this.button_revenue.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._52;
             this.button_revenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_revenue.Location = new System.Drawing.Point(177, 425);
+            this.button_revenue.Location = new System.Drawing.Point(174, 457);
             this.button_revenue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_revenue.Name = "button_revenue";
             this.button_revenue.Size = new System.Drawing.Size(227, 48);
@@ -73,7 +75,7 @@
             this.button_manage_aircraft.BackColor = System.Drawing.SystemColors.MenuBar;
             this.button_manage_aircraft.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._52;
             this.button_manage_aircraft.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_manage_aircraft.Location = new System.Drawing.Point(177, 316);
+            this.button_manage_aircraft.Location = new System.Drawing.Point(174, 405);
             this.button_manage_aircraft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_manage_aircraft.Name = "button_manage_aircraft";
             this.button_manage_aircraft.Size = new System.Drawing.Size(227, 48);
@@ -87,12 +89,12 @@
             this.button_reports.BackColor = System.Drawing.SystemColors.MenuBar;
             this.button_reports.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._52;
             this.button_reports.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_reports.Location = new System.Drawing.Point(177, 370);
+            this.button_reports.Location = new System.Drawing.Point(174, 509);
             this.button_reports.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_reports.Name = "button_reports";
             this.button_reports.Size = new System.Drawing.Size(227, 48);
             this.button_reports.TabIndex = 12;
-            this.button_reports.Text = "Reports";
+            this.button_reports.Text = "Feedback";
             this.button_reports.UseVisualStyleBackColor = false;
             this.button_reports.Click += new System.EventHandler(this.button_reports_Click);
             // 
@@ -101,7 +103,7 @@
             this.button_assign_pilot_crew.BackColor = System.Drawing.SystemColors.MenuBar;
             this.button_assign_pilot_crew.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._52;
             this.button_assign_pilot_crew.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_assign_pilot_crew.Location = new System.Drawing.Point(177, 263);
+            this.button_assign_pilot_crew.Location = new System.Drawing.Point(174, 247);
             this.button_assign_pilot_crew.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_assign_pilot_crew.Name = "button_assign_pilot_crew";
             this.button_assign_pilot_crew.Size = new System.Drawing.Size(227, 48);
@@ -115,7 +117,7 @@
             this.button_schedule_flight.BackColor = System.Drawing.SystemColors.MenuBar;
             this.button_schedule_flight.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._52;
             this.button_schedule_flight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_schedule_flight.Location = new System.Drawing.Point(177, 209);
+            this.button_schedule_flight.Location = new System.Drawing.Point(174, 299);
             this.button_schedule_flight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_schedule_flight.Name = "button_schedule_flight";
             this.button_schedule_flight.Size = new System.Drawing.Size(227, 48);
@@ -141,7 +143,7 @@
             this.button_AddEmployee.BackColor = System.Drawing.SystemColors.MenuBar;
             this.button_AddEmployee.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._52;
             this.button_AddEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_AddEmployee.Location = new System.Drawing.Point(177, 158);
+            this.button_AddEmployee.Location = new System.Drawing.Point(174, 143);
             this.button_AddEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_AddEmployee.Name = "button_AddEmployee";
             this.button_AddEmployee.Size = new System.Drawing.Size(227, 48);
@@ -172,6 +174,33 @@
             this.label_displayName.TabIndex = 19;
             this.label_displayName.Text = "ADMIN";
             // 
+            // button_allEmp
+            // 
+            this.button_allEmp.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.button_allEmp.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._52;
+            this.button_allEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_allEmp.Location = new System.Drawing.Point(174, 195);
+            this.button_allEmp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_allEmp.Name = "button_allEmp";
+            this.button_allEmp.Size = new System.Drawing.Size(227, 48);
+            this.button_allEmp.TabIndex = 20;
+            this.button_allEmp.Text = "All Employee";
+            this.button_allEmp.UseVisualStyleBackColor = false;
+            this.button_allEmp.Click += new System.EventHandler(this.button_allEmp_Click);
+            // 
+            // button_update_flight_status
+            // 
+            this.button_update_flight_status.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.button_update_flight_status.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._52;
+            this.button_update_flight_status.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_update_flight_status.Location = new System.Drawing.Point(174, 352);
+            this.button_update_flight_status.Name = "button_update_flight_status";
+            this.button_update_flight_status.Size = new System.Drawing.Size(227, 48);
+            this.button_update_flight_status.TabIndex = 22;
+            this.button_update_flight_status.Text = "Update Flight Status";
+            this.button_update_flight_status.UseVisualStyleBackColor = false;
+            this.button_update_flight_status.Click += new System.EventHandler(this.button_update_flight_status_Click);
+            // 
             // AirlineServices
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -179,6 +208,8 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
+            this.Controls.Add(this.button_update_flight_status);
+            this.Controls.Add(this.button_allEmp);
             this.Controls.Add(this.label_displayName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button_AddEmployee);
@@ -212,5 +243,7 @@
         private System.Windows.Forms.Button button_AddEmployee;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label_displayName;
+        private System.Windows.Forms.Button button_allEmp;
+        private System.Windows.Forms.Button button_update_flight_status;
     }
 }

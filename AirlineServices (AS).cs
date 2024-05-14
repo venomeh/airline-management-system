@@ -72,16 +72,28 @@ namespace DATABASE_PROJECT
 
         private void button_reports_Click(object sender, EventArgs e)
         {
-            AS_report aS_Report = new AS_report();
+            AS_Feedback feedback = new AS_Feedback(_db);
             this.Hide();
-            aS_Report.Show();
+            feedback.Show();
         }
 
         private void button_revenue_Click(object sender, EventArgs e)
         {
-            AS_revenue aS_Revenue = new AS_revenue();
+            AS_revenue aS_Revenue = new AS_revenue(_db);
             this.Hide();
             aS_Revenue.Show();
+        }
+
+        private void button_allEmp_Click(object sender, EventArgs e)
+        {
+            AS_AllEmployee emp = new AS_AllEmployee(_db);
+            this.Hide();
+            emp.Show();
+        }
+
+        private void button_update_flight_status_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

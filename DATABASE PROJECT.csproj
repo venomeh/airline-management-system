@@ -139,11 +139,23 @@
     <Compile Include="AS_aircraft.Designer.cs">
       <DependentUpon>AS_aircraft.cs</DependentUpon>
     </Compile>
+    <Compile Include="AS_AllEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AS_AllEmployee.Designer.cs">
+      <DependentUpon>AS_AllEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="AS_assignPilotCrew.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AS_assignPilotCrew.Designer.cs">
       <DependentUpon>AS_assignPilotCrew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AS_Feedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AS_Feedback.Designer.cs">
+      <DependentUpon>AS_Feedback.cs</DependentUpon>
     </Compile>
     <Compile Include="AS_report.cs">
       <SubType>Form</SubType>
@@ -162,6 +174,12 @@
     </Compile>
     <Compile Include="AS_ScheduleFlight.Designer.cs">
       <DependentUpon>AS_ScheduleFlight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AS_UpdateFlightStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AS_UpdateFlightStatus.Designer.cs">
+      <DependentUpon>AS_UpdateFlightStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="database.cs" />
     <Compile Include="Employee.cs">
@@ -259,8 +277,14 @@
     <EmbeddedResource Include="AS_aircraft.resx">
       <DependentUpon>AS_aircraft.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AS_AllEmployee.resx">
+      <DependentUpon>AS_AllEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AS_assignPilotCrew.resx">
       <DependentUpon>AS_assignPilotCrew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AS_Feedback.resx">
+      <DependentUpon>AS_Feedback.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AS_report.resx">
       <DependentUpon>AS_report.cs</DependentUpon>
@@ -270,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AS_ScheduleFlight.resx">
       <DependentUpon>AS_ScheduleFlight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AS_UpdateFlightStatus.resx">
+      <DependentUpon>AS_UpdateFlightStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlCenter.resx">
       <DependentUpon>ControlCenter.cs</DependentUpon>

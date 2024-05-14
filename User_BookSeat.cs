@@ -17,7 +17,7 @@ namespace DATABASE_PROJECT
     {
         private database _db;
         public string cnic;
-        string departure, arrival, bookingFlightID;
+        string arrival, bookingFlightID;
         System.DateTime date;
         public User_BookSeat(database db, string cnic)
         {
