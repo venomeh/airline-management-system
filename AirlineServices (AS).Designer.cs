@@ -191,6 +191,7 @@
             this.Controls.Add(this.label2);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AirlineServices";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AirlineServices";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AirlineServices_FormClosing);
             this.Load += new System.EventHandler(this.AirlineServices_Load);

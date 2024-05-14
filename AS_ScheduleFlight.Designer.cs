@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AS_ScheduleFlight));
             this.comboBox_DEPARTURE = new System.Windows.Forms.ComboBox();
             this.comboBox_Arrival = new System.Windows.Forms.ComboBox();
-            this.combo_AircraftId = new System.Windows.Forms.ComboBox();
             this.label_FID = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,7 +38,6 @@
             this.label_flightStatus = new System.Windows.Forms.Label();
             this.label_flightHours = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.btn_back = new System.Windows.Forms.Button();
             this.button_Assign = new System.Windows.Forms.Button();
             this.displayHours = new System.Windows.Forms.Label();
@@ -52,6 +50,8 @@
             this.label_airline = new System.Windows.Forms.Label();
             this.comboBox_Airline = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.combo_AircraftId = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ncARRtime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ncDEPtime)).BeginInit();
             this.SuspendLayout();
@@ -101,17 +101,6 @@
             this.comboBox_Arrival.Size = new System.Drawing.Size(147, 24);
             this.comboBox_Arrival.TabIndex = 21;
             this.comboBox_Arrival.SelectedIndexChanged += new System.EventHandler(this.comboBox_Arrival_SelectedIndexChanged);
-            // 
-            // combo_AircraftId
-            // 
-            this.combo_AircraftId.FormattingEnabled = true;
-            this.combo_AircraftId.Location = new System.Drawing.Point(342, 430);
-            this.combo_AircraftId.Margin = new System.Windows.Forms.Padding(4);
-            this.combo_AircraftId.Name = "combo_AircraftId";
-            this.combo_AircraftId.Size = new System.Drawing.Size(147, 24);
-            this.combo_AircraftId.TabIndex = 8;
-            this.combo_AircraftId.Text = "Aircraft_ID";
-            this.combo_AircraftId.SelectedIndexChanged += new System.EventHandler(this.aircraftID_combobox_SelectedIndexChanged);
             // 
             // label_FID
             // 
@@ -191,17 +180,6 @@
             this.label2.TabIndex = 83;
             this.label2.Text = "Ticket Cost";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(98, 428);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 22);
-            this.label3.TabIndex = 84;
-            this.label3.Text = "Select Aircraft";
-            // 
             // btn_back
             // 
             this.btn_back.BackColor = System.Drawing.SystemColors.MenuBar;
@@ -265,11 +243,6 @@
             this.ncARRtime.Name = "ncARRtime";
             this.ncARRtime.Size = new System.Drawing.Size(61, 22);
             this.ncARRtime.TabIndex = 90;
-            this.ncARRtime.Value = new decimal(new int[] {
-            24,
-            0,
-            0,
-            0});
             this.ncARRtime.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // ncDEPtime
@@ -283,11 +256,6 @@
             this.ncDEPtime.Name = "ncDEPtime";
             this.ncDEPtime.Size = new System.Drawing.Size(61, 22);
             this.ncDEPtime.TabIndex = 91;
-            this.ncDEPtime.Value = new decimal(new int[] {
-            24,
-            0,
-            0,
-            0});
             this.ncDEPtime.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
             // dateDeparture
@@ -320,6 +288,7 @@
             this.dateArrival.Size = new System.Drawing.Size(148, 22);
             this.dateArrival.TabIndex = 93;
             this.dateArrival.Value = new System.DateTime(2024, 5, 13, 0, 0, 0, 0);
+            this.dateArrival.ValueChanged += new System.EventHandler(this.dateArrival_ValueChanged);
             // 
             // comboBox_flightStatus
             // 
@@ -366,6 +335,30 @@
             this.label4.TabIndex = 97;
             this.label4.Text = "SCHEDULE FLIGHT";
             // 
+            // combo_AircraftId
+            // 
+            this.combo_AircraftId.FormattingEnabled = true;
+            this.combo_AircraftId.Items.AddRange(new object[] {
+            "Select Airline First"});
+            this.combo_AircraftId.Location = new System.Drawing.Point(342, 430);
+            this.combo_AircraftId.Margin = new System.Windows.Forms.Padding(4);
+            this.combo_AircraftId.Name = "combo_AircraftId";
+            this.combo_AircraftId.Size = new System.Drawing.Size(147, 24);
+            this.combo_AircraftId.TabIndex = 8;
+            this.combo_AircraftId.Text = "Aircraft_ID";
+            this.combo_AircraftId.SelectedIndexChanged += new System.EventHandler(this.aircraftID_combobox_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(98, 428);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(122, 22);
+            this.label3.TabIndex = 84;
+            this.label3.Text = "Select Aircraft";
+            // 
             // AS_ScheduleFlight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -411,7 +404,6 @@
         #endregion
         private System.Windows.Forms.ComboBox comboBox_DEPARTURE;
         private System.Windows.Forms.ComboBox comboBox_Arrival;
-        private System.Windows.Forms.ComboBox combo_AircraftId;
         private System.Windows.Forms.Label label_FID;
         private System.Windows.Forms.Label name_label;
         private System.Windows.Forms.Label label1;
@@ -419,7 +411,6 @@
         private System.Windows.Forms.Label label_flightStatus;
         private System.Windows.Forms.Label label_flightHours;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Button button_Assign;
         private System.Windows.Forms.Label displayHours;
@@ -432,5 +423,7 @@
         private System.Windows.Forms.Label label_airline;
         private System.Windows.Forms.ComboBox comboBox_Airline;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox combo_AircraftId;
+        private System.Windows.Forms.Label label3;
     }
 }
