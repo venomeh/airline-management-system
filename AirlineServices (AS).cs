@@ -93,7 +93,9 @@ namespace DATABASE_PROJECT
 
         private void button_update_flight_status_Click(object sender, EventArgs e)
         {
-
+            AS_UpdateFlightStatus status = new AS_UpdateFlightStatus(_db);
+            this.Hide();
+            status.Show();
         }
     }
 }

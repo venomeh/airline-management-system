@@ -161,6 +161,16 @@ namespace DATABASE_PROJECT
 
         }
 
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_flightStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void dateArrival_ValueChanged(object sender, EventArgs e)
         {
             updateFlightHoursAndTicketCost();

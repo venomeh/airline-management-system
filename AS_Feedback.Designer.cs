@@ -94,6 +94,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_back);
             this.Name = "AS_Feedback";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AS_Feedback";
             this.Load += new System.EventHandler(this.AS_Feedback_Load);
             this.ResumeLayout(false);

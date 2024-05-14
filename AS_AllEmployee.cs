@@ -65,6 +65,7 @@ namespace DATABASE_PROJECT
 
         private void buttonDLT_Click(object sender, EventArgs e)
         {
+            if (textBox_EmpID.Text != null)
             try
             {
                 using (OracleCommand cmd = _db.con().CreateCommand())

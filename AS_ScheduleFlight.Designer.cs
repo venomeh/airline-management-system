@@ -157,6 +157,7 @@
             this.label_flightStatus.Size = new System.Drawing.Size(110, 22);
             this.label_flightStatus.TabIndex = 81;
             this.label_flightStatus.Text = "Flight Status";
+            this.label_flightStatus.Click += new System.EventHandler(this.label_flightStatus_Click);
             // 
             // label_flightHours
             // 
@@ -358,6 +359,7 @@
             this.label3.Size = new System.Drawing.Size(122, 22);
             this.label3.TabIndex = 84;
             this.label3.Text = "Select Aircraft";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // AS_ScheduleFlight
             // 

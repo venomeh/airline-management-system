@@ -157,12 +157,6 @@
     <Compile Include="AS_Feedback.Designer.cs">
       <DependentUpon>AS_Feedback.cs</DependentUpon>
     </Compile>
-    <Compile Include="AS_report.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AS_report.Designer.cs">
-      <DependentUpon>AS_report.cs</DependentUpon>
-    </Compile>
     <Compile Include="AS_revenue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,9 +279,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AS_Feedback.resx">
       <DependentUpon>AS_Feedback.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AS_report.resx">
-      <DependentUpon>AS_report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AS_revenue.resx">
       <DependentUpon>AS_revenue.cs</DependentUpon>

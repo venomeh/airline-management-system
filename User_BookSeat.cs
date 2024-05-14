@@ -165,7 +165,7 @@ namespace DATABASE_PROJECT
 
         private void button_book_Click(object sender, EventArgs e)
         {
-            string fare, dCity, aCity, seatNo;
+            string fare, dCity, aCity;
             string p_id;
             int baggageID = 0;
 
