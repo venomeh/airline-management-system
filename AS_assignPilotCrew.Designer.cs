@@ -42,7 +42,7 @@
             // crew_combobox
             // 
             this.crew_combobox.FormattingEnabled = true;
-            this.crew_combobox.Location = new System.Drawing.Point(208, 103);
+            this.crew_combobox.Location = new System.Drawing.Point(242, 188);
             this.crew_combobox.Margin = new System.Windows.Forms.Padding(4);
             this.crew_combobox.Name = "crew_combobox";
             this.crew_combobox.Size = new System.Drawing.Size(240, 24);
@@ -53,7 +53,7 @@
             // flight_id_combobox
             // 
             this.flight_id_combobox.FormattingEnabled = true;
-            this.flight_id_combobox.Location = new System.Drawing.Point(208, 152);
+            this.flight_id_combobox.Location = new System.Drawing.Point(242, 237);
             this.flight_id_combobox.Margin = new System.Windows.Forms.Padding(4);
             this.flight_id_combobox.Name = "flight_id_combobox";
             this.flight_id_combobox.Size = new System.Drawing.Size(240, 24);
@@ -66,7 +66,7 @@
             this.name_label.AutoSize = true;
             this.name_label.BackColor = System.Drawing.Color.Transparent;
             this.name_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name_label.Location = new System.Drawing.Point(81, 103);
+            this.name_label.Location = new System.Drawing.Point(115, 188);
             this.name_label.Name = "name_label";
             this.name_label.Size = new System.Drawing.Size(104, 22);
             this.name_label.TabIndex = 66;
@@ -78,7 +78,7 @@
             this.label_FID.AutoSize = true;
             this.label_FID.BackColor = System.Drawing.Color.Transparent;
             this.label_FID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_FID.Location = new System.Drawing.Point(81, 154);
+            this.label_FID.Location = new System.Drawing.Point(115, 239);
             this.label_FID.Name = "label_FID";
             this.label_FID.Size = new System.Drawing.Size(73, 22);
             this.label_FID.TabIndex = 76;

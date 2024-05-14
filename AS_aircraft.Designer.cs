@@ -39,6 +39,7 @@
             this.btn_back = new System.Windows.Forms.Button();
             this.button_Assign = new System.Windows.Forms.Button();
             this.comboBox_airline = new System.Windows.Forms.ComboBox();
+            this.AIRCRAFT = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CPH_label
@@ -46,7 +47,7 @@
             this.CPH_label.AutoSize = true;
             this.CPH_label.BackColor = System.Drawing.Color.Transparent;
             this.CPH_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CPH_label.Location = new System.Drawing.Point(29, 71);
+            this.CPH_label.Location = new System.Drawing.Point(25, 109);
             this.CPH_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CPH_label.Name = "CPH_label";
             this.CPH_label.Size = new System.Drawing.Size(261, 31);
@@ -58,7 +59,7 @@
             this.airline_label.AutoSize = true;
             this.airline_label.BackColor = System.Drawing.Color.Transparent;
             this.airline_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.airline_label.Location = new System.Drawing.Point(29, 214);
+            this.airline_label.Location = new System.Drawing.Point(25, 252);
             this.airline_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.airline_label.Name = "airline_label";
             this.airline_label.Size = new System.Drawing.Size(89, 31);
@@ -70,7 +71,7 @@
             this.aircraftID_label.AutoSize = true;
             this.aircraftID_label.BackColor = System.Drawing.Color.Transparent;
             this.aircraftID_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aircraftID_label.Location = new System.Drawing.Point(29, 279);
+            this.aircraftID_label.Location = new System.Drawing.Point(25, 317);
             this.aircraftID_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.aircraftID_label.Name = "aircraftID_label";
             this.aircraftID_label.Size = new System.Drawing.Size(136, 31);
@@ -79,7 +80,7 @@
             // 
             // cph_textBox
             // 
-            this.cph_textBox.Location = new System.Drawing.Point(318, 80);
+            this.cph_textBox.Location = new System.Drawing.Point(314, 118);
             this.cph_textBox.Margin = new System.Windows.Forms.Padding(4);
             this.cph_textBox.Name = "cph_textBox";
             this.cph_textBox.Size = new System.Drawing.Size(277, 22);
@@ -91,7 +92,7 @@
             this.idShow_label.AutoSize = true;
             this.idShow_label.BackColor = System.Drawing.Color.Transparent;
             this.idShow_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idShow_label.Location = new System.Drawing.Point(311, 282);
+            this.idShow_label.Location = new System.Drawing.Point(307, 320);
             this.idShow_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.idShow_label.Name = "idShow_label";
             this.idShow_label.Size = new System.Drawing.Size(50, 31);
@@ -101,7 +102,7 @@
             // 
             // totalcapacity_textBox
             // 
-            this.totalcapacity_textBox.Location = new System.Drawing.Point(318, 150);
+            this.totalcapacity_textBox.Location = new System.Drawing.Point(314, 188);
             this.totalcapacity_textBox.Margin = new System.Windows.Forms.Padding(4);
             this.totalcapacity_textBox.Name = "totalcapacity_textBox";
             this.totalcapacity_textBox.Size = new System.Drawing.Size(277, 22);
@@ -113,7 +114,7 @@
             this.totalCapacity_label.AutoSize = true;
             this.totalCapacity_label.BackColor = System.Drawing.Color.Transparent;
             this.totalCapacity_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCapacity_label.Location = new System.Drawing.Point(29, 141);
+            this.totalCapacity_label.Location = new System.Drawing.Point(25, 179);
             this.totalCapacity_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.totalCapacity_label.Name = "totalCapacity_label";
             this.totalCapacity_label.Size = new System.Drawing.Size(196, 31);
@@ -158,10 +159,21 @@
             "LOONA AIRWAYS",
             "EMIRATED",
             "ETIHAD"});
-            this.comboBox_airline.Location = new System.Drawing.Point(317, 223);
+            this.comboBox_airline.Location = new System.Drawing.Point(313, 261);
             this.comboBox_airline.Name = "comboBox_airline";
             this.comboBox_airline.Size = new System.Drawing.Size(225, 24);
             this.comboBox_airline.TabIndex = 81;
+            // 
+            // AIRCRAFT
+            // 
+            this.AIRCRAFT.AutoSize = true;
+            this.AIRCRAFT.BackColor = System.Drawing.Color.Transparent;
+            this.AIRCRAFT.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AIRCRAFT.Location = new System.Drawing.Point(165, 41);
+            this.AIRCRAFT.Name = "AIRCRAFT";
+            this.AIRCRAFT.Size = new System.Drawing.Size(279, 48);
+            this.AIRCRAFT.TabIndex = 82;
+            this.AIRCRAFT.Text = "A.T Airlines";
             // 
             // AS_aircraft
             // 
@@ -170,6 +182,7 @@
             this.BackColor = System.Drawing.Color.Chartreuse;
             this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(614, 554);
+            this.Controls.Add(this.AIRCRAFT);
             this.Controls.Add(this.comboBox_airline);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.button_Assign);
@@ -202,5 +215,6 @@
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Button button_Assign;
         private System.Windows.Forms.ComboBox comboBox_airline;
+        private System.Windows.Forms.Label AIRCRAFT;
     }
 }

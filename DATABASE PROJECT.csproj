@@ -212,12 +212,6 @@
     <Compile Include="User_Profile.Designer.cs">
       <DependentUpon>User_Profile.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlCenter.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ControlCenter.Designer.cs">
-      <DependentUpon>ControlCenter.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -288,9 +282,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AS_UpdateFlightStatus.resx">
       <DependentUpon>AS_UpdateFlightStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ControlCenter.resx">
-      <DependentUpon>ControlCenter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
