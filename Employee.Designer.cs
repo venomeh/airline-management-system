@@ -43,7 +43,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label2.Font = new System.Drawing.Font("Segoe Script", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(185, 164);
+            this.label2.Location = new System.Drawing.Point(217, 164);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 30);
             this.label2.TabIndex = 10;
@@ -107,7 +107,7 @@
             this.label_displayName.AutoSize = true;
             this.label_displayName.BackColor = System.Drawing.Color.Transparent;
             this.label_displayName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_displayName.Location = new System.Drawing.Point(293, 165);
+            this.label_displayName.Location = new System.Drawing.Point(325, 165);
             this.label_displayName.Name = "label_displayName";
             this.label_displayName.Size = new System.Drawing.Size(65, 25);
             this.label_displayName.TabIndex = 16;
