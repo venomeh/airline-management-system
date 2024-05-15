@@ -125,7 +125,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "User_CancelSeat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
+            this.Text = "Cancel Seats";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.User_CancelSeat_FormClosing);
             this.Load += new System.EventHandler(this.User_CancelSeat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -156,7 +156,7 @@
             this.Controls.Add(this.btn_back);
             this.Name = "AS_AllEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AS_AllEmployee";
+            this.Text = "Manage Employee";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AS_AllEmployee_FormClosing);
             this.Load += new System.EventHandler(this.AS_AllEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

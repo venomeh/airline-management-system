@@ -355,9 +355,9 @@
             this.label3.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(157, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(279, 48);
+            this.label3.Size = new System.Drawing.Size(298, 48);
             this.label3.TabIndex = 154;
-            this.label3.Text = "A.T Airlines";
+            this.label3.Text = "SkyConnect ";
             // 
             // AS_AddEmployee
             // 
@@ -394,7 +394,7 @@
             this.Controls.Add(this.label2_phoneNO);
             this.Name = "AS_AddEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddEmployee";
+            this.Text = "Add Employee";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AS_AddEmployee_FormClosing);
             this.Load += new System.EventHandler(this.AS_AddEmployee_Load);
             this.ResumeLayout(false);

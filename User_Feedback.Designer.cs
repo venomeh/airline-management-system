@@ -124,7 +124,7 @@
             this.Controls.Add(this.button_submit);
             this.Name = "User_Feedback";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "User_Feedback";
+            this.Text = "Feedback";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.User_Feedback_FormClosing);
             this.Load += new System.EventHandler(this.User_Feedback_Load);
             this.ResumeLayout(false);

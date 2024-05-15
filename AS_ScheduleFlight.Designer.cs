@@ -393,7 +393,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AS_ScheduleFlight";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AS_ScheduleFlight";
+            this.Text = "Schedule Flight";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AS_ScheduleFlight_FormClosing);
             this.Load += new System.EventHandler(this.AS_ScheduleFlight_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ncARRtime)).EndInit();

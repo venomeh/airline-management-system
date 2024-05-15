@@ -244,7 +244,7 @@
             this.Controls.Add(this.btn_back);
             this.Name = "AS_UpdateFlightStatus";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AS_UpdateFlightStatus";
+            this.Text = "Update Flight Status";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AS_UpdateFlightStatus_FormClosing);
             this.Load += new System.EventHandler(this.AS_UpdateFlightStatus_Load);
             this.ResumeLayout(false);

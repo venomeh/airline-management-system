@@ -224,7 +224,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "User_Profile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "User_Profile";
+            this.Text = "User Profile";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.User_Profile_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);

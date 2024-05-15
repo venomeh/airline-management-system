@@ -169,11 +169,11 @@
             this.AIRCRAFT.AutoSize = true;
             this.AIRCRAFT.BackColor = System.Drawing.Color.Transparent;
             this.AIRCRAFT.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AIRCRAFT.Location = new System.Drawing.Point(165, 41);
+            this.AIRCRAFT.Location = new System.Drawing.Point(166, 28);
             this.AIRCRAFT.Name = "AIRCRAFT";
-            this.AIRCRAFT.Size = new System.Drawing.Size(279, 48);
+            this.AIRCRAFT.Size = new System.Drawing.Size(298, 48);
             this.AIRCRAFT.TabIndex = 82;
-            this.AIRCRAFT.Text = "A.T Airlines";
+            this.AIRCRAFT.Text = "SkyConnect ";
             // 
             // AS_aircraft
             // 
@@ -196,7 +196,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AS_aircraft";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AS_aircraft";
+            this.Text = "Add Aircraft";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AS_aircraft_FormClosing);
             this.Load += new System.EventHandler(this.AS_aircraft_Load);
             this.ResumeLayout(false);

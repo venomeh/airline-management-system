@@ -56,9 +56,9 @@
             this.label1.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(164, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(279, 48);
+            this.label1.Size = new System.Drawing.Size(298, 48);
             this.label1.TabIndex = 9;
-            this.label1.Text = "A.T Airlines";
+            this.label1.Text = "SkyConnect ";
             // 
             // button_logout
             // 
@@ -130,7 +130,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Employee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Employee";
+            this.Text = "Welome";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Employee_FormClosing);
             this.Load += new System.EventHandler(this.Employee_Load);
             this.ResumeLayout(false);

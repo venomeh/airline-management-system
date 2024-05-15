@@ -201,7 +201,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "User_FlightStatus";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "User_FlightStatus";
+            this.Text = "Flight Status";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.User_FlightStatus_FormClosing);
             this.Load += new System.EventHandler(this.User_FlightStatus_Load);
             this.ResumeLayout(false);

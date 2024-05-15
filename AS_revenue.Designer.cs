@@ -208,7 +208,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AS_revenue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AS_revenue";
+            this.Text = "Revenue";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AS_revenue_FormClosing);
             this.Load += new System.EventHandler(this.AS_revenue_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bookingGrid)).EndInit();

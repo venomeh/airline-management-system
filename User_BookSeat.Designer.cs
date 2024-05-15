@@ -324,7 +324,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "User_BookSeat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "User_BookFlight";
+            this.Text = "Book Flight";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.User_BookSeat_FormClosing);
             this.Load += new System.EventHandler(this.User_BookSeat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

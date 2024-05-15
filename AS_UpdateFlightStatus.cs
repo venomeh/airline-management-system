@@ -22,35 +22,6 @@ namespace DATABASE_PROJECT
 
         private void AS_UpdateFlightStatus_Load(object sender, EventArgs e)
         {
-            displayStatus.Text = "";
-            label_displayDepCity.Text = "";
-            label_displayArrCity.Text = "";
-            label_displayDepDate.Text = "";
-            combo_flightid.Items.Clear();
-
-            //retrive flight id (can only change status of flight that are not completed
-            OracleCommand oracleCommand = _db.con().CreateCommand();
-            oracleCommand.CommandText = "SELECT DISTINCT flight_id FROM flight " +
-                "WHERE flight_status NOT IN ('COMPLETED') " +
-                "ORDER BY flight_id";
-
-            try
-            {
-                OracleDataReader reader = oracleCommand.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        string id = reader["flight_id"].ToString();
-                        combo_flightid.Items.Add(id);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
 
         }
 
