@@ -82,14 +82,18 @@ namespace DATABASE_PROJECT
             if (string.IsNullOrEmpty(aircraftID)) { return; }
 
             flightid_comboBox.Items.Clear();
+            showStatus.Text = "";
 
-            OracleCommand oracleCommand = _db.con().CreateCommand();
-            oracleCommand.CommandText = "SELECT DISTINCT flight_id FROM FLIGHT where aircraft_id = '" + aircraftID + "'";
+
+            /////////////selecting flight id where fligh status is not canceled
+            OracleCommand oracleCommand1 = _db.con().CreateCommand();
+            oracleCommand1.CommandText = "SELECT DISTINCT flight_id FROM FLIGHT WHERE aircraft_id = '" + aircraftID + "' " +
+                "AND FLIGHT_STATUS NOT IN ('CANCELED') " +
+                "ORDER BY flight_id ASC";
 
             try
             {
-
-                OracleDataReader reader = oracleCommand.ExecuteReader();
+                OracleDataReader reader = oracleCommand1.ExecuteReader();
 
                 if (reader.HasRows)
                 {
@@ -99,26 +103,29 @@ namespace DATABASE_PROJECT
                         flightid_comboBox.Items.Add(id);
                     }
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-        }
 
-        private void flightid_comboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-            string flight_id = flightid_comboBox.SelectedItem.ToString();
+            ////////////displaying revenue generated according to that aircraft id that was selected
+
             string aircraft_id = aircraft_comboBox.SelectedItem.ToString();
-
-            if (string.IsNullOrEmpty(flight_id)) { return; }
             if (string.IsNullOrEmpty(aircraft_id)) { return; }
 
-            // Command to retrieve total revenue
+            showRevenue.Text = "0";
+            showStatus.Text = "-";
+
+            //Command to retrieve total revenue
             OracleCommand oracleCommand = _db.con().CreateCommand();
-            oracleCommand.CommandText = "SELECT SUM(ticket_price) AS total FROM BOOKING WHERE flight_id = '" + flight_id + "'";
+            oracleCommand.CommandText = "SELECT SUM(b.ticket_price) AS total " +
+                "FROM BOOKING b " +
+                "INNER JOIN FLIGHT f ON f.flight_id = b.flight_id " +
+                "WHERE f.aircraft_id = '" + aircraft_id + "' AND f.flight_status NOT IN ('CANCELED')";
+                
+
 
             try
             {
@@ -128,9 +135,9 @@ namespace DATABASE_PROJECT
                 {
                     reader.Read();
                     showRevenue.Text = reader["total"].ToString();
+                    label_revenueGenerated.Text = "Revenue Generated (Aircraft)";
                 }
-                else
-                    showRevenue.Text = "0"; // i think this should be s
+                
 
                 reader.Close();
             }
@@ -139,9 +146,93 @@ namespace DATABASE_PROJECT
                 MessageBox.Show("Error: " + ex.Message);
             }
 
-            //Command to retrieve booking details
+            //Command to retrieve booking details against the selected aircraft to show in data grid view 
             OracleCommand oracleCommand2 = _db.con().CreateCommand();
-            oracleCommand2.CommandText = "SELECT BOOKING_DATE, TICKET_PRICE, FLIGHT_ID, PASSENGER_ID, DEPARTURE_CITY, ARRIVAL_CITY, DEP_DATE FROM BOOKING WHERE flight_id = '" + flight_id + "'";
+            oracleCommand2.CommandText = "SELECT b.BOOKING_DATE, b.TICKET_PRICE, b.FLIGHT_ID, b.PASSENGER_ID, b.DEPARTURE_CITY, b.ARRIVAL_CITY, " +
+                "b.DEP_DATE " +
+                "FROM BOOKING b " +
+                "INNER JOIN FLIGHT f ON f.flight_id = b.flight_id " +
+                "WHERE f.aircraft_id = '" + aircraft_id + "' AND f.flight_status NOT IN ('CANCELED') " +
+                "ORDER BY b.booking_date DESC";
+           
+            try
+            {
+                OracleDataReader reader = oracleCommand2.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    //Add retrieved data to a DataGridView
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(reader);
+                    bookingGrid.DataSource = dataTable;
+                }
+                else
+                    showRevenue.Text = "No bookings Found";
+
+                bookingGrid.Refresh();
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+
+        }
+
+        private void flightid_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string flight_id = flightid_comboBox.SelectedItem.ToString();
+            string aircraft_id = aircraft_comboBox.SelectedItem.ToString();
+            if (string.IsNullOrEmpty(flight_id)) { return; }
+            if (string.IsNullOrEmpty(aircraft_id)) { return; }
+
+            // Command to retrieve total revenue according to flight id 
+            OracleCommand oracleCommand = _db.con().CreateCommand();
+            oracleCommand.CommandText = "SELECT SUM(b.ticket_price) AS total, f.flight_status " +
+                "FROM BOOKING b " +
+                "INNER JOIN FLIGHT f ON f.flight_id = b.flight_id " +
+                "WHERE f.flight_id = '" + flight_id + "' AND f.flight_status NOT IN 'CANCELED'" +
+                "GROUP BY F.flight_status";
+               
+
+            try
+            {
+                showRevenue.Text = "0"; 
+                showStatus.Text = "-";
+                OracleDataReader reader = oracleCommand.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    showRevenue.Text = reader["total"].ToString();
+                    showStatus.Text = reader["flight_status"].ToString();
+                    label_revenueGenerated.Text = "Revenue Generated (Flight)";
+
+                }
+                else
+                {
+                    showRevenue.Text = "No bookings Found";
+
+                }
+
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+            //Command to retrieve booking details against flight id to show in data grid view
+            OracleCommand oracleCommand2 = _db.con().CreateCommand();
+            oracleCommand2.CommandText = "SELECT b.BOOKING_DATE, b.TICKET_PRICE, b.FLIGHT_ID, b.PASSENGER_ID, b.DEPARTURE_CITY, b.ARRIVAL_CITY, " +
+                "b.DEP_DATE " +
+                "FROM BOOKING b " +
+                "INNER JOIN FLIGHT f ON f.flight_id = b.flight_id " +
+                "WHERE b.flight_id = '" + flight_id + "' AND f.flight_status NOT IN ('CANCELED') " +
+                "ORDER BY b.booking_date DESC";
 
             try
             {
@@ -154,6 +245,11 @@ namespace DATABASE_PROJECT
                     dataTable.Load(reader);
                     bookingGrid.DataSource = dataTable;
                     bookingGrid.Refresh();
+                }
+                else
+                {
+                    showStatus.Text = "No bookings Found";
+
                 }
                 reader.Close();
             }
@@ -180,9 +276,13 @@ namespace DATABASE_PROJECT
 
         private void AS_revenue_Load(object sender, EventArgs e)
         {
-            showRevenue.Text = "";
+            showRevenue.Text = "0";
+            showStatus.Text = "-";
+
             OracleCommand oracleCommand = _db.con().CreateCommand();
-            oracleCommand.CommandText = "SELECT DISTINCT aircraft_id FROM FLIGHT";
+            oracleCommand.CommandText = "SELECT DISTINCT aircraft_id FROM FLIGHT " +
+                "WHERE FLIGHT_STATUS NOT IN ('CANCELED') " +
+                "ORDER BY aircraft_id";
 
             try
             {
@@ -258,9 +358,66 @@ namespace DATABASE_PROJECT
 
             MessageBox.Show("PDF generated successfully.");
         }
+
+        void pdf()
+        {
+            string connectionString = "DATA SOURCE=localhost:1521/xe;USER ID=AirlineSystem;PASSWORD=12345";
+            string query = "SELECT BOOKING_DATE, TICKET_PRICE, FLIGHT_ID, PASSENGER_ID, DEPARTURE_CITY, ARRIVAL_CITY, DEP_DATE FROM BOOKING WHERE flight_id = '" + flightid_comboBox.SelectedItem.ToString() + "'";
+
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                using (OracleCommand command = new OracleCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        OracleDataAdapter adapter = new OracleDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        // Generate PDF
+                        using (FileStream stream = new FileStream("output.pdf", FileMode.Create))
+                        {
+                            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                            PdfWriter.GetInstance(pdfDoc, stream);
+                            pdfDoc.Open();
+
+                            PdfPTable table = new PdfPTable(dataTable.Columns.Count);
+
+                            // Add table headers
+                            for (int i = 0; i < dataTable.Columns.Count; i++)
+                            {
+                                table.AddCell(new Phrase(dataTable.Columns[i].ColumnName));
+                            }
+
+                            // Add table rows
+                            for (int i = 0; i < dataTable.Rows.Count; i++)
+                            {
+                                for (int j = 0; j < dataTable.Columns.Count; j++)
+                                {
+                                    table.AddCell(new Phrase(dataTable.Rows[i][j].ToString()));
+                                }
+                            }
+
+                            pdfDoc.Add(table);
+                            pdfDoc.Close();
+                        }
+
+                        MessageBox.Show("PDF generated successfully.");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+
+        }
+
         private void button_generatePDF_Click(object sender, EventArgs e)
         {
-            GenerateRevenuePDF();
+            //GenerateRevenuePDF();
+            pdf();
         }
 
 

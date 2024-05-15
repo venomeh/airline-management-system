@@ -50,7 +50,7 @@ namespace DATABASE_PROJECT
                     query2.CommandText = "SELECT flight_id, departure_city, arrival_city, ticket_price, booking_date " +
                         "FROM booking " +
                         "WHERE passenger_id = :P_id " +
-                        "ORDER BY booking_date ASC";
+                        "ORDER BY booking_date DESC";
                     query2.Parameters.Add("P_id", passengerId);
 
                     OracleDataAdapter adapter = new OracleDataAdapter(query2);

@@ -38,7 +38,7 @@ namespace DATABASE_PROJECT
 
         private void crew_radio_btn_CheckedChanged(object sender, EventArgs e)
         {
-            //this can either be pilot or crew , select one
+          
         }
 
         private void pilot_crew_combobox_SelectedIndexChanged(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace DATABASE_PROJECT
 
         private void flight_id_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // show all available flight ids
+           
         }
 
         private void AS_assignPilotCrew_FormClosing(object sender, FormClosingEventArgs e)
@@ -94,6 +94,7 @@ namespace DATABASE_PROJECT
 
         private void AS_assignPilotCrew_Load(object sender, EventArgs e)
         {
+            label_displayStatus.Text = "";
             crew_combobox.Items.Clear();
 
             OracleCommand oracleCommand = _db.con().CreateCommand();
@@ -132,7 +133,7 @@ namespace DATABASE_PROJECT
             // Second Oracle command to select flight IDs not present in the CREW table
             flight_id_combobox.Items.Clear();
             OracleCommand oracleCommand1 = _db.con().CreateCommand();
-            oracleCommand1.CommandText = "SELECT FLIGHT_ID FROM FLIGHT " +
+            oracleCommand1.CommandText = "SELECT FLIGHT_ID FROM FLIGHT WHERE FLIGHT_STATUS NOT IN ('CANCELED')" +
                 "MINUS " +
                 "SELECT FLIGHT_ID FROM CREW";
 
@@ -175,6 +176,11 @@ namespace DATABASE_PROJECT
             airlineServices.Show();
 
             this.Hide();
+
+        }
+
+        private void label_displayStatus_Click(object sender, EventArgs e)
+        {
 
         }
     }

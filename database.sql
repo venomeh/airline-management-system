@@ -355,3 +355,77 @@ BEGIN
     :new.emp_id := max_emp_id;
 END;
 /
+-------
+CREATE OR REPLACE TRIGGER assign_seat_number
+BEFORE INSERT ON booking
+FOR EACH ROW
+DECLARE
+  v_current_seat_number NUMBER;
+BEGIN
+  -- Retrieve the current maximum seat number for the flight
+  SELECT MAX(seat_no)
+  INTO v_current_seat_number
+  FROM booking
+  WHERE flight_id = :NEW.flight_id;
+
+  -- Assign the seat number
+  IF v_current_seat_number IS NULL THEN
+    :NEW.seat_no := 1;  -- First seat if no bookings yet
+  ELSE
+    :NEW.seat_no := v_current_seat_number + 1; -- Next seat
+  END IF;
+END;
+/
+
+
+
+
+---------
+--automatically changes the flight status to completed if arrival date has passed
+-- First, create a stored procedure to update the flight status
+CREATE OR REPLACE PROCEDURE UpdateFlightStatusCompleted AS
+BEGIN
+    -- Update the flight status to 'COMPLETED' where the departure date is past the current date
+    UPDATE flight
+    SET FLIGHT_STATUS = 'COMPLETED'
+    WHERE ARR_DATE < SYSDATE AND FLIGHT_STATUS IN ('ON TIME', 'DELAYED');
+END;
+/
+
+-- Then, create a job to run the stored procedure at regular intervals
+BEGIN
+    -- Create a job that runs every minute
+    DBMS_SCHEDULER.CREATE_JOB (
+        job_name          => 'UPDATE_FLIGHT_STATUS_JOB',
+        job_type          => 'STORED_PROCEDURE',
+        job_action        => 'UpdateFlightStatus',
+        start_date        => SYSTIMESTAMP,
+        repeat_interval   => 'FREQ=MINUTELY;INTERVAL=1',
+        enabled           => TRUE
+    );
+END;
+/
+--------------------
+-- First, create a stored procedure to update the flight status
+CREATE OR REPLACE PROCEDURE UpdateFlightStatusCancel AS
+BEGIN
+    -- Update the flight status to 'COMPLETED' where the departure date is past the current date
+    UPDATE flight
+    SET FLIGHT_STATUS = 'CANCELLED'
+    WHERE DEP_DATE < SYSDATE AND FLIGHT_STATUS = 'DELAYED';
+END;
+/
+
+-- Then, create a job to run the stored procedure at regular intervals
+BEGIN
+    -- Create a job that runs every minute
+    DBMS_SCHEDULER.CREATE_JOB (
+        job_name          => 'UPDATE_FLIGHT_STATUS_JOB',
+        job_type          => 'STORED_PROCEDURE',
+        job_action        => 'UpdateFlightStatus',
+        start_date        => SYSTIMESTAMP,
+        repeat_interval   => 'FREQ=MINUTELY;INTERVAL=1',
+        enabled           => TRUE
+    );
+END;
+/

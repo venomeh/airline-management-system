@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AS_revenue));
-            this.aircraftId_label = new System.Windows.Forms.Label();
-            this.flightID_label = new System.Windows.Forms.Label();
-            this.revenueGenerated_label = new System.Windows.Forms.Label();
             this.aircraft_comboBox = new System.Windows.Forms.ComboBox();
             this.flightid_comboBox = new System.Windows.Forms.ComboBox();
             this.showRevenue = new System.Windows.Forms.Label();
@@ -39,55 +36,18 @@
             this.bookingGrid = new System.Windows.Forms.DataGridView();
             this.button_generatePDF = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.showStatus = new System.Windows.Forms.Label();
+            this.label_FlightStatus = new System.Windows.Forms.Label();
+            this.label_revenueGenerated = new System.Windows.Forms.Label();
+            this.label_FlightID = new System.Windows.Forms.Label();
+            this.label_AircraftID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bookingGrid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // aircraftId_label
-            // 
-            this.aircraftId_label.AutoSize = true;
-            this.aircraftId_label.BackColor = System.Drawing.Color.Transparent;
-            this.aircraftId_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aircraftId_label.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.aircraftId_label.Location = new System.Drawing.Point(23, 307);
-            this.aircraftId_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.aircraftId_label.Name = "aircraftId_label";
-            this.aircraftId_label.Size = new System.Drawing.Size(136, 31);
-            this.aircraftId_label.TabIndex = 1;
-            this.aircraftId_label.Text = "Aircraft ID";
-            this.aircraftId_label.Click += new System.EventHandler(this.aircraftId_label_Click);
-            // 
-            // flightID_label
-            // 
-            this.flightID_label.AutoSize = true;
-            this.flightID_label.BackColor = System.Drawing.Color.Transparent;
-            this.flightID_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flightID_label.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.flightID_label.Location = new System.Drawing.Point(23, 363);
-            this.flightID_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.flightID_label.Name = "flightID_label";
-            this.flightID_label.Size = new System.Drawing.Size(116, 31);
-            this.flightID_label.TabIndex = 2;
-            this.flightID_label.Text = "Flight ID";
-            this.flightID_label.Click += new System.EventHandler(this.flightID_label_Click);
-            // 
-            // revenueGenerated_label
-            // 
-            this.revenueGenerated_label.AutoSize = true;
-            this.revenueGenerated_label.BackColor = System.Drawing.Color.Transparent;
-            this.revenueGenerated_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.revenueGenerated_label.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.revenueGenerated_label.Location = new System.Drawing.Point(23, 413);
-            this.revenueGenerated_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.revenueGenerated_label.Name = "revenueGenerated_label";
-            this.revenueGenerated_label.Size = new System.Drawing.Size(258, 31);
-            this.revenueGenerated_label.TabIndex = 5;
-            this.revenueGenerated_label.Text = "Revenue Generated";
-            this.revenueGenerated_label.Click += new System.EventHandler(this.revenueGenerated_label_Click);
             // 
             // aircraft_comboBox
             // 
             this.aircraft_comboBox.FormattingEnabled = true;
-            this.aircraft_comboBox.Location = new System.Drawing.Point(331, 309);
+            this.aircraft_comboBox.Location = new System.Drawing.Point(331, 276);
             this.aircraft_comboBox.Margin = new System.Windows.Forms.Padding(4);
             this.aircraft_comboBox.Name = "aircraft_comboBox";
             this.aircraft_comboBox.Size = new System.Drawing.Size(248, 24);
@@ -99,7 +59,7 @@
             this.flightid_comboBox.FormattingEnabled = true;
             this.flightid_comboBox.Items.AddRange(new object[] {
             "SELECT AIRCRAFT ID FIRST"});
-            this.flightid_comboBox.Location = new System.Drawing.Point(331, 365);
+            this.flightid_comboBox.Location = new System.Drawing.Point(331, 323);
             this.flightid_comboBox.Margin = new System.Windows.Forms.Padding(4);
             this.flightid_comboBox.Name = "flightid_comboBox";
             this.flightid_comboBox.Size = new System.Drawing.Size(248, 24);
@@ -112,7 +72,7 @@
             this.showRevenue.BackColor = System.Drawing.Color.Transparent;
             this.showRevenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showRevenue.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.showRevenue.Location = new System.Drawing.Point(344, 413);
+            this.showRevenue.Location = new System.Drawing.Point(325, 369);
             this.showRevenue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.showRevenue.Name = "showRevenue";
             this.showRevenue.Size = new System.Drawing.Size(29, 31);
@@ -125,7 +85,7 @@
             this.btn_back.BackColor = System.Drawing.SystemColors.MenuBar;
             this.btn_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_back.BackgroundImage")));
             this.btn_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_back.Location = new System.Drawing.Point(188, 505);
+            this.btn_back.Location = new System.Drawing.Point(188, 513);
             this.btn_back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(227, 48);
@@ -138,7 +98,7 @@
             // 
             this.bookingGrid.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.bookingGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bookingGrid.Location = new System.Drawing.Point(27, 93);
+            this.bookingGrid.Location = new System.Drawing.Point(27, 80);
             this.bookingGrid.Name = "bookingGrid";
             this.bookingGrid.RowHeadersWidth = 51;
             this.bookingGrid.RowTemplate.Height = 24;
@@ -150,7 +110,7 @@
             this.button_generatePDF.BackColor = System.Drawing.SystemColors.MenuBar;
             this.button_generatePDF.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_generatePDF.BackgroundImage")));
             this.button_generatePDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_generatePDF.Location = new System.Drawing.Point(188, 456);
+            this.button_generatePDF.Location = new System.Drawing.Point(188, 464);
             this.button_generatePDF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_generatePDF.Name = "button_generatePDF";
             this.button_generatePDF.Size = new System.Drawing.Size(227, 48);
@@ -170,12 +130,74 @@
             this.label1.TabIndex = 84;
             this.label1.Text = "REVENUE";
             // 
+            // showStatus
+            // 
+            this.showStatus.AutoSize = true;
+            this.showStatus.BackColor = System.Drawing.Color.Transparent;
+            this.showStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showStatus.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.showStatus.Location = new System.Drawing.Point(325, 415);
+            this.showStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.showStatus.Name = "showStatus";
+            this.showStatus.Size = new System.Drawing.Size(29, 31);
+            this.showStatus.TabIndex = 85;
+            this.showStatus.Text = "0";
+            // 
+            // label_FlightStatus
+            // 
+            this.label_FlightStatus.AutoSize = true;
+            this.label_FlightStatus.BackColor = System.Drawing.Color.Transparent;
+            this.label_FlightStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_FlightStatus.Location = new System.Drawing.Point(23, 422);
+            this.label_FlightStatus.Name = "label_FlightStatus";
+            this.label_FlightStatus.Size = new System.Drawing.Size(110, 22);
+            this.label_FlightStatus.TabIndex = 89;
+            this.label_FlightStatus.Text = "Flight Status";
+            // 
+            // label_revenueGenerated
+            // 
+            this.label_revenueGenerated.AutoSize = true;
+            this.label_revenueGenerated.BackColor = System.Drawing.Color.Transparent;
+            this.label_revenueGenerated.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_revenueGenerated.Location = new System.Drawing.Point(23, 376);
+            this.label_revenueGenerated.Name = "label_revenueGenerated";
+            this.label_revenueGenerated.Size = new System.Drawing.Size(172, 22);
+            this.label_revenueGenerated.TabIndex = 88;
+            this.label_revenueGenerated.Text = "Revenue Generated";
+            // 
+            // label_FlightID
+            // 
+            this.label_FlightID.AutoSize = true;
+            this.label_FlightID.BackColor = System.Drawing.Color.Transparent;
+            this.label_FlightID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_FlightID.Location = new System.Drawing.Point(23, 325);
+            this.label_FlightID.Name = "label_FlightID";
+            this.label_FlightID.Size = new System.Drawing.Size(76, 22);
+            this.label_FlightID.TabIndex = 87;
+            this.label_FlightID.Text = "Flight ID";
+            // 
+            // label_AircraftID
+            // 
+            this.label_AircraftID.AutoSize = true;
+            this.label_AircraftID.BackColor = System.Drawing.Color.Transparent;
+            this.label_AircraftID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_AircraftID.Location = new System.Drawing.Point(23, 278);
+            this.label_AircraftID.Name = "label_AircraftID";
+            this.label_AircraftID.Size = new System.Drawing.Size(89, 22);
+            this.label_AircraftID.TabIndex = 86;
+            this.label_AircraftID.Text = "Aircraft ID";
+            // 
             // AS_revenue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
+            this.Controls.Add(this.label_FlightStatus);
+            this.Controls.Add(this.label_revenueGenerated);
+            this.Controls.Add(this.label_FlightID);
+            this.Controls.Add(this.label_AircraftID);
+            this.Controls.Add(this.showStatus);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button_generatePDF);
             this.Controls.Add(this.bookingGrid);
@@ -183,9 +205,6 @@
             this.Controls.Add(this.showRevenue);
             this.Controls.Add(this.flightid_comboBox);
             this.Controls.Add(this.aircraft_comboBox);
-            this.Controls.Add(this.revenueGenerated_label);
-            this.Controls.Add(this.flightID_label);
-            this.Controls.Add(this.aircraftId_label);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AS_revenue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -199,10 +218,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label aircraftId_label;
-        private System.Windows.Forms.Label flightID_label;
-        private System.Windows.Forms.Label revenueGenerated_label;
         private System.Windows.Forms.ComboBox aircraft_comboBox;
         private System.Windows.Forms.ComboBox flightid_comboBox;
         private System.Windows.Forms.Label showRevenue;
@@ -210,5 +225,10 @@
         private System.Windows.Forms.DataGridView bookingGrid;
         private System.Windows.Forms.Button button_generatePDF;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label showStatus;
+        private System.Windows.Forms.Label label_FlightStatus;
+        private System.Windows.Forms.Label label_revenueGenerated;
+        private System.Windows.Forms.Label label_FlightID;
+        private System.Windows.Forms.Label label_AircraftID;
     }
 }

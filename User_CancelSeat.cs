@@ -66,8 +66,8 @@ namespace DATABASE_PROJECT
                     query2.CommandText = "SELECT b.flight_id, b.departure_city, b.arrival_city, b.ticket_price, b.booking_date " +
                         "FROM booking b " +
                         "INNER JOIN FLIGHT f ON b.flight_id = f.flight_id " +
-                        "WHERE b.passenger_id = :P_id AND f.FLIGHT_STATUS IN ('DELAYED','ON TIME') " +
-                        "ORDER BY b.booking_date ASC";
+                        "WHERE b.passenger_id = :P_id AND f.FLIGHT_STATUS IN ('DELAYED','ON TIME','CANCELED') " +
+                        "ORDER BY b.booking_date DESC";
                     query2.Parameters.Add("P_id", passengerId);
 
                     // Execute the query

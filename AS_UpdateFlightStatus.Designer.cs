@@ -71,7 +71,8 @@
             this.comboBox_flightStatus.Items.AddRange(new object[] {
             "DELAYED",
             "ON TIME",
-            "COMPLETED"});
+            "COMPLETED",
+            "CANCELED"});
             this.comboBox_flightStatus.Location = new System.Drawing.Point(337, 322);
             this.comboBox_flightStatus.Name = "comboBox_flightStatus";
             this.comboBox_flightStatus.Size = new System.Drawing.Size(147, 24);
@@ -127,7 +128,7 @@
             this.displayStatus.AutoSize = true;
             this.displayStatus.BackColor = System.Drawing.Color.Transparent;
             this.displayStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayStatus.Location = new System.Drawing.Point(283, 184);
+            this.displayStatus.Location = new System.Drawing.Point(332, 184);
             this.displayStatus.Name = "displayStatus";
             this.displayStatus.Size = new System.Drawing.Size(45, 25);
             this.displayStatus.TabIndex = 100;
