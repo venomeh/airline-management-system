@@ -46,9 +46,9 @@
             this.login_headline_label.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_headline_label.Location = new System.Drawing.Point(165, 41);
             this.login_headline_label.Name = "login_headline_label";
-            this.login_headline_label.Size = new System.Drawing.Size(279, 48);
+            this.login_headline_label.Size = new System.Drawing.Size(284, 48);
             this.login_headline_label.TabIndex = 0;
-            this.login_headline_label.Text = "A.T Airlines";
+            this.login_headline_label.Text = "SkyConnect";
             this.login_headline_label.Click += new System.EventHandler(this.label1_Click);
             // 
             // email_label
@@ -157,7 +157,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "LOGIN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "A.T Airline";
+            this.Text = "SkyConnect";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LOGIN_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

@@ -416,8 +416,8 @@ namespace DATABASE_PROJECT
 
         private void button_generatePDF_Click(object sender, EventArgs e)
         {
-            //GenerateRevenuePDF();
-            pdf();
+            MessageBox.Show("Under Working");
+            return;
         }
 
 
