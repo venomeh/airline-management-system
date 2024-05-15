@@ -80,7 +80,7 @@
             this.button_manage_aircraft.Name = "button_manage_aircraft";
             this.button_manage_aircraft.Size = new System.Drawing.Size(227, 48);
             this.button_manage_aircraft.TabIndex = 13;
-            this.button_manage_aircraft.Text = "Aircraft Management";
+            this.button_manage_aircraft.Text = "Add Aircraft";
             this.button_manage_aircraft.UseVisualStyleBackColor = false;
             this.button_manage_aircraft.Click += new System.EventHandler(this.button_manage_aircraft_Click);
             // 
@@ -108,7 +108,7 @@
             this.button_assign_pilot_crew.Name = "button_assign_pilot_crew";
             this.button_assign_pilot_crew.Size = new System.Drawing.Size(227, 48);
             this.button_assign_pilot_crew.TabIndex = 11;
-            this.button_assign_pilot_crew.Text = "Assign Pilot/Crew";
+            this.button_assign_pilot_crew.Text = "Assign Pilots";
             this.button_assign_pilot_crew.UseVisualStyleBackColor = false;
             this.button_assign_pilot_crew.Click += new System.EventHandler(this.button_assign_pilot_crew_Click);
             // 
