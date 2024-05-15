@@ -49,7 +49,28 @@ namespace DATABASE_PROJECT
 
         private void flight_id_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            ///show flight details of selected flight 
+            OracleCommand commandFlightDetails = _db.con().CreateCommand();
+            commandFlightDetails.CommandText = "SELECT departure_city, arrival_city, dep_date " +
+                                   "FROM FLIGHT " +
+                                   "WHERE flight_id = :ID" +
+
+            commandFlightDetails.Parameters.Add(new OracleParameter("ID", flight_id_combobox.SelectedItem.ToString()));
+
+            OracleDataReader reader = commandFlightDetails.ExecuteReader();
+
+            if (reader.Read())
+            {
+                // Display values in labels
+                label_displayDepCity.Text = reader["departure_city"].ToString();
+                label_displayArrCity.Text = reader["arrival_city"].ToString();
+                label_displayDepDate.Text = reader["dep_date"].ToString();
+            }
+
+
+            reader.Close();
+            commandFlightDetails.Dispose();
+            
         }
 
         private void AS_assignPilotCrew_FormClosing(object sender, FormClosingEventArgs e)
@@ -95,6 +116,10 @@ namespace DATABASE_PROJECT
         private void AS_assignPilotCrew_Load(object sender, EventArgs e)
         {
             label_displayStatus.Text = "";
+            label_displayDepCity.Text = "";
+            label_displayArrCity.Text = "";
+            label_displayDepDate.Text = "";
+
             crew_combobox.Items.Clear();
 
             OracleCommand oracleCommand = _db.con().CreateCommand();

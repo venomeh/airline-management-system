@@ -165,11 +165,11 @@ namespace DATABASE_PROJECT
                     DataTable dataTable = new DataTable();
                     dataTable.Load(reader);
                     bookingGrid.DataSource = dataTable;
+                     bookingGrid.Refresh();
                 }
                 else
                     showRevenue.Text = "No bookings Found";
-
-                bookingGrid.Refresh();
+                   
                 reader.Close();
             }
             catch (Exception ex)

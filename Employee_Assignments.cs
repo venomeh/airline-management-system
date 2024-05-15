@@ -57,7 +57,15 @@ namespace DATABASE_PROJECT
                 label_displayflightID.Text = reader["flight_id"].ToString();
                 label_displayDepCity.Text = reader["departure_city"].ToString();
                 label_displayArrCity.Text = reader["arrival_city"].ToString();
-                label_displayDepDate.Text = reader["dep_date"].ToString();
+
+                // Get the departure date from the reader
+                DateTime depDate = Convert.ToDateTime(reader["dep_date"]);
+
+                // Format the date to display only the date part
+                string formattedDate = depDate.ToString("yyyy-MM-dd"); // Change the format as per your requirement
+
+                // Display the formatted date in the label
+                label_displayDepDate.Text = formattedDate;
             }
             else
             {

@@ -23,7 +23,9 @@ namespace DATABASE_PROJECT
         private void AS_UpdateFlightStatus_Load(object sender, EventArgs e)
         {
             displayStatus.Text = "";
-
+            label_displayDepCity.Text = "";
+            label_displayArrCity.Text = "";
+            label_displayDepDate.Text = "";
             combo_flightid.Items.Clear();
 
             //retrive flight id (can only change status of flight that are not completed
@@ -63,7 +65,7 @@ namespace DATABASE_PROJECT
 
             string flight_id = combo_flightid.SelectedItem.ToString();
 
-            // Command to retrieve flight status for the selected
+            // Command to retrieve flight status for the selected flight_id
             string query = "SELECT flight_status FROM flight WHERE flight_id = :ID";
             OracleCommand command = new OracleCommand(query, _db.con());
             command.Parameters.Add(":ID", OracleDbType.Varchar2).Value = flight_id;
@@ -86,6 +88,39 @@ namespace DATABASE_PROJECT
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+
+
+            ///show flight details of selected flight 
+            OracleCommand commandFlightDetails = _db.con().CreateCommand();
+            commandFlightDetails.CommandText = "SELECT departure_city, arrival_city, dep_date " +
+                                   "FROM FLIGHT " +
+                                   "WHERE flight_id = :ID" +
+
+            commandFlightDetails.Parameters.Add(new OracleParameter("ID", combo_flightid.SelectedItem.ToString()));
+
+            OracleDataReader reader = commandFlightDetails.ExecuteReader();
+
+            if (reader.Read())
+            {
+                // Display values in labels
+                label_displayDepCity.Text = reader["departure_city"].ToString();
+                label_displayArrCity.Text = reader["arrival_city"].ToString();
+               
+                // Get the departure date from the reader
+                DateTime depDate = Convert.ToDateTime(reader["dep_date"]);
+
+                // Format the date to display only the date part
+                string formattedDate = depDate.ToString("yyyy-MM-dd"); // Change the format as per your requirement
+
+                // Display the formatted date in the label
+                label_displayDepDate.Text = formattedDate;
+            }
+            
+        
+            reader.Close();
+            commandFlightDetails.Dispose();
+            command.Dispose();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -121,6 +156,12 @@ namespace DATABASE_PROJECT
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+
+
+            displayStatus.Text = "";
+            label_displayDepCity.Text = "";
+            label_displayArrCity.Text = "";
+            label_displayDepDate.Text = "";
         }
 
         private void displayStatus_Click(object sender, EventArgs e)
@@ -141,6 +182,11 @@ namespace DATABASE_PROJECT
 
             this.Hide();
 
+        }
+
+        private void AS_UpdateFlightStatus_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit(); 
         }
     }
 }

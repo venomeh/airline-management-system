@@ -157,7 +157,7 @@
             "TURKISH AIRLINES",
             "QATAR AIRWAYS",
             "LOONA AIRWAYS",
-            "EMIRATED",
+            "EMIRATES",
             "ETIHAD"});
             this.comboBox_airline.Location = new System.Drawing.Point(313, 261);
             this.comboBox_airline.Name = "comboBox_airline";

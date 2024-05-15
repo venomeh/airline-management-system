@@ -22,7 +22,18 @@ namespace DATABASE_PROJECT
 
         private void AS_aircraft_Load(object sender, EventArgs e)
         {
+            OracleCommand maxIdCommand = _db.con().CreateCommand();
+            maxIdCommand.CommandText = "SELECT MAX(AIRCRAFT_ID)+1 FROM AIRCRAFT";
 
+            object maxId = maxIdCommand.ExecuteScalar();
+            if (maxId != DBNull.Value)
+            {
+                idShow_label.Text = maxId.ToString();
+            }
+            else
+            {
+                idShow_label.Text = "-";
+            }
         }
 
         private void AS_aircraft_FormClosing(object sender, FormClosingEventArgs e)
@@ -90,20 +101,14 @@ namespace DATABASE_PROJECT
             if (rowAffected > 0)
             {
                 MessageBox.Show("Aircraft Added successfully.");
-            }
 
-            OracleCommand maxIdCommand = _db.con().CreateCommand();
-            maxIdCommand.CommandText = "SELECT MAX(AIRCRAFT_ID) FROM AIRCRAFT";
-
-            object maxId = maxIdCommand.ExecuteScalar();
-            if (maxId != DBNull.Value)
-            {
-                idShow_label.Text = maxId.ToString();
-            }
-            else
-            {
+                //clear input
+                comboBox_airline.Text = "";
+                cph_textBox.Text = "";
+                totalcapacity_textBox.Text = "";
                 idShow_label.Text = "-";
             }
+           
         }
 
 

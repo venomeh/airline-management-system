@@ -26,6 +26,33 @@ namespace DATABASE_PROJECT
         private void User_FlightStatus_Load(object sender, EventArgs e)
         {
             label_displayStatus.Text = "";
+            label_displayDepCity.Text = "";
+            label_displayArrCity.Text = "";
+            label_displayDepDate.Text = "";
+
+            // Get flight IDs and fill the combo box
+            OracleCommand query1 = _db.con().CreateCommand();
+            query1.CommandText = "SELECT flight_id FROM flight ORDER BY flight_id";
+            OracleDataReader reader = query1.ExecuteReader();
+
+            try
+            {
+                while (reader.Read())
+                {
+                    // Add each flight ID to the combo box
+                    comboBox_flightID.Items.Add(reader["flight_id"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+            finally
+            {
+                // Always close the reader when done
+                reader.Close();
+            }
+
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -62,10 +89,48 @@ namespace DATABASE_PROJECT
 
         private void button_search_Click(object sender, EventArgs e)
         {
-            string status = "O";
+          
+
+        }
+
+        private void password_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox_flightID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ///show flight details of selected flight 
+            OracleCommand commandFlightDetails = _db.con().CreateCommand();
+            commandFlightDetails.CommandText = "SELECT departure_city, arrival_city, dep_date " +
+                                   "FROM FLIGHT " +
+                                   "WHERE flight_id = :ID" +
+
+            commandFlightDetails.Parameters.Add(new OracleParameter("ID", comboBox_flightID.SelectedItem.ToString()));
+
+            OracleDataReader reader = commandFlightDetails.ExecuteReader();
+
+            if (reader.Read())
+            {
+                // Display values in labels
+                label_displayDepCity.Text = reader["departure_city"].ToString();
+                label_displayArrCity.Text = reader["arrival_city"].ToString();
+               
+                
+                // Get the departure date from the reader
+                DateTime depDate = Convert.ToDateTime(reader["dep_date"]);
+
+                // Format the date to display only the date part
+                string formattedDate = depDate.ToString("yyyy-MM-dd"); // Change the format as per your requirement
+
+                // Display the formatted date in the label
+                label_displayDepDate.Text = formattedDate;
+            }
+
+            string status = "";
             try
             {
-                flightId = textBox_FlightId.Text;
+                flightId = comboBox_flightID.SelectedItem.ToString();
 
                 OracleCommand query1 = _db.con().CreateCommand();
                 query1.CommandText = "SELECT flight_status FROM FLIGHT where flight_id = :id ";
@@ -74,25 +139,21 @@ namespace DATABASE_PROJECT
 
                 if (passReader.Read())
                 {
-                     status = passReader["flight_status"].ToString();
+                    status = passReader["flight_status"].ToString();
                     passReader.Close();
-                    
+
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
-            if (status == "Y" || status == "y")
-                label_displayStatus.Text = "FLIGHT ON TIME";
-            else
-                label_displayStatus.Text = "FLIGHT DELAYED";
-
+            label_displayStatus.Text = status;
         }
 
         private void textBox_ticketno_TextChanged(object sender, EventArgs e)
         {
-            flightId = textBox_FlightId.Text;
+            flightId = comboBox_flightID.SelectedItem.ToString();
         }
     }
 }

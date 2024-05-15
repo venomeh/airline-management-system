@@ -274,6 +274,7 @@
             // 
             this.comboBox_BaggageWeight.FormattingEnabled = true;
             this.comboBox_BaggageWeight.Items.AddRange(new object[] {
+            "1",
             "5",
             "10",
             "15",

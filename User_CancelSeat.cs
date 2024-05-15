@@ -131,6 +131,7 @@ namespace DATABASE_PROJECT
                     OracleCommand deleteBookingCommand = _db.con().CreateCommand();
                     deleteBookingCommand.CommandText = "DELETE FROM booking " +
                         "WHERE flight_id = :f_id " +
+                        "AND flight_status NOT IN ('COMPLETED') " +
                         "AND passenger_ID = " +
                         "(SELECT pass_id FROM passengers WHERE cnic = :NIC)";
                     deleteBookingCommand.Parameters.Add(":f_id", f_id);
@@ -163,6 +164,11 @@ namespace DATABASE_PROJECT
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
+        }
+
+        private void comboBox_fightID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

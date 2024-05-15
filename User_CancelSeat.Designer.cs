@@ -107,6 +107,7 @@
             this.comboBox_fightID.Name = "comboBox_fightID";
             this.comboBox_fightID.Size = new System.Drawing.Size(121, 24);
             this.comboBox_fightID.TabIndex = 51;
+            this.comboBox_fightID.SelectedIndexChanged += new System.EventHandler(this.comboBox_fightID_SelectedIndexChanged);
             // 
             // User_CancelSeat
             // 

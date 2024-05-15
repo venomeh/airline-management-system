@@ -37,12 +37,18 @@
             this.button_Assign = new System.Windows.Forms.Button();
             this.label_displayStatus = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label_displayDepDate = new System.Windows.Forms.Label();
+            this.password_label = new System.Windows.Forms.Label();
+            this.label_displayArrCity = new System.Windows.Forms.Label();
+            this.label_displayDepCity = new System.Windows.Forms.Label();
+            this.phone_label = new System.Windows.Forms.Label();
+            this.email_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // crew_combobox
             // 
             this.crew_combobox.FormattingEnabled = true;
-            this.crew_combobox.Location = new System.Drawing.Point(251, 265);
+            this.crew_combobox.Location = new System.Drawing.Point(251, 332);
             this.crew_combobox.Margin = new System.Windows.Forms.Padding(4);
             this.crew_combobox.Name = "crew_combobox";
             this.crew_combobox.Size = new System.Drawing.Size(240, 24);
@@ -53,7 +59,7 @@
             // flight_id_combobox
             // 
             this.flight_id_combobox.FormattingEnabled = true;
-            this.flight_id_combobox.Location = new System.Drawing.Point(251, 314);
+            this.flight_id_combobox.Location = new System.Drawing.Point(251, 381);
             this.flight_id_combobox.Margin = new System.Windows.Forms.Padding(4);
             this.flight_id_combobox.Name = "flight_id_combobox";
             this.flight_id_combobox.Size = new System.Drawing.Size(240, 24);
@@ -66,7 +72,7 @@
             this.name_label.AutoSize = true;
             this.name_label.BackColor = System.Drawing.Color.Transparent;
             this.name_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name_label.Location = new System.Drawing.Point(124, 265);
+            this.name_label.Location = new System.Drawing.Point(124, 332);
             this.name_label.Name = "name_label";
             this.name_label.Size = new System.Drawing.Size(104, 22);
             this.name_label.TabIndex = 66;
@@ -78,7 +84,7 @@
             this.label_FID.AutoSize = true;
             this.label_FID.BackColor = System.Drawing.Color.Transparent;
             this.label_FID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_FID.Location = new System.Drawing.Point(124, 316);
+            this.label_FID.Location = new System.Drawing.Point(124, 383);
             this.label_FID.Name = "label_FID";
             this.label_FID.Size = new System.Drawing.Size(73, 22);
             this.label_FID.TabIndex = 76;
@@ -117,7 +123,7 @@
             this.label_displayStatus.AutoSize = true;
             this.label_displayStatus.BackColor = System.Drawing.Color.Transparent;
             this.label_displayStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_displayStatus.Location = new System.Drawing.Point(246, 150);
+            this.label_displayStatus.Location = new System.Drawing.Point(246, 128);
             this.label_displayStatus.Name = "label_displayStatus";
             this.label_displayStatus.Size = new System.Drawing.Size(124, 25);
             this.label_displayStatus.TabIndex = 87;
@@ -135,12 +141,84 @@
             this.label1.TabIndex = 88;
             this.label1.Text = "ASSIGN PILOTS";
             // 
+            // label_displayDepDate
+            // 
+            this.label_displayDepDate.AutoSize = true;
+            this.label_displayDepDate.BackColor = System.Drawing.Color.Transparent;
+            this.label_displayDepDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_displayDepDate.Location = new System.Drawing.Point(348, 265);
+            this.label_displayDepDate.Name = "label_displayDepDate";
+            this.label_displayDepDate.Size = new System.Drawing.Size(66, 22);
+            this.label_displayDepDate.TabIndex = 113;
+            this.label_displayDepDate.Text = "display";
+            // 
+            // password_label
+            // 
+            this.password_label.AutoSize = true;
+            this.password_label.BackColor = System.Drawing.Color.Transparent;
+            this.password_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password_label.Location = new System.Drawing.Point(180, 265);
+            this.password_label.Name = "password_label";
+            this.password_label.Size = new System.Drawing.Size(86, 22);
+            this.password_label.TabIndex = 112;
+            this.password_label.Text = "Dep Date";
+            // 
+            // label_displayArrCity
+            // 
+            this.label_displayArrCity.AutoSize = true;
+            this.label_displayArrCity.BackColor = System.Drawing.Color.Transparent;
+            this.label_displayArrCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_displayArrCity.Location = new System.Drawing.Point(348, 220);
+            this.label_displayArrCity.Name = "label_displayArrCity";
+            this.label_displayArrCity.Size = new System.Drawing.Size(66, 22);
+            this.label_displayArrCity.TabIndex = 111;
+            this.label_displayArrCity.Text = "display";
+            // 
+            // label_displayDepCity
+            // 
+            this.label_displayDepCity.AutoSize = true;
+            this.label_displayDepCity.BackColor = System.Drawing.Color.Transparent;
+            this.label_displayDepCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_displayDepCity.Location = new System.Drawing.Point(348, 174);
+            this.label_displayDepCity.Name = "label_displayDepCity";
+            this.label_displayDepCity.Size = new System.Drawing.Size(66, 22);
+            this.label_displayDepCity.TabIndex = 110;
+            this.label_displayDepCity.Text = "dispaly";
+            // 
+            // phone_label
+            // 
+            this.phone_label.AutoSize = true;
+            this.phone_label.BackColor = System.Drawing.Color.Transparent;
+            this.phone_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phone_label.Location = new System.Drawing.Point(180, 220);
+            this.phone_label.Name = "phone_label";
+            this.phone_label.Size = new System.Drawing.Size(97, 22);
+            this.phone_label.TabIndex = 109;
+            this.phone_label.Text = "Arrival City";
+            // 
+            // email_label
+            // 
+            this.email_label.AutoSize = true;
+            this.email_label.BackColor = System.Drawing.Color.Transparent;
+            this.email_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email_label.Location = new System.Drawing.Point(180, 174);
+            this.email_label.Name = "email_label";
+            this.email_label.Size = new System.Drawing.Size(79, 22);
+            this.email_label.TabIndex = 108;
+            this.email_label.Text = "Dep City";
+            // 
             // AS_assignPilotCrew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
+            this.Controls.Add(this.label_displayDepDate);
+            this.Controls.Add(this.password_label);
+            this.Controls.Add(this.label_displayArrCity);
+            this.Controls.Add(this.label_displayDepCity);
+            this.Controls.Add(this.phone_label);
+            this.Controls.Add(this.email_label);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label_displayStatus);
             this.Controls.Add(this.btn_back);
@@ -169,5 +247,11 @@
         private System.Windows.Forms.Button button_Assign;
         private System.Windows.Forms.Label label_displayStatus;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_displayDepDate;
+        private System.Windows.Forms.Label password_label;
+        private System.Windows.Forms.Label label_displayArrCity;
+        private System.Windows.Forms.Label label_displayDepCity;
+        private System.Windows.Forms.Label phone_label;
+        private System.Windows.Forms.Label email_label;
     }
 }

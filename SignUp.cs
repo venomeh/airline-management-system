@@ -417,7 +417,22 @@ namespace DATABASE_PROJECT
 
                         rowsAffected = insertQuery3.ExecuteNonQuery();
                         if (rowsAffected > 0)
+                        { 
                             MessageBox.Show("Account Created");
+                        
+                            //clear inputs
+                            textBox_firstName.Text = "";
+                            textBox_lastName.Text = "";
+                            textBox_phoneNo.Text = "";
+                            textBox_email.Text = "";
+                            textBox_password.Text = "";
+                            textBox_confirmPass.Text = "";
+                            cnic_txtbox.Text = "";
+                            textBox_emergencyNo.Text = "";
+                            textBox_confirmOTP.Text = "";
+                            radioButton_NO.Checked = false;
+                            radioButton_YES.Checked = false;
+                        }
                         else
                             MessageBox.Show("Data Insertion Failed! Account Not Created");
 

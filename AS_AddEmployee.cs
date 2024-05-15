@@ -349,7 +349,22 @@ namespace DATABASE_PROJECT
                         
                     }
                     if (rowsAffected > 0)
+                       {
                         MessageBox.Show("Employee Account Created");
+                        
+                        //clear input
+                        textBox_firstName.Clear();
+                        textBox_lastName.Clear();
+                        textBox_phoneNo.Clear();
+                        textBox_email.Clear();
+                        textBox_password.Clear();
+                        textBox_Salary.Clear();
+                        cnic_txtbox.Clear();
+                        textBox_Experience.Clear();
+                        textBox_age.Clear();
+                        radioButton_Staff.Checked = false;
+                        radioButton_Crew.Checked = false;
+                    }
                     else
                         MessageBox.Show("Data Insertion Failed! Account Not Created");
 
