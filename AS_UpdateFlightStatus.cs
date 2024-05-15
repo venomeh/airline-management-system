@@ -26,9 +26,11 @@ namespace DATABASE_PROJECT
 
             combo_flightid.Items.Clear();
 
-            //Command to retrieve flight IDs
+            //retrive flight id (can only change status of flight that are not completed
             OracleCommand oracleCommand = _db.con().CreateCommand();
-            oracleCommand.CommandText = "SELECT DISTINCT flight_id FROM flight";
+            oracleCommand.CommandText = "SELECT DISTINCT flight_id FROM flight " +
+                "WHERE flight_status NOT IN ('COMPLETED') " +
+                "ORDER BY flight_id";
 
             try
             {
@@ -52,9 +54,16 @@ namespace DATABASE_PROJECT
 
         private void combo_AircraftId_SelectedIndexChanged(object sender, EventArgs e)
         {
+            comboBox_flightStatus.Items.Clear();
+            //add status in the combobox that can be set
+            comboBox_flightStatus.Items.Add("DELAYED");
+            comboBox_flightStatus.Items.Add("ON TIME");
+            comboBox_flightStatus.Items.Add("COMPLETED");
+            comboBox_flightStatus.Items.Add("CANCELED");
+
             string flight_id = combo_flightid.SelectedItem.ToString();
 
-            // Command to retrieve flight status
+            // Command to retrieve flight status for the selected
             string query = "SELECT flight_status FROM flight WHERE flight_id = :ID";
             OracleCommand command = new OracleCommand(query, _db.con());
             command.Parameters.Add(":ID", OracleDbType.Varchar2).Value = flight_id;
@@ -65,6 +74,8 @@ namespace DATABASE_PROJECT
                 if (status != null)
                 {
                     displayStatus.Text = status.ToString();
+                    comboBox_flightStatus.Items.Remove(status.ToString());
+
                 }
                 else
                 {
@@ -119,9 +130,8 @@ namespace DATABASE_PROJECT
 
         private void comboBox_flightStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            
 
-           
         }
 
         private void btn_back_Click(object sender, EventArgs e)

@@ -1,1 +1,6 @@
-﻿1.	crew id should be arvailable for assigning more than 1 flights for future 
+﻿1.	crew id should be arvailable for assigning more than 1 flights for future
+2. don't show seats flight that are compleed to user to cancel seat
+3. if employee is a staff their details
+4. check on email id in upper and lower case should be same
+5. if user want to delete one booking than it should delete one booking from that flight not all from that flight
+6. add that employee can't be deleted if he is assigned a flight or if he is assigned a flight than the assigned crew should also be delete 

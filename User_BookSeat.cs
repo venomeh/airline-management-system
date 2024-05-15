@@ -29,6 +29,9 @@ namespace DATABASE_PROJECT
 
         private void User_BookSeat_Load(object sender, EventArgs e)
         {
+
+            label_BaggageWeight.Hide();
+            comboBox_BaggageWeight.Hide(); 
             dataGridView1.Refresh();
 
         }
@@ -57,8 +60,10 @@ namespace DATABASE_PROJECT
                 return;
             }
 
-            // Retrieve selected values from combo boxes
+            //clear previous id's
+            comboBox_selectflightId.Items.Clear();
 
+            // Retrieve selected values from combo boxes
             OracleCommand oracleCommand = _db.con().CreateCommand();
             oracleCommand.CommandText = "SELECT f.flight_id, ad.airline_company, f.departure_city, f.arrival_city, f.dep_date, f.dep_time, f.ticket_cost " +
                 "FROM flight f " +
@@ -178,6 +183,13 @@ namespace DATABASE_PROJECT
                 return;
             }
 
+            if (radioButton_YES.Checked && comboBox_BaggageWeight.SelectedItem == null)
+            {
+                MessageBox.Show("Select baggage weight");
+                return;
+
+            }
+
             //selecting the data of the booking done to put in the booking table
             OracleCommand oracleCommandBookingInfo = _db.con().CreateCommand();
             oracleCommandBookingInfo.CommandText = "SELECT f.ticket_cost, f.flight_id, f.departure_city, f.arrival_city, f.dep_date " +
@@ -233,11 +245,12 @@ namespace DATABASE_PROJECT
 
                     //Insert data into baggage table
                     OracleCommand insertBaggageCommand = _db.con().CreateCommand();
-                    insertBaggageCommand.CommandText = "INSERT INTO baggage (baggage_id, pass_id, flight_id) " +
-                                                       "VALUES (:baggageID, :p_id, :bookingFlightID)";
+                    insertBaggageCommand.CommandText = "INSERT INTO baggage (baggage_id, pass_id, flight_id, weight) " +
+                                                       "VALUES (:baggageID, :p_id, :bookingFlightID, :Weight)";
                     insertBaggageCommand.Parameters.Add(":baggageID", baggageID);
                     insertBaggageCommand.Parameters.Add(":p_id", p_id);
                     insertBaggageCommand.Parameters.Add(":bookingFlightID", bookingFlightID);
+                    insertBaggageCommand.Parameters.Add(":weight", comboBox_BaggageWeight.SelectedItem.ToString());
                     insertBaggageCommand.ExecuteNonQuery();
 
                     //Insert data into booking table
@@ -264,7 +277,8 @@ namespace DATABASE_PROJECT
                         this.Hide();
                     }
                 }
-                else //not working error - not all variabels bound
+                
+                if (radioButton_NO.Checked) //not working error - not all variabels bound
                 {
                     //Insert data into booking table
                     OracleCommand insertBookingCommand = _db.con().CreateCommand();
@@ -287,7 +301,7 @@ namespace DATABASE_PROJECT
                             user.Show();
 
                             this.Hide();
-                    }
+                        }
                 }
             }
             catch (Exception ex)
@@ -310,6 +324,23 @@ namespace DATABASE_PROJECT
         {
             bookingFlightID = comboBox_selectflightId.Text;
 
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void radioButton_YES_CheckedChanged(object sender, EventArgs e)
+        {
+            label_BaggageWeight.Show();
+            comboBox_BaggageWeight.Show();
+        }
+
+        private void radioButton_NO_CheckedChanged(object sender, EventArgs e)
+        {
+
+            label_BaggageWeight.Hide();
+            comboBox_BaggageWeight.Hide();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

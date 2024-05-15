@@ -591,7 +591,15 @@ namespace DATABASE_PROJECT
             {
                 MessageBox.Show("Enter email");
                 return;
-            }    
+            }
+           
+            //check for valid email 
+            if (!IsValidEmail(signUpEmail))
+            {
+                MessageBox.Show("Enter valid email address");
+                return;
+            }
+
 
             OTPGeneratedForEmail = textBox_email.Text;
 

@@ -35,6 +35,8 @@
             this.labelEMPID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonDLT = new System.Windows.Forms.Button();
+            this.label_TotalEmp = new System.Windows.Forms.Label();
+            this.label_currEmp = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +45,7 @@
             this.btn_back.BackColor = System.Drawing.SystemColors.MenuBar;
             this.btn_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_back.BackgroundImage")));
             this.btn_back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_back.Location = new System.Drawing.Point(294, 507);
+            this.btn_back.Location = new System.Drawing.Point(219, 506);
             this.btn_back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(74, 48);
@@ -73,7 +75,7 @@
             // 
             this.textBox_EmpID.BackColor = System.Drawing.Color.LightGray;
             this.textBox_EmpID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_EmpID.Location = new System.Drawing.Point(190, 438);
+            this.textBox_EmpID.Location = new System.Drawing.Point(47, 440);
             this.textBox_EmpID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_EmpID.Name = "textBox_EmpID";
             this.textBox_EmpID.Size = new System.Drawing.Size(225, 22);
@@ -85,11 +87,11 @@
             this.labelEMPID.AutoSize = true;
             this.labelEMPID.BackColor = System.Drawing.Color.Transparent;
             this.labelEMPID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEMPID.Location = new System.Drawing.Point(190, 413);
+            this.labelEMPID.Location = new System.Drawing.Point(47, 415);
             this.labelEMPID.Name = "labelEMPID";
-            this.labelEMPID.Size = new System.Drawing.Size(111, 22);
+            this.labelEMPID.Size = new System.Drawing.Size(168, 22);
             this.labelEMPID.TabIndex = 82;
-            this.labelEMPID.Text = "Employee ID";
+            this.labelEMPID.Text = "Delete Employee ID";
             // 
             // label1
             // 
@@ -107,7 +109,7 @@
             this.buttonDLT.BackColor = System.Drawing.SystemColors.MenuBar;
             this.buttonDLT.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonDLT.BackgroundImage")));
             this.buttonDLT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDLT.Location = new System.Drawing.Point(194, 507);
+            this.buttonDLT.Location = new System.Drawing.Point(299, 506);
             this.buttonDLT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDLT.Name = "buttonDLT";
             this.buttonDLT.Size = new System.Drawing.Size(85, 48);
@@ -116,12 +118,36 @@
             this.buttonDLT.UseVisualStyleBackColor = false;
             this.buttonDLT.Click += new System.EventHandler(this.buttonDLT_Click);
             // 
+            // label_TotalEmp
+            // 
+            this.label_TotalEmp.AutoSize = true;
+            this.label_TotalEmp.BackColor = System.Drawing.Color.Transparent;
+            this.label_TotalEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_TotalEmp.Location = new System.Drawing.Point(310, 418);
+            this.label_TotalEmp.Name = "label_TotalEmp";
+            this.label_TotalEmp.Size = new System.Drawing.Size(195, 22);
+            this.label_TotalEmp.TabIndex = 90;
+            this.label_TotalEmp.Text = "Total Employee            ";
+            // 
+            // label_currEmp
+            // 
+            this.label_currEmp.AutoSize = true;
+            this.label_currEmp.BackColor = System.Drawing.Color.Transparent;
+            this.label_currEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_currEmp.Location = new System.Drawing.Point(310, 440);
+            this.label_currEmp.Name = "label_currEmp";
+            this.label_currEmp.Size = new System.Drawing.Size(189, 22);
+            this.label_currEmp.TabIndex = 91;
+            this.label_currEmp.Text = "Current Employee       ";
+            // 
             // AS_AllEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
+            this.Controls.Add(this.label_currEmp);
+            this.Controls.Add(this.label_TotalEmp);
             this.Controls.Add(this.buttonDLT);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_EmpID);
@@ -131,6 +157,7 @@
             this.Name = "AS_AllEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AS_AllEmployee";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AS_AllEmployee_FormClosing);
             this.Load += new System.EventHandler(this.AS_AllEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -146,5 +173,7 @@
         private System.Windows.Forms.Label labelEMPID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonDLT;
+        private System.Windows.Forms.Label label_TotalEmp;
+        private System.Windows.Forms.Label label_currEmp;
     }
 }

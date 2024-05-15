@@ -203,6 +203,7 @@
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "Employee_Assignments";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee_Assignments";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Employee_Assignments_FormClosing);
             this.Load += new System.EventHandler(this.Employee_Assignments_Load);

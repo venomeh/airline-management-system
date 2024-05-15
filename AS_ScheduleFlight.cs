@@ -233,6 +233,7 @@ namespace DATABASE_PROJECT
             if (arrivalDate < departureDate)
             {
                 MessageBox.Show("Arrival Date should be after Departure Date");
+                return;
             }
 
             depCity = comboBox_DEPARTURE.Text;

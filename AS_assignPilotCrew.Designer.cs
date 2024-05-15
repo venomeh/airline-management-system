@@ -151,6 +151,7 @@
             this.Controls.Add(this.crew_combobox);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AS_assignPilotCrew";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AS_assignPilotCrew";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AS_assignPilotCrew_FormClosing);
             this.Load += new System.EventHandler(this.AS_assignPilotCrew_Load);

@@ -25,6 +25,40 @@ namespace DATABASE_PROJECT
 
         private void AS_AllEmployee_Load(object sender, EventArgs e)
         {
+           
+            OracleCommand countTotalEmp = _db.con().CreateCommand();
+            // Count total employees that exist in the emp table
+            countTotalEmp.CommandText = "SELECT COUNT(emp_id) as total FROM EMPLOYEE";
+
+            try
+            {
+                int totalEmpCount = Convert.ToInt32(countTotalEmp.ExecuteScalar());
+                label_TotalEmp.Text += totalEmpCount.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+            OracleCommand countCurrEmp = _db.con().CreateCommand();
+            // Count current employees from LOGIN_DETAILS where login_id = 2
+            countCurrEmp.CommandText = "SELECT COUNT(login_id) as curr_emp FROM LOGIN_DETAILS WHERE USER_TYPENO = '2'";
+
+            try
+            {
+                // Execute the command
+                int currEmpCount = Convert.ToInt32(countCurrEmp.ExecuteScalar());
+                // Display the result
+                label_currEmp.Text += currEmpCount.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+
+
+
             LoadEmployeeData();
         }
 
@@ -34,7 +68,7 @@ namespace DATABASE_PROJECT
             {
                 using (OracleCommand cmd = _db.con().CreateCommand())
                 {
-                    cmd.CommandText = "SELECT * FROM employee"; 
+                    cmd.CommandText = "SELECT * FROM employee ORDER BY emp_id ASC"; 
                     OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
@@ -65,7 +99,12 @@ namespace DATABASE_PROJECT
 
         private void buttonDLT_Click(object sender, EventArgs e)
         {
-            if (textBox_EmpID.Text != null)
+            if (textBox_EmpID.Text == null)
+            {
+                MessageBox.Show("Select EMPLOYEE ID");
+                return;
+            }
+            //delete selected employee
             try
             {
                 using (OracleCommand cmd = _db.con().CreateCommand())
@@ -87,7 +126,7 @@ namespace DATABASE_PROJECT
                     }
                     else
                     {
-                        MessageBox.Show("No employee login details found for deletion.", "Error");
+                        MessageBox.Show("No employee login details found for deletion.");
                     }
                 }
             }
@@ -95,8 +134,35 @@ namespace DATABASE_PROJECT
             {
                 MessageBox.Show("An error occurred while deleting employee login details: " + ex.Message, "Error");
             }
+
+
+            //calculate employee count again 
+           
+            OracleCommand countCurrEmp = _db.con().CreateCommand();
+            // Count current employees from LOGIN_DETAILS where login_id = 2
+            countCurrEmp.CommandText = "SELECT COUNT(login_id) as curr_emp FROM LOGIN_DETAILS WHERE USER_TYPENO = '2'";
+
+            try
+            {
+                // Execute the command
+                int currEmpCount = Convert.ToInt32(countCurrEmp.ExecuteScalar());
+                // Display the result
+                label_currEmp.Text += currEmpCount.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
+        private void label_TotalEmp_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void AS_AllEmployee_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

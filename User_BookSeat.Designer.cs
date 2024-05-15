@@ -45,6 +45,8 @@
             this.radioButton_NO = new System.Windows.Forms.RadioButton();
             this.radioButton_YES = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox_BaggageWeight = new System.Windows.Forms.ComboBox();
+            this.label_BaggageWeight = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -242,6 +244,7 @@
             this.radioButton_NO.TabStop = true;
             this.radioButton_NO.Text = "NO";
             this.radioButton_NO.UseVisualStyleBackColor = false;
+            this.radioButton_NO.CheckedChanged += new System.EventHandler(this.radioButton_NO_CheckedChanged);
             // 
             // radioButton_YES
             // 
@@ -254,6 +257,7 @@
             this.radioButton_YES.TabStop = true;
             this.radioButton_YES.Text = "YES";
             this.radioButton_YES.UseVisualStyleBackColor = false;
+            this.radioButton_YES.CheckedChanged += new System.EventHandler(this.radioButton_YES_CheckedChanged);
             // 
             // label1
             // 
@@ -266,12 +270,40 @@
             this.label1.TabIndex = 120;
             this.label1.Text = "BOOK SEATS";
             // 
+            // comboBox_BaggageWeight
+            // 
+            this.comboBox_BaggageWeight.FormattingEnabled = true;
+            this.comboBox_BaggageWeight.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30"});
+            this.comboBox_BaggageWeight.Location = new System.Drawing.Point(358, 412);
+            this.comboBox_BaggageWeight.Name = "comboBox_BaggageWeight";
+            this.comboBox_BaggageWeight.Size = new System.Drawing.Size(121, 24);
+            this.comboBox_BaggageWeight.TabIndex = 122;
+            // 
+            // label_BaggageWeight
+            // 
+            this.label_BaggageWeight.AutoSize = true;
+            this.label_BaggageWeight.BackColor = System.Drawing.Color.Transparent;
+            this.label_BaggageWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_BaggageWeight.Location = new System.Drawing.Point(354, 387);
+            this.label_BaggageWeight.Name = "label_BaggageWeight";
+            this.label_BaggageWeight.Size = new System.Drawing.Size(143, 22);
+            this.label_BaggageWeight.TabIndex = 121;
+            this.label_BaggageWeight.Text = "Baggage Weight";
+            // 
             // User_BookSeat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DATABASE_PROJECT.Properties.Resources._new;
             this.ClientSize = new System.Drawing.Size(605, 576);
+            this.Controls.Add(this.comboBox_BaggageWeight);
+            this.Controls.Add(this.label_BaggageWeight);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.radioButton_NO);
             this.Controls.Add(this.radioButton_YES);
@@ -317,5 +349,7 @@
         private System.Windows.Forms.RadioButton radioButton_NO;
         private System.Windows.Forms.RadioButton radioButton_YES;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox_BaggageWeight;
+        private System.Windows.Forms.Label label_BaggageWeight;
     }
 }

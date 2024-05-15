@@ -243,10 +243,7 @@ namespace DATABASE_PROJECT
                     MessageBox.Show("CNIC is already used.");
                     return;
                 }
-                else
-                {
-                    MessageBox.Show("CNIC can be used.");
-                }
+                
 
 
                 try

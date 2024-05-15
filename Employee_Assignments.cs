@@ -61,7 +61,21 @@ namespace DATABASE_PROJECT
             }
             else
             {
-                label_displapcrewId.Text = "NOT ASSIGNED";
+                OracleCommand commandCrewID = _db.con().CreateCommand();
+                commandCrewID.CommandText = "SELECT c.crew_ID " +
+                                       "FROM CREW c " +
+                                       "INNER JOIN EMPLOYEE e ON e.emp_id = c.emp_id " +
+                                       "WHERE e.cnic = :CNIC";
+
+                commandCrewID.Parameters.Add(new OracleParameter("CNIC", this.cnic));
+
+                OracleDataReader readerCrew = commandCrewID.ExecuteReader();
+
+                if (readerCrew.Read())
+                {
+                    label_displapcrewId.Text = readerCrew["crew_ID"].ToString();
+                }
+                
                 label_displayflightID.Text = "NOT ASSIGNED";
                 label_displayDepCity.Text = "NOT ASSIGNED";
                 label_displayArrCity.Text = "NOT ASSIGNED";
@@ -86,7 +100,7 @@ namespace DATABASE_PROJECT
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-            Employee_Profile emp = new Employee_Profile(_db, cnic);
+            Employee emp = new Employee(_db, cnic);
             emp.Show();
 
             this.Hide();

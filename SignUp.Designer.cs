@@ -293,6 +293,7 @@
             // label_passwordNotMatch
             // 
             this.label_passwordNotMatch.AutoSize = true;
+            this.label_passwordNotMatch.BackColor = System.Drawing.Color.Transparent;
             this.label_passwordNotMatch.Location = new System.Drawing.Point(67, 437);
             this.label_passwordNotMatch.Name = "label_passwordNotMatch";
             this.label_passwordNotMatch.Size = new System.Drawing.Size(10, 16);
@@ -303,6 +304,7 @@
             // label_passwordCheck
             // 
             this.label_passwordCheck.AutoSize = true;
+            this.label_passwordCheck.BackColor = System.Drawing.Color.Transparent;
             this.label_passwordCheck.Location = new System.Drawing.Point(411, 301);
             this.label_passwordCheck.Name = "label_passwordCheck";
             this.label_passwordCheck.Size = new System.Drawing.Size(10, 16);

@@ -290,6 +290,7 @@
             this.Controls.Add(this.name_label);
             this.Controls.Add(this.label1);
             this.Name = "Employee_Profile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Employee_Profile_FormClosing);
             this.Load += new System.EventHandler(this.Employee_Profile_Load);
